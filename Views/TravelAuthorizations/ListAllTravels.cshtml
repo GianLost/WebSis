@@ -1,0 +1,165 @@
+@model ICollection<TravelAuthorizations>;
+@using Microsoft.AspNetCore.Http;
+
+@{
+    ViewData["Title"] = "Listagem de todos os AV - Autorização de Viagem";
+}
+
+<div class="container-fluid container-userList">
+
+    <form class="mb-4 mt-3" asp-controller="TravelAuthorizations" asp-action="ListAllTravels" method="Get">
+
+        <div class="search-box">
+
+            <div class="input-group search-group">
+                <div class="input-group-prepend">
+                    <i class="input-group-text bi bi-search"></i>
+                </div>
+                <input class="btn btn-md search btn-light text-justify" type="text" placeholder="Busque por AV - Autorização de Viagem..."
+                    name="q" />
+            </div>
+            <input class="btn btn-md btn-dark btn-searchUser" type="submit" value="Pesquisar" />
+
+        </div>
+
+    </form>
+    
+    @if (Model.Count() > 0)
+    {
+        <table class="table table-responsive table-bordered table-striped table-light table-hover table-TA">
+
+            <thead class="thead-dark">
+
+                <tr>
+
+                    <th>Nº</th>
+                    <th>Data</th>
+                    <th>Nome</th>
+                    <th>Data da Saída</th>
+                    <th>Hora da Saída</th>
+                    <th>Data da Chegada</th>
+                    <th>Hora da Chegada</th>
+                    <th>Local</th>
+                    <th>Alimentação(und.)</th>
+                    <th>Valor Unit. da alimentação(R$)</th>
+                    <th>Pousada(und.)</th>
+                    <th>Valor Unit.da Pousada(R$)</th>
+                    <th>Ações</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                @foreach (var item in Model)
+                {
+
+                    <tr>
+
+                        <td>@item.Id.ToString("D4")</td>
+
+                        <td>@item.CurrentDate</td>
+
+                        <td>@item.ClientName</td>
+
+                        <td>@item.DepartureDate.ToString("dd/MM/yyyy")</td>
+
+                        <td>@item.DepartureTime</td>
+
+                        <td>@item.ArrivalDate.ToString("dd/MM/yyyy")</td>
+
+                        <td>@item.ArrivalTime</td>
+
+                        <td>@item.Destiny</td>
+
+                        <td>@item.FoodQuantity</td>
+
+                        <td>@item.FoodUnitaryValue</td>
+
+                        <td>@item.HostingQuantity</td>
+
+                        <td>@item.HostingUnitaryValue</td>
+
+                        <td>
+
+                            <button class="btn btn-sm btn-outline-secondary" type="button" data-toggle="modal" data-target="#upgradeSecretary-@item.Id" title="Editar Autorização de Viagem"><i class="bi bi-pencil-square"></i></button>
+                            @if (Context.Session.GetInt32("type") == 1)
+                        {
+                            <button class="btn btn-sm btn-outline-danger" type="button" data-toggle="modal" data-target="#deleteTA-@item.Id" title="Excluir Autorização de Viagem"><i class="bi bi-trash3-fill"></i></button>
+                        }
+                        <!--<button class="btn btn-sm btn-outline-secondary" type="button" data-toggle="modal"
+                        data-target="#deleteSecretary-@item.Id" title="Imprimir Relatório"><i class="bi bi-filetype-pdf"></i></button>-->
+
+                        <a href="/TravelAuthorizations/TAPrintToPdf?Id=@item.Id" target="_blank" class="btn btn-sm btn-outline-primary" title="Imprimir Relatório"><i class="bi bi-filetype-pdf"></i></a>
+
+                        <!--<button class="btn btn-sm btn-outline-info" type="button" data-toggle="modal"
+                        data-target="#deleteSecretary-@item.Id" title="Vizualizar Relatório"><i class="bi bi-eye-fill"></i></button>
+
+                        <a href="/TravelAuthorizations/TravelsViewer?Id=@item.Id" class="btn btn-sm btn-outline-info"
+                        title="Vizualizar Relatório"><i class="bi bi-eye-fill"></i></a>-->
+
+                        </td>
+
+                    </tr>
+
+                    <!--Start DeleteTA Modal-->
+
+                    <div class="modal fade" id="deleteTA-@item.Id" tabindex="-1" role="dialog" aria-labelledby="deleteTATitle"
+                        aria-hidden="true">
+
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+
+                            <div class="modal-content">
+
+                                <div class="modal-header">
+
+                                    <h3 class="modal-title text-danger text-center mb-0 p-0" id="deleteTATitle">
+                                        Alerta!</h3>
+
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+
+                                        <span aria-hidden="true">&times;</span>
+
+                                    </button>
+
+                                </div>
+
+                                <div class="modal-body">
+
+                                    <partial name="_DeleteTA" model="@item" />
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!--Finish DeleteTA Modal-->
+                }
+
+            </tbody>
+
+        </table>
+
+        <div class="filterButton-container">
+
+            <p>Páginas : </p>
+
+            @for (int i = 1; i <= (int)ViewData["pageQuantity"]; i++)
+            { // paginação cria os links para as páginas
+                <a class="btn btn-sm btn-outline-primary" href="/TravelAuthorizations/ListAllTravels?pages=@i">@i</a>
+            }
+
+        </div>
+
+    }
+    else
+    {
+        <div class="alert alert-warning w-100" role="alert">
+            Nenhuma Autorização de Viagem Encontrada !
+        </div>
+    }
+</div>

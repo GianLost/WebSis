@@ -1,0 +1,177 @@
+﻿@using Microsoft.AspNetCore.Http;
+
+<!DOCTYPE html>
+
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="Gianluca Vialli">
+
+    <title>@ViewData["Title"] - SisWeb </title>
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="~/icons/favicon.png" type="image/x-icon">
+
+    <!-- Link do css da biblioteca de ícones do Bootstrap (BootstrapIcons)-->
+    <link rel="stylesheet" href="/lib/bootstrap-icons/font/bootstrap-icons.min.css" asp-append-version="true" />
+
+    <link rel="stylesheet" href="~/css/styleIndex.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/styleLogin.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/styleNavbar.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/styleRegisterUser.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/styleUserList.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/styleTravelsList.css" asp-append-version="true" />
+
+</head>
+
+<body>
+
+    <header>
+
+        <nav
+            class="navbar fixed-Top border-bottom navbar-expand-md navbar-toggleable-md navbar-toggleable-sm navbar-dark bg-primary box-shadow">
+
+            <div class="container">
+
+                @if (Context.Session.GetString("login") != null)
+                {
+                    <a class="navbar-brand" asp-controller="Home" asp-action="Index"><i class="bi bi-globe2"> </i> Sistema
+                        Web de Formulários</a>
+
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+
+                        <span class="navbar-toggler-icon"></span>
+
+                    </button>
+                }
+                else
+                {
+                    <a class="navbar-brand logo-page" asp-controller="Home" asp-action="Index"><i class="bi bi-globe2"> </i>
+                        Sistema Web de Formulários</a>
+                }
+
+                <div class="navbar-collapse collapse d-md-inline-flex flex-md-row-reverse">
+
+                    <ul class="navbar-nav ml-auto text-center menu">
+
+                        @if (Context.Session.GetString("login") == null)
+                        {
+
+                        }
+
+                        @if (Context.Session.GetInt32("type") == 1)
+                        {
+                            <li class="nav-item dropdown">
+
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="bi bi-shield-fill-exclamation"></i> Acesso de administrador
+                                </a>
+
+                                <div class="dropdown-menu nav-menu" aria-labelledby="navbarDropdownMenuLink">
+
+                                    <a class="dropdown-item text-shadow" asp-controller="Users"
+                                    asp-action="ListOfRegisteredUsers"><i class="bi bi-person-lines-fill"></i> Usuários
+                                        cadastrados</a>
+
+                                    <div class="dropdown-divider"></div>
+
+                                    <a class="dropdown-item text-shadow" asp-controller="Secretaries"
+                                    asp-action="ListOfRegisteredSecretaries"><i class="bi bi-building-fill-add"></i>
+                                        Secretarias Cadastradas</a>
+
+                                    <div class="dropdown-divider"></div>
+
+                                        <a class="dropdown-item text-shadow" asp-controller="TravelAuthorizations"
+                                        asp-action="ListAllTravels"><i class="bi bi-list-check"></i>
+                                            AV - Registros cadastrados</a>
+
+                            </div>
+
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link text-light" asp-controller="Home" asp-action="Logout">Sair</a>
+                            </li>
+
+                        }
+
+                        @if (Context.Session.GetInt32("type") == 0)
+                        {
+
+                            <!--<li class="nav-item dropdown">
+
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="bi bi-shield-fill-exclamation"></i> Módulos de Acesso
+                                    </a>
+
+                                    <div class="dropdown-menu nav-menu" aria-labelledby="navbarDropdownMenuLink">
+
+                                        <a class="dropdown-item text-shadow" asp-controller="TravelAuthorizations"
+                                        asp-action="ListOfTravelAuthorizations"><i class="bi bi-list-check"></i>
+                                            AV - Registros cadastrados</a>
+
+                                    </div>
+
+                                </li>-->
+
+                            <li class="nav-item">
+                                <a class="nav-link text-light" asp-area="" asp-controller="Home"
+                                asp-action="Logout">Sair</a>
+                            </li>
+
+                        }
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+    <main role="main" class="container-fluid">
+
+        @RenderBody()
+
+    </main>
+
+    <footer class="border-top footer text-muted footer-dark bg-primary text-center">
+
+        <div class="container">
+
+
+            <a class="text-light" href="">&copy; - WebSis -</a>
+            <a class="text-light" href=""><i class="bi bi-calendar"></i></a>
+            <a class="text-light" href="">- @DateTime.Now.ToString("dd/MM/yyyy") -</a>
+            <a class="text-light" href="https://www.linkedin.com/in/gianluca-vialli-5a2a8a226/"><i
+                    class="bi bi-linkedin"></i> My LinkedIn</a>
+
+        </div>
+
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js" asp-append-version="true"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js" asp-append-version="true"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/RegisterUserValidation.js" asp-append-version="true"></script>
+    <script src="~/js/RegisterSecretaryValidation.js" asp-append-version="true"></script>
+    <script src="~/js/AVCalculator.js" asp-append-version="true"></script>
+    <script src="~/js/effectIndex.js" asp-append-version="true"></script>
+
+    @RenderSection("Scripts", required: false)
+
+</body>
+
+</html>

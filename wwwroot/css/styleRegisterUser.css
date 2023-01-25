@@ -1,0 +1,78 @@
+:root {
+  --shadowPrimary: rgba(0, 0, 0, 0.534) 5px 5px 5px;
+  --blackPrimary: #000;
+  --greySecondary: rgba(255, 255, 255, 0.645);
+  --whitePrimary: #fff;
+}
+
+.register-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  align-content: center;
+  height: 6em;
+  padding: 0%;
+}
+
+.register-header h1 {
+  font-size: 1.1em;
+}
+
+.register-header h2 {
+  font-size: 1.1em;
+}
+
+.user-form {
+  border-radius: 30px;
+  padding: 2%;
+}
+
+.btn-user-access {
+  width: 200px;
+  margin-left: 38%;
+}
+
+.btn-user-access:hover {
+  box-shadow: var(--shadowPrimary);
+  transition: ease-in-out 0.3s;
+  transform: translateY(-5px);
+}
+
+.logo-register {
+  width: 10em;
+  height: 6em;
+}
+
+@media (max-width: 1200px) {
+}
+
+@media (max-width: 992px) {
+}
+
+@media (max-width: 990px) {
+}
+
+@media (max-width: 768px) {
+  .register-header h1 {
+    font-size: 0.8em;
+    font-weight: bold;
+  }
+
+  .register-header h2 {
+    font-size: 0.8em;
+    font-weight: bold;
+  }
+}
+
+@media (max-width: 576px) {
+  .register-header h1 {
+    font-size: 0.8em;
+    font-weight: bold;
+  }
+
+  .register-header h2 {
+    font-size: 0.8em;
+    font-weight: bold;
+  }
+}

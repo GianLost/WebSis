@@ -1,0 +1,173 @@
+@model List<Users>;
+
+@{
+    ViewData["Title"] = " Listagem de Secretarias Cadastrados";
+}
+
+<div class="container-fluid container-userList">
+    <form asp-controller="Users" asp-action="ListOfRegisteredUsers" method="Get">
+
+        <div class="search-box">
+
+            <div class="input-group search-group">
+                <div class="input-group-prepend">
+                    <i class="input-group-text bi bi-search"></i>
+                </div>
+                <input class="btn btn-md search btn-light text-justify" type="text" placeholder="Busque por usuários"
+                    name="q" />
+            </div>
+            <input class="btn btn-md btn-dark btn-searchUser" type="submit" value="Pesquisar" />
+
+        </div>
+
+    </form>
+
+    @if (Model.Count() > 0)
+    {
+        <table class="table table-responsive table-bordered table-striped table-light table-hover table-users">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Id</th>
+                    <th>Nome</th>
+                    <th>Login Name</th>
+                    <th>Senha</th>
+                    <th>Tipo</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                @foreach (var item in Model)
+                {
+
+                    <tr>
+
+                        <td>@item.Id.ToString("D4")</td>
+
+                        <td>@item.Name</td>
+
+                        <td>@item.Login</td>
+
+                        <td>@item.CheckedPassword</td>
+
+                        <td>@item.Type</td>
+
+                        <td>
+
+                            <button class="btn btn-sm btn-outline-secondary" type="button" data-toggle="modal"
+                        data-target="#upgradeUser-@item.Id" title="Editar Usuário"><i
+                            class="bi bi-person-vcard-fill"></i></button>
+
+                            <button class="btn btn-sm btn-outline-danger" type="button" data-toggle="modal"
+                        data-target="#deleteUser-@item.Id" title="Excluir Usuário"><i
+                            class="bi bi-person-fill-x"></i></button>
+
+                        </td>
+
+                    </tr>
+
+                    <!--Start UserDelete Modal-->
+
+                    <div class="modal fade" id="deleteUser-@item.Id" tabindex="-1" role="dialog"
+                aria-labelledby="deleteUserTitle" aria-hidden="true">
+
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+
+                            <div class="modal-content">
+
+                                <div class="modal-header">
+
+                                    <h3 class="modal-title text-danger text-center mb-0 p-0" id="deleteUserTitle">
+                                        Alerta!</h3>
+
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+
+                                        <span aria-hidden="true">&times;</span>
+
+                                    </button>
+
+                                </div>
+
+                                <div class="modal-body">
+
+                                    <partial name="_DeleteUser" model="@item" />
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!--Finish UserDelete Modal-->
+
+                    <!--Start Upgrade Modal-->
+
+                    <div class="modal fade" id="upgradeUser-@item.Id" tabindex="-1" role="dialog"
+                aria-labelledby="upgradeUserTitle" aria-hidden="true">
+
+                        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+
+                            <div class="modal-content">
+
+                                <div class="modal-header">
+
+                                    <img class="img-fluid logo-register" src="../images/pmtm-logo.png"
+                                alt="Imagem Logo da tela de Login">
+
+                                    <div class="col-md-8 register-header">
+                                        <h1 class="">PREFEITURA MUNICIPAL DE TRÊS MARIAS</h1>
+
+                                        <h2 class="">SEMAD - SECRETARIA MUNICIPAL DE ADMINISTRAÇÃO</h2>
+                                    </div>
+
+
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+
+                                        <span aria-hidden="true">&times;</span>
+
+                                    </button>
+
+                                </div>
+
+                                <div class="modal-body p-0">
+
+                                    <partial name="_UpdateUser" model="@item" />
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!--Finish Upgrade Modal-->
+
+                }
+
+            </tbody>
+
+        </table>
+
+        <div class="filterButton-container">
+
+            <p>Páginas : </p>
+
+            @for (int i = 1; i <= (int)ViewData["pageQuantity"]; i++)
+            { // paginação cria os links para as páginas
+                <a class="btn btn-sm btn-outline-primary" href="/Users/ListOfRegisteredUsers?pages=@i">@i</a>
+            }
+
+        </div>
+
+    }
+    else
+    {
+        <div class="alert alert-warning mt-3 w-100 h-100" role="alert">
+            Nenhum Usuário cadastrado !
+        </div>
+    }
+</div>

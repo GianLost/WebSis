@@ -1,0 +1,145 @@
+:root {
+  --blackPrimary: #000;
+  --shadowPrimary: rgba(0, 0, 0, 0.534) 5px 5px 10px;
+  --blackPrimary: #000;
+  --orangePrimary: #fe781f;
+}
+
+.login-body {
+  background-image: url("../images/prefeitura-bg.jpg");
+  background-repeat: repeat;
+  background-size: contain;
+  justify-content: center;
+  align-content: center;
+  padding: 0%;
+}
+
+.login-container {
+  background-image: url("../images/form-bg.jpg");
+  box-shadow: var(--shadowPrimary);
+  border-radius: 30px;
+  margin-top: 10%;
+  margin-left: 18%;
+  padding: 0%;
+}
+
+.login-form {
+  border-radius: 30px;
+  margin-top: 12%;
+  margin-bottom: 25%;
+  padding: 2%;
+}
+
+.login-form h1 {
+  font-size: 1.5em;
+  margin-top: 15px;
+  margin-left: -10%;
+}
+
+.login-title {
+  font-size: 4em;
+  font-weight: bold;
+  margin-bottom: -20px;
+  font-family: "garamond";
+  text-decoration: 3px underline var(--blackPrimary);
+  text-shadow: rgba(0, 0, 0, 0.534) 5px 5px 5px;
+  color: #000;
+}
+
+.login-title span {
+  color: var(--orangePrimary);
+}
+
+.login-form h2 {
+  font-size: 1em;
+  margin-left: -10%;
+}
+
+.btn-access {
+  width: 200px;
+}
+
+.btn-access:hover {
+  box-shadow: var(--shadowPrimary);
+  transition: ease-in-out 0.3s;
+  transform: translateY(-5px);
+}
+
+.login-error {
+  font-style: italic;
+  margin-top: -30px;
+}
+
+.inputs-login i {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.icon {
+  padding: 10px;
+  min-width: 40px;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+}
+
+.img-login {
+  width: 10em;
+  height: 6em;
+}
+
+.inputs-login i {
+  position: absolute;
+}
+
+@media (max-width: 1200px) {
+}
+
+@media (max-width: 992px) {
+}
+
+@media (max-width: 990px) {
+}
+
+@media (max-width: 768px) {
+  .login-container {
+    width: 420px;
+    margin-top: 10%;
+    margin-bottom: 20%;
+    margin-left: 5%;
+    padding: 1%;
+  }
+
+  .login-form h1 {
+    font-size: 1em;
+    margin-left: 0%;
+  }
+
+  .login-form h2 {
+    font-size: 1em;
+    margin-left: 0%;
+  }
+
+  .login-form {
+    border-radius: 30px;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    padding: 2%;
+  }
+
+  .login-title {
+    font-size: 3em;
+  }
+}
+
+@media (max-width: 576px) {
+  .login-container {
+    width: 420px;
+    margin-top: 10%;
+    margin-left: 5%;
+    margin-bottom: 20%;
+  }
+}

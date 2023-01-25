@@ -1,0 +1,40 @@
+.logo-page {
+  font-size: 1.8em;
+  margin-left: 32%;
+}
+
+.nav-menu {
+  background-color: #007bffb7;
+  box-shadow: #007bffa7 5px 5px 10px;
+  border: 1px solid #fff;
+}
+
+.nav-menu a {
+  color: #fff;
+}
+
+.nav-menu a:hover {
+  background-color: #fff;
+}
+
+@media (max-width: 1200px) {
+}
+
+@media (max-width: 992px) {
+}
+
+@media (max-width: 990px) {
+}
+
+@media (max-width: 768px) {
+  .logo-page {
+    font-size: 1.5em;
+    margin-left: 16%;
+  }
+}
+
+@media (max-width: 576px) {
+  .logo-page {
+    font-size: 1.5em;
+  }
+}

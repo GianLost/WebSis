@@ -1,0 +1,108 @@
+@model Users
+@using Microsoft.AspNetCore.Http;
+@using WebSis.Models;
+@using WebSis.Services;
+
+@{
+    ViewData["Title"] = "Cadastro de Usuário";
+
+    SecretariesService ss = new SecretariesService();
+
+    List<Secretaries> secretaryList = ss.SecretariesList();
+}
+
+<div class="p-2">
+
+    <form name="formUser" id="formUser" class="user-form">
+
+        <input type="hidden" asp-for="@Model.Id">
+
+        <h3 class="text-center mt-3 mb-4">Cadastrar Usuário</h3>
+
+        <span id="msg"></span>
+
+        <div class="row">
+
+            <div class="col-md-6 mb-3">
+
+                <input placeholder="Nome completo" asp-for="@Model.Name"
+                    type="text" class="form-control" id="name">
+
+            </div>
+
+            <div class="col-md-6 mb-3">
+
+                <input placeholder="Nome de acesso" asp-for="@Model.Login"
+                    type="text" id="login" class="form-control">
+
+            </div>
+
+            <div class="col-md-6 mb-3">
+
+                <input placeholder="Crie uma senha" asp-for="@Model.Password"
+                    type="password" id="password"
+                    class="form-control">
+
+            </div>
+
+            <div class="col-md-6 mb-3">
+
+                <input placeholder="Confirme a Senha"
+                    asp-for="@Model.CheckedPassword" type="password"
+                    id="checkedPassword" class="form-control">
+
+            </div>
+
+            <div class="col-md-12 mb-4">
+
+                <select class="custom-select dropdown-select d-block w-100"
+                    name="type" id="type" asp-for="@Model.Type">
+
+                    <option value="-1">Nível de acesso do usuário ...</option>
+                    <option asp-for="@Users.ADMIN" for="ADMIN"
+                        value="@Users.ADMIN">Administrador</option>
+                    <option asp-for="@Users.PADRAO" for="PADRAO"
+                        value="@Users.PADRAO">Comum</option>
+
+                </select>
+
+                <div class="invalid-feedback">
+                    Please provide a valid state.
+                </div>
+
+            </div>
+
+            <div class="input-group input-group-md col-md-12 mb-4">
+
+                <div class="input-group-prepend">
+                    <label class="input-group-text"><i class="bi
+                            bi-building-fill-check"
+                            title="Selecionar Secretarias"></i></label>
+                </div>
+
+                <select asp-for="@Model.SecretariesId" id="seclectUserRegister"
+                    class="custom-select seclectUserRegister" title="Selecionar
+                    Secretarias">
+                    <option value="-1">Selecione a secretaria...</option>
+                    @foreach (var item in secretaryList)
+                    {
+                        if (item.Acronym != null)
+                        {
+                            <option value="@item.Id">@item.Acronym</option>
+                            <div class="dropdown-divider"></div>
+                        }
+                    }
+                </select>
+
+            </div>
+
+        </div>
+
+        <button class="btn btn-md btn-outline-primary btn-user-access mt-2"
+            onclick="return FormValidate()"
+            type="submit">Salvar <i class="bi bi-cloud-arrow-up"
+                id="btnUserRegister"></i></button>
+
+    </form>
+
+</div>

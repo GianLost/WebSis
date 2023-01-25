@@ -1,0 +1,108 @@
+﻿@model Users;
+@using WebSis.Services;
+
+@{
+    ViewData["Title"] = "Login";
+
+    SecretariesService ss = new SecretariesService();
+
+    List<Secretaries> secretaryList = ss.SecretariesList();
+}
+
+<body class="text-center login-body">
+
+    <div class="container">
+
+        <div class="col-md-8 col-lg-8 col-sm-12 login-container">
+
+            <form method="post" asp-action="Login" asp-controller="Home"
+                class="login-form">
+
+                <div class="row mb-4 mr-0 ml-0">
+
+                    <div class="col-md-3 col-sm-6">
+                        <img class="img-fluid mb-3 img-login"
+                            src="../images/pmtm-logo.png"
+                            alt="Imagem Logo da tela de Login">
+                    </div>
+
+                    <div class="col-md-9 col-sm-6">
+                        <h1 class="mb-3 font-weight-200">PREFEITURA MUNICIPAL DE
+                            TRÊS MARIAS</h1>
+
+                        <h2 class="mb-3 font-weight-200">SEMAD - SECRETARIA
+                            MUNICIPAL DE ADMINISTRAÇÃO</h2>
+                    </div>
+
+                </div>
+
+                <hr>
+
+                <h3 class="login-title">Log<span>I</span>n</h3>
+
+                <div class="row p-5">
+
+                    <label asp-for="@Model.Login" class="sr-only">Login</label>
+                    <div class="input-group mb-3">
+
+                        <div class="input-group-prepend">
+                            <i class="bi bi-person-fill input-group-text"></i>
+                        </div>
+
+                        <input asp-for="@Model.Login" name="login" type="text"
+                            class="form-control"
+                            placeholder="Nome de usuário" required autofocus>
+                    </div>
+
+                    <label asp-for="@Model.CheckedPassword" class="sr-only">Senha</label>
+                    <div class="input-group mb-3">
+
+                        <div class="input-group-prepend">
+                            <i class="bi bi-lock-fill input-group-text"></i>
+                        </div>
+
+                        <input asp-for="@Model.CheckedPassword" name="password"
+                            type="password" class="form-control"
+                            placeholder="Insira a senha" required>
+
+                    </div>
+
+                    <div class="input-group input-group-md mb-1">
+
+                        <div class="input-group-prepend">
+                            <label class="input-group-text"><i class="bi
+                                    bi-building-fill-check"
+                                    title="Selecionar Secretarias"></i></label>
+                        </div>
+
+                        <select asp-for="@Model.SecretariesId" for="secretaryId" name="secretaryId" class="custom-select" title="Selecionar Secretarias">
+                            <option value="-1">Selecione a secretaria...</option>
+                            @foreach (var item in secretaryList)
+                            {
+                                if (item.Acronym != null)
+                                {
+                                    <option for="secretaryId" value="@item.Id">@item.Acronym</option>
+                                    <div class="dropdown-divider"></div>
+                                }
+                            }
+                        </select>
+
+                    </div>
+
+                </div>
+
+                <div class="col">
+
+                    <p class="text-danger login-error">@ViewData["ErrorLogin"]</p>
+                    <button class="btn btn-md btn-outline-primary btn-access"
+                        type="submit">Acessar <i
+                            class="bi bi-box-arrow-in-right"></i></button>
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</body>

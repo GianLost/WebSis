@@ -1,0 +1,21 @@
+INSERT INTO `usuarios`(`Name`, `Login`, `Password`, `CheckedPassword`, `Type`) VALUES ('Marcos Aurélio Silva','Marcos.Silva','123456789','123456789','1');
+INSERT INTO `usuarios`(`Name`, `Login`, `Password`, `CheckedPassword`, `Type`) VALUES ('Joana Arruda de Oliveira','Joana.Oliveira','123456789','123456789','1');
+INSERT INTO `usuarios`(`Name`, `Login`, `Password`, `CheckedPassword`, `Type`) VALUES ('Amilton Vieira de Souza','Amilton.Vieira','123456789','123456789','1');
+INSERT INTO `usuarios`(`Name`, `Login`, `Password`, `CheckedPassword`, `Type`) VALUES ('Anna Caroline Ribeiro Vieira','Anna.Ribeiro','123456789','123456789','1');
+INSERT INTO `usuarios`(`Name`, `Login`, `Password`, `CheckedPassword`, `Type`) VALUES ('Marcelo Batista Vespasiano','Marcelo.Batista','123456789','123456789','1');
+INSERT INTO `usuarios`(`Name`, `Login`, `Password`, `CheckedPassword`, `Type`) VALUES ('Luana Cristina de Oliveira','Luana.Cristina','123456789','123456789','1');
+INSERT INTO `usuarios`(`Name`, `Login`, `Password`, `CheckedPassword`, `Type`) VALUES ('João Fernando Alves do Nascimento','João.Alves','123456789','123456789','1');
+INSERT INTO `usuarios`(`Name`, `Login`, `Password`, `CheckedPassword`, `Type`) VALUES ('Sarah Marilia Agostinho','Sarah.Agostinho','123456789','123456789','1');
+INSERT INTO `usuarios`(`Name`, `Login`, `Password`, `CheckedPassword`, `Type`) VALUES ('Miquéias Stanford Salatiel','Miqueias.Salatiel','123456789','123456789','1');
+INSERT INTO `usuarios`(`Name`, `Login`, `Password`, `CheckedPassword`, `Type`) VALUES ('Lidia Cristina Martins','Lidia.Martins','123456789','123456789','1');
+
+INSERT INTO `usuarios`(`Name`, `Login`, `Password`, `CheckedPassword`, `Type`) VALUES ('Teste1','Teste1','123456789','123456789','0');
+INSERT INTO `usuarios`(`Name`, `Login`, `Password`, `CheckedPassword`, `Type`) VALUES ('Teste2','Teste2','123456789','123456789','0');
+INSERT INTO `usuarios`(`Name`, `Login`, `Password`, `CheckedPassword`, `Type`) VALUES ('Teste3','Teste3','123456789','123456789','0');
+INSERT INTO `usuarios`(`Name`, `Login`, `Password`, `CheckedPassword`, `Type`) VALUES ('Teste4','Teste4','123456789','123456789','0');
+INSERT INTO `usuarios`(`Name`, `Login`, `Password`, `CheckedPassword`, `Type`) VALUES ('Teste5','Teste5','123456789','123456789','0');
+INSERT INTO `usuarios`(`Name`, `Login`, `Password`, `CheckedPassword`, `Type`) VALUES ('Teste6','Teste6','123456789','123456789','0');
+INSERT INTO `usuarios`(`Name`, `Login`, `Password`, `CheckedPassword`, `Type`) VALUES ('Teste7','Teste7','123456789','123456789','0');
+INSERT INTO `usuarios`(`Name`, `Login`, `Password`, `CheckedPassword`, `Type`) VALUES ('Teste8','Teste8','123456789','123456789','0');
+INSERT INTO `usuarios`(`Name`, `Login`, `Password`, `CheckedPassword`, `Type`) VALUES ('Teste9','Teste9','123456789','123456789','0');
+INSERT INTO `usuarios`(`Name`, `Login`, `Password`, `CheckedPassword`, `Type`) VALUES ('Teste10','Teste10','123456789','123456789','0');

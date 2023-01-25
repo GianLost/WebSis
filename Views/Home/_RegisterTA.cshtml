@@ -1,0 +1,352 @@
+@model TravelAuthorizations;
+@using Microsoft.AspNetCore.Http;
+@using WebSis.Models;
+@using WebSis.Services;
+
+@{
+    ViewData["Title"] = "AV - Autorização de Viagem";
+
+    Secretaries secretary = new Secretaries();
+
+    SecretariesService ss = new SecretariesService();
+
+    List<Secretaries> secretaryList = ss.SecretariesList();
+
+    TravelAuthorizationsService tas = new TravelAuthorizationsService();
+
+    var cont = tas.CountRegister();
+
+    var next = cont + 1;
+}
+
+<body class="text-center">
+
+    <div class="container">
+
+        <form method="post" asp-controller="TravelAuthorizations" asp-action="RegisterTA" onchange="SA()" class="form">
+
+            <div class="navega mt-4">
+
+                <div class="input-group input-group-md">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" for="selectSecretary"><i class="bi bi-building-fill-check"
+                                title="Selecionar Secretarias"></i></label>
+                    </div>
+                    <select onchange="return getSecretariesProp()" class="custom-select select-secretary" name="selectSecretary"
+                        id="selectSecretary" title="Selecionar Secretarias">
+                        <option selected>Selecione a secretaria...</option>
+                        @foreach (var item in secretaryList)
+                        {
+                            if (item.Acronym != null)
+                            {
+                                <option asp-for="@secretary" for="@secretary" value="@item.Id">@item.Acronym</option>
+                                <div class="dropdown-divider"></div>
+
+                            }
+                        }
+                    </select>
+
+                </div>
+
+            </div>
+
+            <h3 class="text-center mt-5 mb-5">@ViewData["Title"] (@next.ToString("D4")/@DateTime.Now.ToString("yyyy"))
+            </h3>
+
+            <div class="row offset-m2">
+
+                <div class="col-md-6 mb-3">
+
+                    <input asp-for="@Model.Id" type="hidden" class="form-control" placeholder='@next.ToString("D4")'
+                        name="Id" required>
+
+                </div>
+
+                <div class="col-md-6 mb-3">
+
+                    <input asp-for="@Model.UsersId" type="hidden" class="form-control"
+                        value='@Context.Session.GetInt32("idUser")' name="UsersId" required>
+
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Ano Atual: </label>
+                    <input class="form-control" value='@DateTime.Now.ToString("yyyy")' asp-for="@Model.CurrentYear"
+                        required readonly>
+
+                </div>
+
+                <div class="col-md-6 mb-3">
+
+                    <label class="form-label">Data Atual: </label>
+                    <input class="form-control" value='@DateTime.Now.ToString("dd/MM/yyyy")'
+                        asp-for="@Model.CurrentDate" required readonly>
+
+                </div>
+
+                <div class="col-md-6 mb-3">
+
+                    <label class="form-label">Nome da secretaria: </label>
+                    <input placeholder="Nome da secretaria" type="text" id="secretaryName" class="form-control"
+                        asp-for="@Model.SecretaryName" required readonly>
+
+                </div>
+
+                <div class="col-md-6 mb-3">
+
+                    <label class="form-label">Código da secretaria: </label>
+                    <input placeholder="Código da secretaria" type="number" id="secretaryId" class="form-control"
+                        asp-for="@Model.SecretariesId" required readonly>
+
+                </div>
+
+                <div class="col-md-6 mb-3">
+
+                    <label class="form-label">Nome completo do solicitante: </label>
+                    <input placeholder="Nome completo do solicitante" type="text" class="form-control"
+                        asp-for="@Model.ClientName" required>
+
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label">Cargo: </label>
+                    <input placeholder="Cargo" type="text" class="form-control" asp-for="@Model.Office" required>
+
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Tipo de usuário: </label>
+                    <input placeholder="Tipo" value='@Context.Session.GetInt32("type")' class="form-control"
+                        asp-for="@Model.Type" required readonly>
+
+                </div>
+
+                <div class="col-md-6 mb-3">
+
+                    <label class="form-label">Nível: </label>
+                    <input placeholder="Nível" type="number" class="form-control" asp-for="@Model.Level" required>
+
+                </div>
+
+                <div class="col-md-6 mb-3">
+
+                    <label class="form-label">Código: </label>
+                    <input placeholder="Código" type="number" class="form-control" asp-for="@Model.Code" required>
+
+                </div>
+
+                <div class="col-md-6 mb-3">
+
+                    <label class="form-label">Data de saída: </label>
+                    <input placeholder="Data de saída" type="date" class="form-control" asp-for="@Model.DepartureDate"
+                        required>
+
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Hora de saída: </label>
+                    <input placeholder="Hora de saída" type="time" class="form-control" asp-for="@Model.DepartureTime"
+                        required>
+
+                </div>
+
+                <div class="col-md-6 mb-3">
+
+                    <label class="form-label">Data de chegada: </label>
+                    <input placeholder="Data de chegada" type="date" class="form-control" asp-for="@Model.ArrivalDate"
+                        required>
+
+                </div>
+
+                <div class="col-md-6 mb-3">
+
+                    <label class="form-label">Hora de chegada: </label>
+                    <input placeholder="Hora de chegada" type="time" class="form-control" asp-for="@Model.ArrivalTime"
+                        required>
+
+                </div>
+
+                <div class="col-md-6 mb-3">
+
+                    <label class="form-label">Prestação de contas: </label>
+                    <input placeholder="Prestação de contas" type="date" class="form-control"
+                        asp-for="@Model.Accountability" required>
+
+                </div>
+
+                <div class="col-md-6 mb-3">
+
+                    <label class="form-label">Passagens de ida (Und.): </label>
+                    <input placeholder="Passagens de ida" type="number" class="form-control"
+                        asp-for="@Model.OneWayTickets" required>
+
+                </div>
+
+                <div class="col-md-6 mb-3">
+
+                    <label class="form-label">Passagens de Volta (Und.): </label>
+                    <input placeholder="Passagens de volta" type="number" class="form-control"
+                        asp-for="@Model.ReturnTickets" required>
+
+                </div>
+
+                <div class="col-md-6 mb-3">
+
+                    <label class="form-label">Destino: </label>
+                    <input placeholder="Destino" type="text" class="form-control" asp-for="@Model.Destiny" required>
+
+                </div>
+
+                <div class="col-md-6 mb-3">
+
+                    <label class="form-label">UG: </label>
+                    <input placeholder="UG" type="text" class="form-control" asp-for="@Model.UG " required>
+
+                </div>
+
+                <div class="col-md-6 mb-3">
+
+                    <label class="form-label">UO: </label>
+                    <input placeholder="UO" type="text" class="form-control" asp-for="@Model.UO" required>
+
+                </div>
+
+                <div class="col-md-6 mb-3">
+
+                    <label class="form-label">PA: </label>
+                    <input placeholder="PA" type="text" class="form-control" asp-for="@Model.PA" required>
+
+                </div>
+
+                <div class="col-md-6 mb-3">
+
+                    <label class="form-label">Número de despesas: </label>
+                    <input placeholder="Número de despesas" type="number" class="form-control" asp-for="@Model.Expanses"
+                        required>
+
+                </div>
+
+                <div class="col-md-6 mb-3">
+
+                    <label class="form-label">Fonte: </label>
+                    <input placeholder="Fonte" type="number" class="form-control" asp-for="@Model.Font " required>
+
+                </div>
+
+                <div class="col-md-6 mb-3">
+
+                    <label class="form-label">Alimentação (Und.): </label>
+                    <input placeholder="Quantidade de refeição" id="n1" type="number" class="form-control"
+                        asp-for="@Model.FoodQuantity" required>
+
+                </div>
+
+                <div class="col-md-6 mb-3">
+
+                    <label class="form-label">Hospedagem (Und.): </label>
+                    <input placeholder="Quantidade de hospedagem" id="n3" type="number" class="form-control"
+                        asp-for="@Model.HostingQuantity" required>
+
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Valor unitário da alimentação (R$): </label>
+                    <div class="input-group">
+
+                        <div class="input-group-prepend">
+                            <i class="input-group-text">R$</i>
+                        </div>
+
+                        <input value="0.00" id="n2" type="text" class="form-control values-input"
+                            asp-for="@Model.FoodUnitaryValue" required>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Valor unitário da hospedagem (R$): </label>
+                    <div class="input-group">
+
+                        <div class="input-group-prepend">
+                            <i class="input-group-text">R$</i>
+                        </div>
+
+                        <input value="0.00" id="n4" type="text" class="form-control values-input"
+                            asp-for="@Model.HostingUnitaryValue" required>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Valor total da alimentação (R$): </label>
+                    <div class="input-group">
+
+                        <div class="input-group-prepend">
+                            <i class="input-group-text">R$</i>
+                        </div>
+
+                        <input id="totalfood" type="text" class="form-control" asp-for="@Model.FoodTotalValue" required
+                            readonly>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Valor total da hospedagem (R$): </label>
+                    <div class="input-group">
+
+                        <div class="input-group-prepend">
+                            <i class="input-group-text">R$</i>
+                        </div>
+
+                        <input id="totalhosting" type="text" class="form-control" asp-for="@Model.HostingTotalValue"
+                            required readonly>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-12 mb-3">
+                    <label class="form-label">Valor total das despesas (R$): </label>
+                    <div class="input-group">
+
+                        <div class="input-group-prepend">
+                            <i class="input-group-text">R$</i>
+                        </div>
+
+                        <input id="total" type="text" class="form-control text-center"
+                            asp-for="@Model.ExpanseTotalValue" required readonly>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-12 mb-3">
+                    <label class="form-label">Objetivo da Viagem: </label>
+                    <textarea class="form-control btn-block" asp-for="@Model.Goal" placeholder="Finalidade da viagem..."
+                        rows="4" required></textarea>
+
+                </div>
+
+            </div>
+
+
+            <button class="btn btn-md btn-outline-primary mt-2 mb-3" type="submit">Salvar <i
+                    class="bi bi-cloud-arrow-up"></i></button>
+
+        </form>
+
+    </div>
+
+</body>
