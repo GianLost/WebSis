@@ -57,6 +57,9 @@ function getIndexSecretariesProp() {
   var indice = select.selectedIndex;
   var option = select.options[indice];
 
-  document.getElementById("secretaryIndexName").value = option.value;
+  document.getElementById("av-secretaryName").value = option.value;
+  document.getElementById("rd-secretaryName").value = option.value;
+  document.getElementById("sa-secretaryName").value = option.value;
+  document.getElementById("rv-secretaryName").value = option.value;
 }
 getIndexSecretariesProp();

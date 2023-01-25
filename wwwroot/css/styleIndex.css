@@ -89,22 +89,28 @@
 .rd-module {
   /*border: 2px solid var(--blackPrimary);*/
   display: none;
-  background-color: var(--greyPrimary);
-  margin-bottom: 10%;
+  background: var(--greyPrimary);
+  padding: 0%;
+  height: 32.54rem;
+  width: 65%
 }
 
 .sa-module {
   /*border: 2px solid var(--blackPrimary);*/
   display: none;
-  background-color: var(--greyPrimary);
-  margin-bottom: 10%;
+  background: var(--greyPrimary);
+  padding: 0%;
+  height: 32.54rem;
+  width: 65%
 }
 
 .rv-module {
   /*border: 2px solid var(--blackPrimary);*/
   display: none;
-  background-color: var(--greyPrimary);
-  margin-bottom: 10%;
+  background: var(--greyPrimary);
+  padding: 0%;
+  height: 32.54rem;
+  width: 65%
 }
 
 .modules {

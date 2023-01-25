@@ -11,7 +11,7 @@
     SecretariesService ss = new SecretariesService();
 
     ICollection<Secretaries> secretaryList = ss.SecretariesList().Where(u => u.Id ==
-           Context.Session.GetInt32("secretariesId")).ToList();
+    Context.Session.GetInt32("secretariesId")).ToList();
 
     TravelAuthorizations ta = new TravelAuthorizations();
 
@@ -160,7 +160,7 @@
 
                 <div class="col-md-12 mt-3">
 
-                    <input class="form-control av-secretaryName" id="secretaryIndexName" disabled />
+                    <input class="form-control av-secretaryName" id="av-secretaryName" disabled />
 
                 </div>
 
@@ -193,6 +193,24 @@
 
             <div id="rd-module" class="col-lg-8 col-md-8 col-sm-12 rd-module">
 
+                <div class="col-md-12 mt-3">
+
+                    <input class="form-control av-secretaryName" id="rd-secretaryName" disabled />
+
+                </div>
+
+                <div class="av-info mt-3">
+
+                    <div>
+                        <input value="RD - Relatório de Despesas" class="form-control title-module" disabled />
+                    </div>
+
+                    <div>
+                        <input class="form-control year-module" value='@DateTime.Now.ToString("yyyy")' disabled />
+                    </div>
+
+                </div>
+
                 <div class="row av-row">
                     <button class="btn btn-md btn-outline-primary btn-av-register mt-3" type="button"
                         data-toggle="modal" data-target="" title="Cadastrar RD - Relatório de despesas"> <i
@@ -210,6 +228,24 @@
 
             <div id="sa-module" class="col-lg-8 col-md-8 col-sm-12 sa-module">
 
+                <div class="col-md-12 mt-3">
+
+                    <input class="form-control av-secretaryName" id="sa-secretaryName" disabled />
+
+                </div>
+
+                <div class="av-info mt-3">
+
+                    <div>
+                        <input value="SA - Solicitação de Adiantamento" class="form-control title-module" disabled />
+                    </div>
+
+                    <div>
+                        <input class="form-control year-module" value='@DateTime.Now.ToString("yyyy")' disabled />
+                    </div>
+
+                </div>
+
                 <div class="row av-row">
                     <button class="btn btn-md btn-outline-primary btn-av-register mt-3" type="button"
                         data-toggle="modal" data-target="" title="Cadastrar SA - Solicitação de Adiantamento"> <i
@@ -225,6 +261,24 @@
             </div>
 
             <div id="rv-module" class="col-lg-8 col-md-8 col-sm-12 rv-module">
+
+                <div class="col-md-12 mt-3">
+
+                    <input class="form-control av-secretaryName" id="rv-secretaryName" disabled />
+
+                </div>
+
+                <div class="av-info mt-3">
+
+                    <div>
+                        <input value="RV - Relatório de Viagem" class="form-control title-module" disabled />
+                    </div>
+
+                    <div>
+                        <input class="form-control year-module" value='@DateTime.Now.ToString("yyyy")' disabled />
+                    </div>
+
+                </div>
 
                 <div class="row av-row">
                     <button class="btn btn-md btn-outline-primary btn-av-register mt-3" type="button"
