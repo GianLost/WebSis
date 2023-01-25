@@ -11,7 +11,7 @@
 
     WebSisContext database = new WebSisContext();
 
-    ICollection<TravelAuthorizations> travelsList = tas.ListAndOrderTravels().Where( ta => ta.UsersId == Context.Session.GetInt32("idUser")).ToList();
+    ICollection<TravelAuthorizations> travelsList = tas.ListAndOrderTravels().Where( ta => ta.SecretariesId == Context.Session.GetInt32("secretariesId")).ToList();
 }
 
 <div class="container-fluid container-TA">

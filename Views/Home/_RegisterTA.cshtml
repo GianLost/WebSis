@@ -10,7 +10,8 @@
 
     SecretariesService ss = new SecretariesService();
 
-    List<Secretaries> secretaryList = ss.SecretariesList();
+    List<Secretaries> secretaryList = ss.SecretariesList().Where(u => u.Id ==
+    Context.Session.GetInt32("secretariesId")).ToList();
 
     TravelAuthorizationsService tas = new TravelAuthorizationsService();
 
@@ -33,13 +34,12 @@
                                 title="Selecionar Secretarias"></i></label>
                     </div>
                     <select onchange="return getSecretariesProp()" class="custom-select select-secretary" name="selectSecretary"
-                        id="selectSecretary" title="Selecionar Secretarias">
-                        <option selected>Selecione a secretaria...</option>
+                        id="selectSecretary" title="Selecionar Secretarias" disabled>
                         @foreach (var item in secretaryList)
                         {
                             if (item.Acronym != null)
                             {
-                                <option asp-for="@secretary" for="@secretary" value="@item.Id">@item.Acronym</option>
+                                <option class="text-center" value="@item.Id" selected>@item.Acronym - @item.Name</option>
                                 <div class="dropdown-divider"></div>
 
                             }

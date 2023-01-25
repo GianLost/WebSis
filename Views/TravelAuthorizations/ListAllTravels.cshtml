@@ -1,8 +1,16 @@
 @model ICollection<TravelAuthorizations>;
 @using Microsoft.AspNetCore.Http;
+@using WebSis.Services;
+@using WebSis.DataBase;
 
 @{
     ViewData["Title"] = "Listagem de todos os AV - Autorização de Viagem";
+
+    TravelAuthorizationsService tas = new TravelAuthorizationsService();
+
+    WebSisContext database = new WebSisContext();
+
+    ICollection<TravelAuthorizations> travelsList = tas.ListAndOrderTravels().Where( ta => ta.SecretariesId == Context.Session.GetInt32("secretariesId")).ToList();
 }
 
 <div class="container-fluid container-userList">
@@ -52,7 +60,7 @@
 
             <tbody>
 
-                @foreach (var item in Model)
+                @foreach (var item in travelsList)
                 {
 
                     <tr>

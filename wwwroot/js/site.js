@@ -47,8 +47,10 @@ function getSecretariesProp() {
   var indice = select.selectedIndex;
   var option = select.options[indice];
 
+  var teste = document.getElementById("secretaryName").value = option.text.split("-");
+
   document.getElementById("secretaryId").value = option.value;
-  document.getElementById("secretaryName").value = option.text;
+  document.getElementById("secretaryName").value = teste[0];
 }
 getSecretariesProp();
 
