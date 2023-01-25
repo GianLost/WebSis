@@ -33,12 +33,7 @@ namespace WebSis.Migrations
                         .HasColumnType("varchar(80) CHARACTER SET utf8mb4")
                         .HasMaxLength(80);
 
-                    b.Property<int>("UsersId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("UsersId");
 
                     b.ToTable("Secretarias");
                 });
@@ -206,21 +201,17 @@ namespace WebSis.Migrations
                         .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasMaxLength(50);
 
+                    b.Property<int>("SecretariesId")
+                        .HasColumnType("int");
+
                     b.Property<int>("Type")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Usuarios");
-                });
+                    b.HasIndex("SecretariesId");
 
-            modelBuilder.Entity("WebSis.Models.Secretaries", b =>
-                {
-                    b.HasOne("WebSis.Models.Users", "Users")
-                        .WithMany()
-                        .HasForeignKey("UsersId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.ToTable("Usuarios");
                 });
 
             modelBuilder.Entity("WebSis.Models.TravelAuthorizations", b =>
@@ -234,6 +225,15 @@ namespace WebSis.Migrations
                     b.HasOne("WebSis.Models.Users", "Users")
                         .WithMany()
                         .HasForeignKey("UsersId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("WebSis.Models.Users", b =>
+                {
+                    b.HasOne("WebSis.Models.Secretaries", "Secretaries")
+                        .WithMany()
+                        .HasForeignKey("SecretariesId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

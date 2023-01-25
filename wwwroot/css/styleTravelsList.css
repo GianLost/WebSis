@@ -85,6 +85,10 @@
   .btn-searchUser {
     margin-left: 5px;
   }
+
+  .alert-TA {
+    margin-top: -25%;
+  }
   
   @media (max-width: 1200px) {
   }

@@ -56,22 +56,33 @@ namespace WebSis.Controllers
                 string PasswordUser = userFound.Select(u => u.Password).FirstOrDefault();
 
                 string EncryptedPassword = Cryptography.EncryptedText(password);
+
+                if ( secretaryId == -1)
+                {
+                    ViewData["ErrorLogin"] = "Selecione sua secretaria !";
+                    HttpContext.Session.Clear();
+                    return View(); 
+                }
                 
                 if (secretaryOfUser != secretaryId)
                 {
                     
-                    ViewData["ErrorLogin"] = "Secretaria Invalida";
+                    ViewData["ErrorLogin"] = "A secretaria selecionada não corresponde a este usuário !";
+                    HttpContext.Session.Clear();
                     return View(); 
                     
                 }
                 
                 if (LoginUser != login || PasswordUser != EncryptedPassword)
                 {
-                    ViewData["ErrorLogin"] = "Login ou senha inválidos";
+                    ViewData["ErrorLogin"] = "Login ou senha inválidos !";
+                    HttpContext.Session.Clear();
                     return View();
                     
 
-                } else
+                } 
+                
+                else
                 {
                     return RedirectToAction("Index", "Home");
                 }

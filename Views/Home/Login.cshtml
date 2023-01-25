@@ -13,24 +13,24 @@
 
     <div class="container">
 
-        <div class="col-md-8 col-lg-8 col-sm-12 login-container">
+        <div class="col-md-10 col-lg-10 col-sm-12 login-container">
 
             <form method="post" asp-action="Login" asp-controller="Home"
                 class="login-form">
 
-                <div class="row mb-4 mr-0 ml-0">
+                <div class="row header-login">
 
-                    <div class="col-md-3 col-sm-6">
-                        <img class="img-fluid mb-3 img-login"
+                    <div class="col-md-4 col-sm-6">
+                        <img class="img-fluid img-login"
                             src="../images/pmtm-logo.png"
                             alt="Imagem Logo da tela de Login">
                     </div>
 
-                    <div class="col-md-9 col-sm-6">
-                        <h1 class="mb-3 font-weight-200">PREFEITURA MUNICIPAL DE
+                    <div class="col-md-8 col-sm-6">
+                        <h1 class="font-weight-200">PREFEITURA MUNICIPAL DE
                             TRÊS MARIAS</h1>
 
-                        <h2 class="mb-3 font-weight-200">SEMAD - SECRETARIA
+                        <h2 class="font-weight-200">SEMAD - SECRETARIA
                             MUNICIPAL DE ADMINISTRAÇÃO</h2>
                     </div>
 
@@ -75,8 +75,8 @@
                                     title="Selecionar Secretarias"></i></label>
                         </div>
 
-                        <select asp-for="@Model.SecretariesId" for="secretaryId" name="secretaryId" class="custom-select" title="Selecionar Secretarias">
-                            <option value="-1">Selecione a secretaria...</option>
+                        <select asp-for="@Model.SecretariesId" for="secretaryId" name="secretaryId" class="custom-select" title="Selecionar Secretarias" required>
+                            <option value="-1" selected>Selecione a secretaria...</option>
                             @foreach (var item in secretaryList)
                             {
                                 if (item.Acronym != null)

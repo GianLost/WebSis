@@ -27,16 +27,15 @@ namespace WebSis.Identity
             using WebSisContext dataBase = new WebSisContext(); // Instância de WebSisContext, classe que armazena a conexão com o banco de dados;
 
             Users u = new Users();
+            //CheckCounterSecretary(dataBase, secretaryId, controller);
 
-            CheckIfUserAdministratorExist(dataBase); // Chamada do método que verifica se existe um usuário administrador e que se caso não existir cria um novo;
+            CheckIfUserAdministratorExist(dataBase, secretaryId); // Chamada do método que verifica se existe um usuário administrador e que se caso não existir cria um novo;
 
             string PasswordUser = Cryptography.EncryptedText(password); // Transforma em Hash MD5 a string digitada no campo de senha no momento do login;
 
             IQueryable<Secretaries> Secretary = dataBase.Secretaries.Where(s => s.Id == secretaryId);
 
             List<Secretaries> SecretaryFound = Secretary.ToList();
-
-            //int secretaryOfUser = SecretaryId.Select(u => u.Id).FirstOrDefault();
 
             IQueryable<Users> userFound = dataBase.Users.Where(searchForUser => searchForUser.Login == login || searchForUser.Password == PasswordUser || searchForUser.SecretariesId == secretaryId); // Armazena no objeto userFound uma pesquisa que avalia se os dados de login e senha digitados são correspondentes aos que estão presentes no banco de dados;
 
@@ -45,8 +44,10 @@ namespace WebSis.Identity
             if (foundUserList.Count == 0) // Estrutura de verificação que irá verificar a contagem de registros presente na lista de usuários encontrados.
             {
                 return false; // Retorna false se a condição for true
-            }
-            else
+            }else if ( secretaryId == -1)
+            {
+                return false;
+            }else
             {
 
                 // Dados armazenados na sessão
@@ -64,10 +65,54 @@ namespace WebSis.Identity
             }
 
         }
+        /*private static void CheckCounterSecretary(WebSisContext dataBase, int secretaryId, Controller controller)
+        {
+            int secretaryFound = dataBase.Secretaries.Count();
 
-        private static void CheckIfUserAdministratorExist(WebSisContext dataBase)
+            if(secretaryFound == 0)
+            {
+                Secretaries secretary = new Secretaries();
+
+                secretary.Name = "Secretaria Municipal de Administração";
+                secretary.Acronym = "SEMAD";
+                dataBase.Secretaries.Add(secretary);
+                dataBase.SaveChanges();
+            }
+
+            if (secretaryId == -1)
+            {
+                string secretary = secretaryId.ToString();
+
+                secretary = "SEMAD";
+            }
+        }*/
+
+        private static void CheckIfUserAdministratorExist(WebSisContext dataBase, int secretaryId)
         {
             // CheckIfUserAdministratorExist verifica através de uma pesquisa se existe um usuário administrador para que a sessão seja estabelecida de acordo com o nível do usuário. Caso não exista um usuário administrador criado, o método criará um usuário administrador padronizado para obter um acesso à sessão.
+
+            int secretaryFound = dataBase.Secretaries.Count();
+
+            if(secretaryFound == 0)
+            {
+                Secretaries secretary = new Secretaries();
+
+                secretary.Name = "Secretaria Municipal de Administração";
+                secretary.Acronym = "SEMAD";
+                dataBase.Secretaries.Add(secretary);
+                dataBase.SaveChanges();
+            }
+
+            IQueryable<Secretaries> getSecretaryId = dataBase.Secretaries.Where( u => u.Acronym == "SEMAD");
+
+            int IdsecretaryOfUser = getSecretaryId.Select(u => u.Id).FirstOrDefault();
+
+            if (secretaryId == -1)
+            {
+                secretaryId = IdsecretaryOfUser;
+
+                
+            }
 
             IQueryable<Users> userFound = dataBase.Users.Where(searchForUser => searchForUser.Type == 1); // Busca pelo identificador (Tipo) para verificar se existe um usuário administrador ou não;
 

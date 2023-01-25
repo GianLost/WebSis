@@ -4,10 +4,24 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace WebSis.Migrations
 {
-    public partial class CreateSisMigrations : Migration
+    public partial class v11 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "Secretarias",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    Name = table.Column<string>(maxLength: 80, nullable: false),
+                    Acronym = table.Column<string>(maxLength: 15, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Secretarias", x => x.Id);
+                });
+
             migrationBuilder.CreateTable(
                 name: "Usuarios",
                 columns: table => new
@@ -18,30 +32,16 @@ namespace WebSis.Migrations
                     Login = table.Column<string>(maxLength: 50, nullable: false),
                     Password = table.Column<string>(maxLength: 50, nullable: false),
                     CheckedPassword = table.Column<string>(maxLength: 50, nullable: false),
-                    Type = table.Column<int>(nullable: false)
+                    Type = table.Column<int>(nullable: false),
+                    SecretariesId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Usuarios", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Secretarias",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    Name = table.Column<string>(maxLength: 80, nullable: false),
-                    Acronym = table.Column<string>(maxLength: 15, nullable: false),
-                    UsersId = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Secretarias", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Secretarias_Usuarios_UsersId",
-                        column: x => x.UsersId,
-                        principalTable: "Usuarios",
+                        name: "FK_Usuarios_Secretarias_SecretariesId",
+                        column: x => x.SecretariesId,
+                        principalTable: "Secretarias",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -112,9 +112,9 @@ namespace WebSis.Migrations
                 column: "UsersId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Secretarias_UsersId",
-                table: "Secretarias",
-                column: "UsersId");
+                name: "IX_Usuarios_SecretariesId",
+                table: "Usuarios",
+                column: "SecretariesId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -123,10 +123,10 @@ namespace WebSis.Migrations
                 name: "Autorização de Viagem");
 
             migrationBuilder.DropTable(
-                name: "Secretarias");
+                name: "Usuarios");
 
             migrationBuilder.DropTable(
-                name: "Usuarios");
+                name: "Secretarias");
         }
     }
 }

@@ -10,7 +10,8 @@
 
     SecretariesService ss = new SecretariesService();
 
-    List<Secretaries> secretaryList = ss.SecretariesList();
+    ICollection<Secretaries> secretaryList = ss.SecretariesList().Where(u => u.Id ==
+           Context.Session.GetInt32("secretariesId")).ToList();
 
     TravelAuthorizations ta = new TravelAuthorizations();
 
@@ -22,7 +23,7 @@
 
 <body class="modules-container">
 
-    <div class="container">
+    <div class="container index-contai">
 
         <div class="col-lg-12 col-md-12 col-sm-12 module-user-access">
 
@@ -52,13 +53,13 @@
                         </div>
 
                         <select onchange="return getIndexSecretariesProp()" class="custom-select select-box"
-                            name="selectIndexSecretary" id="selectIndexSecretary" title="Selecionar Secretarias">
-                            <option selected>Selecione a secretaria...</option>
+                            name="selectIndexSecretary" id="selectIndexSecretary" title="Selecionar Secretarias"
+                            disabled>
                             @foreach (var item in secretaryList)
                             {
                                 if (item.Acronym != null)
                                 {
-                                    <option value="@item.Name">@item.Acronym</option>
+                                    <option selected value="@item.Name">@item.Acronym</option>
                                     <div class="dropdown-divider"></div>
 
                                 }
@@ -69,19 +70,19 @@
 
                 </div>
 
-                <!-- Input para cadastrar Secretarias -->
-
-
-                <button class="btn btn-md btn-outline-primary btn-user-register mt-3" type="button" data-toggle="modal"
-                    data-target="#registerSecretary-modal" title="Cadastrar Secretarias"><i
-                        class="bi bi-building-fill-add" title="Cadastrar Secretarias"></i> Cadastrar
-                    Secretarias</button>
-
-
-                <!-- / Input para cadastrar Secretarias -->
 
                 @if (Context.Session.GetInt32("type") == 1)
                 {
+                    <!-- Input para cadastrar Secretarias -->
+
+
+                    <button class="btn btn-md btn-outline-primary btn-user-register mt-3" type="button" data-toggle="modal"
+                    data-target="#registerSecretary-modal" title="Cadastrar Secretarias"><i
+                        class="bi bi-building-fill-add" title="Cadastrar Secretarias"></i> Cadastrar
+                        Secretarias</button>
+
+
+                    <!-- / Input para cadastrar Secretarias -->
 
                     <!-- Input para cadastrar Usuário -->
 
@@ -96,15 +97,17 @@
             </div>
 
             <div class="title-index">
-                <div class="image-header">
-                    <img class="img-fluid logo-index-register" src="../images/pmtm-logo.png" alt="Imagem Logo da tela de Login">
-                </div>
+
+                <img class="img-fluid logo-index-register" src="../images/pmtm-logo.png"
+                    alt="Imagem Logo da tela de Login">
 
                 <div class="register-index-header">
                     <h1>PREFEITURA MUNICIPAL DE TRÊS MARIAS</h1>
 
-                    <h2 id="elementEl" >@Context.Session.GetString("secretaryAcronym") - @Context.Session.GetString("secretaryName")</h2>
+                    <h2 id="elementEl">@Context.Session.GetString("secretaryAcronym") -
+                        @Context.Session.GetString("secretaryName")</h2>
                 </div>
+
             </div>
 
         </div>
@@ -338,7 +341,7 @@
                     <img class="img-fluid logo-register" src="../images/pmtm-logo.png"
                         alt="Imagem Logo da tela de Login">
 
-                    <div class="col-md-8 register-header">
+                    <div class="col-md-10 register-header">
                         <h1 class="">PREFEITURA MUNICIPAL DE TRÊS MARIAS</h1>
 
                         <h2 class="">SEMAD - SECRETARIA MUNICIPAL DE ADMINISTRAÇÃO</h2>
