@@ -47,7 +47,7 @@ namespace WebSis.Services
 
             if (q != null)
             {
-                query = query.OrderByDescending(u => u.CurrentDate);
+                query = query.OrderByDescending(u => u.Id);
             }
 
             return query.Skip(jump).Take(size).ToList();

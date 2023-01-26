@@ -59,7 +59,7 @@ namespace WebSis.Controllers
                 Authentication.CheckLogin(this); // utilizando a classe Authentication para verificar se a sessão está estabelecida.
                 Authentication.CheckIfUserIsAdministrator(this); // utilizando a classe Authentication para verificar o usuário na sessão corresponde à um usuário administrador.
 
-                int travelsPerPage = 8; // variável que atribui o valor de registros a serem mostrados por página
+                int travelsPerPage = 10; // variável que atribui o valor de registros a serem mostrados por página
 
                 TravelAuthorizationsService tas = new TravelAuthorizationsService(); // instância da classe de TravelAuthorizationsService 
 

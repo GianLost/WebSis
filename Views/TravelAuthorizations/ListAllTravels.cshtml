@@ -1,16 +1,15 @@
 @model ICollection<TravelAuthorizations>;
 @using Microsoft.AspNetCore.Http;
-@using WebSis.Services;
 @using WebSis.DataBase;
+@using WebSis.Services;
 
 @{
     ViewData["Title"] = "Listagem de todos os AV - Autorização de Viagem";
 
     TravelAuthorizationsService tas = new TravelAuthorizationsService();
+    /*WebSisContext dataBase = new WebSisContext();
 
-    WebSisContext database = new WebSisContext();
-
-    ICollection<TravelAuthorizations> travelsList = tas.ListAndOrderTravels().Where( ta => ta.SecretariesId == Context.Session.GetInt32("secretariesId")).ToList();
+    ICollection<TravelAuthorizations> travelsList = tas.ListAndOrderTravels().Where( ta => ta.SecretariesId == Context.Session.GetInt32("secretariesId")).ToList();*/
 }
 
 <div class="container-fluid container-userList">
@@ -42,6 +41,7 @@
 
                     <th>Nº</th>
                     <th>Data</th>
+                    <th>Secretaria</th>
                     <th>Nome</th>
                     <th>Data da Saída</th>
                     <th>Hora da Saída</th>
@@ -60,7 +60,7 @@
 
             <tbody>
 
-                @foreach (var item in travelsList)
+                @foreach (var item in Model)
                 {
 
                     <tr>
@@ -69,8 +69,10 @@
 
                         <td>@item.CurrentDate</td>
 
-                        <td>@item.ClientName</td>
+                        <td>@item.SecretaryName</td>
 
+                        <td>@item.ClientName</td>
+                        
                         <td>@item.DepartureDate.ToString("dd/MM/yyyy")</td>
 
                         <td>@item.DepartureTime</td>

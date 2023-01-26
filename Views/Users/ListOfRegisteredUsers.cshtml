@@ -1,7 +1,24 @@
 @model List<Users>;
+@using WebSis.Services;
+@using WebSis.DataBase;
 
 @{
     ViewData["Title"] = " Listagem de Secretarias Cadastrados";
+
+    SecretariesService ss = new SecretariesService();
+
+    WebSisContext dataBase = new WebSisContext();
+
+    /*Users u = new Users();
+
+    int secId = dataBase.Users.Select( u => u.SecretariesId).First();
+
+    ICollection<Secretaries> secretaryId = dataBase.Secretaries.Where( s => s.Id == secId).ToList();
+
+    string acronym = secretaryId.Select( s=> s.Acronym).First();*/
+    
+    
+
 }
 
 <div class="container-fluid container-userList">
@@ -32,6 +49,7 @@
                     <th>Login Name</th>
                     <th>Senha</th>
                     <th>Tipo</th>
+                    <th>Secretaria</th>
                     <th>Ações</th>
                 </tr>
             </thead>
@@ -40,6 +58,13 @@
 
                 @foreach (var item in Model)
                 {
+
+                    int secId = item.SecretariesId;
+
+                    ICollection<Secretaries> teste = dataBase.Secretaries.Where(s => s.Id == secId).ToList();
+
+                    string acronym = teste.Select( s => s.Acronym).FirstOrDefault();
+                        
 
                     <tr>
 
@@ -52,6 +77,8 @@
                         <td>@item.CheckedPassword</td>
 
                         <td>@item.Type</td>
+
+                        <td>@acronym</td>
 
                         <td>
 

@@ -37,7 +37,7 @@
   .table-TA tr > td:last-child {
     width: 0.5%;
     white-space: nowrap;
-    text-align: left;
+    text-align: center;
     margin-top: -20em;
   }
 
@@ -54,10 +54,12 @@
   .table-TA tr > th:nth-child(11),
   .table-TA tr > td:nth-child(11)
   .table-TA tr > th:nth-child(12),
-  .table-TA tr > th:nth-child(12) {
+  .table-TA tr > th:nth-child(12),
+  .table-TA tr > th:nth-child(13),
+  .table-TA tr > td:nth-child(13) {
     width: 1.5%;
     white-space: nowrap;
-    text-align: left;
+    text-align: center;
     margin-top: -20em;
   }
 

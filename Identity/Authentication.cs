@@ -37,7 +37,7 @@ namespace WebSis.Identity
 
             List<Secretaries> SecretaryFound = Secretary.ToList();
 
-            IQueryable<Users> userFound = dataBase.Users.Where(searchForUser => searchForUser.Login == login || searchForUser.Password == PasswordUser || searchForUser.SecretariesId == secretaryId); // Armazena no objeto userFound uma pesquisa que avalia se os dados de login e senha digitados são correspondentes aos que estão presentes no banco de dados;
+            IQueryable<Users> userFound = dataBase.Users.Where(searchForUser => searchForUser.Login == login || searchForUser.Password == PasswordUser); // Armazena no objeto userFound uma pesquisa que avalia se os dados de login e senha digitados são correspondentes aos que estão presentes no banco de dados;
 
             List<Users> foundUserList = userFound.ToList(); // Criando uma lista com os registros buscados para armazenar dados da sessão.
 

@@ -9,9 +9,10 @@
 
     TravelAuthorizationsService tas = new TravelAuthorizationsService();
 
-    WebSisContext database = new WebSisContext();
+    WebSisContext dataBase = new WebSisContext();
 
-    ICollection<TravelAuthorizations> travelsList = tas.ListAndOrderTravels().Where( ta => ta.SecretariesId == Context.Session.GetInt32("secretariesId")).ToList();
+    ICollection<TravelAuthorizations> travelsList = tas.ListAndOrderTravels().Where( ta => ta.UsersId == Context.Session.GetInt32("idUser")).ToList();
+
 }
 
 <div class="container-fluid container-TA">
@@ -27,6 +28,7 @@
 
                     <th>Nº</th>
                     <th>Data</th>
+                    <th>Secretaria</th>
                     <th>Nome</th>
                     <th>Data da Saída</th>
                     <th>Hora da Saída</th>
@@ -53,6 +55,8 @@
                         <td>@item.Id.ToString("D4")</td>
 
                         <td>@item.CurrentDate</td>
+
+                        <td>@item.SecretaryName</td>
 
                         <td>@item.ClientName</td>
 
