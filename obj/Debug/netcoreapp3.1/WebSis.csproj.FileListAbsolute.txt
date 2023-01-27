@@ -405,8 +405,6 @@ C:\Users\gianluca.vialli\Desktop\WebSis\bin\Debug\netcoreapp3.1\zh-Hant\Microsof
 C:\Users\gianluca.vialli\Desktop\WebSis\bin\Debug\netcoreapp3.1\runtimes\any\lib\netcoreapp3.0\FastReport.Compat.dll
 C:\Users\gianluca.vialli\Desktop\WebSis\bin\Debug\netcoreapp3.1\FastReport.Compat.dll
 C:\Users\gianluca.vialli\Desktop\WebSis\obj\Debug\netcoreapp3.1\WebSis.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\gianluca.vialli\Desktop\WebSis\obj\Debug\netcoreapp3.1\Razor\Views\TravelAuthorizations\ListOfTravelAuthorizations.cshtml.g.cs
-C:\Users\gianluca.vialli\Desktop\WebSis\obj\Debug\netcoreapp3.1\Razor\Views\TravelAuthorizations\RegisterTA.cshtml.g.cs
 G:\WebSis-PMTM\WebSis\obj\Debug\netcoreapp3.1\Razor\Views\Home\_ListOfTravelAuthorizations.cshtml.g.cs
 G:\WebSis-PMTM\WebSis\obj\Debug\netcoreapp3.1\Razor\Views\Home\_DeleteTA.cshtml.g.cs
 G:\WebSis-PMTM\WebSis\obj\Debug\netcoreapp3.1\Razor\Views\Home\_RegisterTA.cshtml.g.cs
@@ -882,3 +880,8 @@ C:\Users\Ufo\Desktop\WebSis-PMTM\obj\Debug\netcoreapp3.1\WebSis.csproj.CopyCompl
 C:\Users\Ufo\Desktop\WebSis-PMTM\obj\Debug\netcoreapp3.1\WebSis.dll
 C:\Users\Ufo\Desktop\WebSis-PMTM\obj\Debug\netcoreapp3.1\WebSis.pdb
 C:\Users\Ufo\Desktop\WebSis-PMTM\obj\Debug\netcoreapp3.1\WebSis.genruntimeconfig.cache
+C:\Users\gianluca.vialli\Desktop\WebSis\obj\Debug\netcoreapp3.1\Razor\Views\Home\_DeleteTA.cshtml.g.cs
+C:\Users\gianluca.vialli\Desktop\WebSis\obj\Debug\netcoreapp3.1\Razor\Views\Home\_ListOfTravelAuthorizations.cshtml.g.cs
+C:\Users\gianluca.vialli\Desktop\WebSis\obj\Debug\netcoreapp3.1\Razor\Views\Home\_RegisterTA.cshtml.g.cs
+C:\Users\gianluca.vialli\Desktop\WebSis\obj\Debug\netcoreapp3.1\Razor\Views\TravelAuthorizations\ListAllTravels.cshtml.g.cs
+C:\Users\gianluca.vialli\Desktop\WebSis\obj\Debug\netcoreapp3.1\Razor\Views\TravelAuthorizations\_DeleteTA.cshtml.g.cs

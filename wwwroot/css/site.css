@@ -7,14 +7,17 @@ for details on configuring this project to bundle and minify static web assets. 
 }
 
 .alert-modules {
+  width: 44em;
+  height: 19em;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   align-content: center;
   text-align: center;
-  margin-top: 9%;
-  margin-left: -1.5%;
+  margin-top: 3%;
+  margin-left: 1.5%;
+
 }
 
 .alert-modules p{

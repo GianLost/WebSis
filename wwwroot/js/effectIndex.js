@@ -1,5 +1,5 @@
 
-/*function WriterText(el) {
+function WriterText(el) {
     const textArray = el.innerHTML.split("");
     el.innerHTML = "";
 
@@ -10,4 +10,4 @@
     setInterval(() => WriterText(el), 10000);
 }
 
-WriterText(elementEl);*/
+WriterText(elementEl);

@@ -55,6 +55,7 @@ namespace WebSis.Services
             u.Password = Cryptography.EncryptedText(editedUser.Password);
             u.CheckedPassword = Cryptography.EncryptedText(editedUser.CheckedPassword);
             u.Type = editedUser.Type;
+            u.SecretariesId = editedUser.SecretariesId;
             dataBase.SaveChanges();
         }
 

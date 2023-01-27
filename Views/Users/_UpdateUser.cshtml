@@ -1,58 +1,69 @@
 @model Users
 @using WebSis.Models;
+@using WebSis.Services;
 
 @{
     ViewData["Title"] = "Edição de Usuário";
+
+    SecretariesService ss = new SecretariesService();
+
+    List<Secretaries> secretaryList = ss.SecretariesList();
 }
 
 <div class="p-2">
 
-    <form method="post" asp-action="UpdateUser" asp-controller="Users" class="user-form">
+    <form method="post" asp-action="UpdateUser" asp-controller="Users"
+        class="user-form">
 
-        <input id="userId" type="hidden" asp-for="@Model.Id">
-
-        <h3 class="text-center mt-3 mb-4">Editar dados de Usuário</h3>
-
-        <span id="upMsg"></span>
+        <h3 class="text-center mt-0 mb-5">Editar dados de Usuário</h3>
 
         <div class="row">
 
+            <input id="userId" type="hidden" asp-for="@Model.Id">
+
+
             <div class="col-md-6 mb-3">
 
-                <input placeholder="Nome completo" id="upName" asp-for="@Model.Name" type="text" class="form-control"
+                <input placeholder="Nome completo" id="upName"
+                    asp-for="@Model.Name" type="text" class="form-control"
                     required>
 
             </div>
 
             <div class="col-md-6 mb-3">
 
-                <input placeholder="Nome de acesso" id="upLogin" asp-for="@Model.Login" type="text" class="form-control"
+                <input placeholder="Nome de acesso" id="upLogin"
+                    asp-for="@Model.Login" type="text" class="form-control"
                     required>
 
             </div>
 
             <div class="col-md-6 mb-3">
 
-                <input placeholder="Crie uma senha" id="upPassword" asp-for="@Model.Password" type="password"
+                <input placeholder="Crie uma senha" minlength="8" id="upPassword"
+                    asp-for="@Model.Password" type="password"
                     class="form-control" required>
 
             </div>
 
             <div class="col-md-6 mb-3">
 
-                <input placeholder="Confirme a Senha" id="upCheckedPassword" asp-for="@Model.CheckedPassword"
+                <input placeholder="Confirme a Senha" minlength="8" id="upCheckedPassword"
+                    asp-for="@Model.CheckedPassword"
                     type="password" class="form-control" required>
 
             </div>
 
             <div class="col-md-12 mb-4">
 
-                <select class="custom-select dropdown-select d-block w-100" asp-for="@Model.Type" required>
+                <select class="custom-select dropdown-select d-block w-100"
+                    asp-for="@Model.Type" required>
 
                     <option value="">Nível de acesso do usuário ...</option>
-
-                    <option asp-for="@Users.ADMIN" for="ADMIN" value="@Users.ADMIN">Administrador</option>
-                    <option asp-for="@Users.PADRAO" for="PADRAO" value="@Users.PADRAO">Comum</option>
+                    <option asp-for="@Users.ADMIN" for="ADMIN"
+                        value="@Users.ADMIN">Administrador</option>
+                    <option asp-for="@Users.PADRAO" for="PADRAO"
+                        value="@Users.PADRAO">Comum</option>
 
                 </select>
 
@@ -62,15 +73,41 @@
 
             </div>
 
+            <div class="input-group input-group-md col-md-12 mb-4">
+
+                <div class="input-group-prepend">
+                    <label class="input-group-text"><i class="bi
+                            bi-building-fill-check"
+                            title="Selecionar Secretarias"></i></label>
+                </div>
+
+                <select asp-for="@Model.SecretariesId" id="seclectUserRegister"
+                    class="custom-select seclectUserRegister" title="Selecionar
+                    Secretarias">
+                    <option value="-1">Selecione a secretaria...</option>
+                    @foreach (var item in secretaryList)
+                    {
+                        if (item.Acronym != null)
+                        {
+                            <option value="@item.Id">@item.Acronym</option>
+                            <div class="dropdown-divider"></div>
+                        }
+                    }
+                </select>
+
+            </div>
+
         </div>
 
-        <div class="modal-footer p-2">
+        <div class="mt-2">
 
-            <a asp-action="ListOfRegisteredUsers" style="font-size: 20px;" class="btn btn-md btn-outline-secondary"
+            <button class="btn btn-md btn-outline-primary" style="font-size:
+                20px;" type="submit" id="btnUpdate"
+                title="Editar usuário"><i class="bi bi-pencil"></i> </button>
+
+            <a asp-action="ListOfRegisteredUsers" style="font-size: 20px;"
+                class="btn btn-md btn-outline-secondary"
                 title="Cancelar"><i class="bi bi-arrow-return-left"></i> </a>
-
-            <button class="btn btn-md btn-outline-primary" style="font-size: 20px;" type="submit" id="btnUpdate"
-                title="Editar"><i class="bi bi-pencil"></i> </button>
 
         </div>
 

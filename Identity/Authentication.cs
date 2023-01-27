@@ -31,15 +31,17 @@ namespace WebSis.Identity
 
             CheckIfUserAdministratorExist(dataBase, secretaryId); // Chamada do método que verifica se existe um usuário administrador e que se caso não existir cria um novo;
 
+            IQueryable<Users> searchUser = dataBase.Users.Where(u => u.Login == login || u.Password == password);
+
             string PasswordUser = Cryptography.EncryptedText(password); // Transforma em Hash MD5 a string digitada no campo de senha no momento do login;
 
             IQueryable<Secretaries> Secretary = dataBase.Secretaries.Where(s => s.Id == secretaryId);
 
             List<Secretaries> SecretaryFound = Secretary.ToList();
 
-            IQueryable<Users> userFound = dataBase.Users.Where(searchForUser => searchForUser.Login == login || searchForUser.Password == PasswordUser); // Armazena no objeto userFound uma pesquisa que avalia se os dados de login e senha digitados são correspondentes aos que estão presentes no banco de dados;
+            //IQueryable<Users> userFound = dataBase.Users.Where(searchForUser => searchForUser.Login == LoginUser || searchForUser.Password == PasswordUser); // Armazena no objeto userFound uma pesquisa que avalia se os dados de login e senha digitados são correspondentes aos que estão presentes no banco de dados;
 
-            List<Users> foundUserList = userFound.ToList(); // Criando uma lista com os registros buscados para armazenar dados da sessão.
+            List<Users> foundUserList = searchUser.ToList(); // Criando uma lista com os registros buscados para armazenar dados da sessão.
 
             if (foundUserList.Count == 0) // Estrutura de verificação que irá verificar a contagem de registros presente na lista de usuários encontrados.
             {

@@ -18,6 +18,10 @@
     TravelAuthorizationsService tas = new TravelAuthorizationsService();
 
     List<TravelAuthorizations> travelList = tas.ListTravels();
+    
+    string userSession = Context.Session.GetString("login");
+
+    string secretarySession = Context.Session.GetString("secretaryAcronym");
 
 }
 
@@ -36,8 +40,7 @@
                         <i class="bi bi-person-fill input-group-text"></i>
                     </div>
 
-                    <input class="form-control text-justify"
-                        placeholder='Bem Vindo, @Context.Session.GetString("login") !' readonly>
+                    <input style="cursor: pointer;" class="form-control text-justify" title="Usuário logado na sessão: @userSession" placeholder='Bem Vindo, @Context.Session.GetString("login") !' readonly>
 
                 </div>
 
@@ -53,13 +56,13 @@
                         </div>
 
                         <select onchange="return getIndexSecretariesProp()" class="custom-select select-box"
-                            name="selectIndexSecretary" id="selectIndexSecretary" title="Selecionar Secretarias"
+                            name="selectIndexSecretary" id="selectIndexSecretary" title="Sua secretaria: @secretarySession"
                             disabled>
                             @foreach (var item in secretaryList)
                             {
                                 if (item.Acronym != null)
                                 {
-                                    <option value="@item.Name" selected>@item.Acronym - @item.Name</option>
+                                    <option value="@item.Name" selected>@item.Name</option>
                                     <div class="dropdown-divider"></div>
 
                                 }
@@ -219,7 +222,7 @@
 
                 </div>
 
-                <div class="alert alert-danger w-100 h-50 col-md-12 alert-modules">
+                <div class="alert alert-danger alert-modules">
                     <h2>O Módulo RD - Relatório de despesas está em desenvolvimento !</h2>
                     <p>Em breve você terá acesso ao módulo...</p>
                 </div>
@@ -253,7 +256,7 @@
 
                 </div>
 
-                <div class="alert alert-danger w-100 h-50 col-md-12 alert-modules">
+                <div class="alert alert-danger alert-modules">
                     <h2>O Módulo SA - Solicitação de adiantamento está em desenvolvimento !</h2>
                     <p>Em breve você terá acesso ao módulo...</p>
                 </div>
@@ -287,7 +290,7 @@
 
                 </div>
 
-                <div class="alert alert-danger w-100 h-50 col-md-12 alert-modules">
+                <div class="alert alert-danger alert-modules">
                     <h2>O Módulo RV - Relatório de Viagem está em desenvolvimento !</h2>
                     <p>Em breve você terá acesso ao módulo...</p>
                 </div>
@@ -328,9 +331,7 @@
                 </div>
 
                 <div class="modal-body p-0">
-
-                    <partial name="_RegisterUser" id="registerUserMod" model="@Model" />
-
+                    @await Html.PartialAsync("_RegisterUser.cshtml", @Model)
                 </div>
 
             </div>
@@ -395,7 +396,7 @@
                     <img class="img-fluid logo-register" src="../images/pmtm-logo.png"
                         alt="Imagem Logo da tela de Login">
 
-                    <div class="col-md-10 register-header">
+                    <div class="col-md-8 register-header">
                         <h1 class="">PREFEITURA MUNICIPAL DE TRÊS MARIAS</h1>
 
                         <h2 class="">SEMAD - SECRETARIA MUNICIPAL DE ADMINISTRAÇÃO</h2>
@@ -411,9 +412,7 @@
                 </div>
 
                 <div class="modal-body p-0">
-
-                    <partial id="_RegisterTA" name="_RegisterTA" model="@ta" />
-
+                    @await Html.PartialAsync("_RegisterTA.cshtml", @ta)
                 </div>
 
             </div>

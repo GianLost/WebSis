@@ -49,11 +49,11 @@ namespace WebSis.Controllers
 
                 IQueryable<Users> userFound = db.Users.Where(u => u.Login == login || u.Password == password);
 
-                int secretaryOfUser = userFound.Select(u => u.SecretariesId).FirstOrDefault();
+                int secretaryOfUser = userFound.Select(u => u.SecretariesId).First();
 
                 string LoginUser = userFound.Select(u => u.Login).FirstOrDefault();
 
-                string PasswordUser = userFound.Select(u => u.Password).FirstOrDefault();
+                string PasswordUser = userFound.Select(u => u.Password).First();
 
                 string EncryptedPassword = Cryptography.EncryptedText(password);
 
