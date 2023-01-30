@@ -42,7 +42,7 @@
                         <i class="bi bi-person-fill input-group-text"></i>
                     </div>
 
-                    <input style="cursor: pointer;" class="form-control text-justify" title="Usuário logado na sessão : @userSession" placeholder='Bem Vindo, @Context.Session.GetString("login") !' readonly>
+                    <input style="cursor: pointer;" class="form-control text-justify" title="Usuário logado : @userSession" placeholder='Bem Vindo, @Context.Session.GetString("login") !' readonly>
 
                 </div>
 
@@ -109,7 +109,7 @@
                 <div class="register-index-header">
                     <h1>PREFEITURA MUNICIPAL DE TRÊS MARIAS</h1>
 
-                    <h2 id="elementEl">@Context.Session.GetString("secretaryAcronym") -
+                    <h2>@Context.Session.GetString("secretaryAcronym") -
                         @Context.Session.GetString("secretaryName")</h2>
                 </div>
 
@@ -123,7 +123,7 @@
 
                 <div class="col-md-12">
 
-                    <a class="btn-module av-btn" data-element="#av-module" href="" title="Autorização de Viagem">
+                    <a class="btn-module av-btn" onclick=" return ShowModules('av-module')" href="#" title="Autorização de Viagem">
 
                         <i class="bi bi-bus-front" title="Autorização de Viagem"></i>
                         <span> AV - Autorização de Viagem </span>
@@ -132,7 +132,7 @@
 
                     <hr class="module-hr">
 
-                    <a class="btn-module rd-btn" data-element="#rd-module" href="" title="Relatório de Despesas">
+                    <a class="btn-module rd-btn" onclick="return ShowModules('rd-module')" href="#" title="Relatório de Despesas">
 
                         <i class="bi bi-coin" title="Relatório de Despesas"></i>
                         <span> RD - Relatório de Despesas </span>
@@ -141,7 +141,7 @@
 
                     <hr class="module-hr">
 
-                    <a class="btn-module sa-btn" data-element="#sa-module" href="" title="Solicitação de Adiantamento">
+                    <a class="btn-module sa-btn" onclick="return ShowModules('sa-module')" href="#" title="Solicitação de Adiantamento">
 
                         <i class="bi bi-bank2" title="Solicitação de Adiantamento"></i>
                         <span> SA - Solicitação de Adiantamento </span>
@@ -150,7 +150,7 @@
 
                     <hr class="module-hr">
 
-                    <a class="btn-module rv-btn" data-element="#rv-module" href="" title="Relatório de Viagem">
+                    <a class="btn-module rv-btn" onclick="return ShowModules('rv-module')" href="#" title="Relatório de Viagem">
 
                         <i class="bi bi-clipboard2-pulse-fill" title="Relatório de Viagem"></i>
                         <span> RV - Relatório de Viagem</span>
@@ -161,7 +161,7 @@
 
             </div>
 
-            <div id="av-module" class="av-module">
+            <div id="av-module" class="av-module hidden">
 
                 <div class="col-md-12 mt-3">
 
@@ -196,7 +196,7 @@
 
             </div>
 
-            <div id="rd-module" class="col-lg-8 col-md-8 col-sm-12 rd-module">
+            <div id="rd-module" class="rd-module hidden">
 
                 <div class="col-md-12 mt-3">
 
@@ -231,7 +231,7 @@
 
             </div>
 
-            <div id="sa-module" class="col-lg-8 col-md-8 col-sm-12 sa-module">
+            <div id="sa-module" class="sa-module hidden">
 
                 <div class="col-md-12 mt-3">
 
@@ -265,7 +265,7 @@
 
             </div>
 
-            <div id="rv-module" class="col-lg-8 col-md-8 col-sm-12 rv-module">
+            <div id="rv-module" class="rv-module hidden">
 
                 <div class="col-md-12 mt-3">
 

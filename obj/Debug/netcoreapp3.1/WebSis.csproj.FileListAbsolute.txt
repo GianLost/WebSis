@@ -945,3 +945,4 @@ C:\Users\Ufo\Desktop\WebSis\obj\Debug\netcoreapp3.1\Razor\Views\Secretaries\_Upg
 C:\Users\Ufo\Desktop\WebSis\obj\Debug\netcoreapp3.1\Razor\Views\TravelAuthorizations\ListAllTravels.cshtml.g.cs
 C:\Users\Ufo\Desktop\WebSis\obj\Debug\netcoreapp3.1\Razor\Views\TravelAuthorizations\_DeleteTA.cshtml.g.cs
 C:\Users\Ufo\Desktop\WebSis\obj\Debug\netcoreapp3.1\Razor\Views\TravelAuthorizations\ListTAPerSecretary.cshtml.g.cs
+C:\Users\gianluca.vialli\Desktop\WebSis\obj\Debug\netcoreapp3.1\Razor\Views\TravelAuthorizations\ListTAPerSecretary.cshtml.g.cs
