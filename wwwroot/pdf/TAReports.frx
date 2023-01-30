@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Report ScriptLanguage="CSharp" ReportInfo.Created="01/13/2023 10:05:16" ReportInfo.Modified="01/21/2023 15:30:52" ReportInfo.CreatorVersion="2023.1.0.0">
+<Report ScriptLanguage="CSharp" ReportInfo.Created="01/13/2023 10:05:16" ReportInfo.Modified="01/30/2023 17:26:22" ReportInfo.CreatorVersion="2023.1.0.0">
   <Dictionary>
     <BusinessObjectDataSource Name="travelsList" ReferenceName="travelsList" DataType="null" Enabled="true">
       <Column Name="Id" DataType="System.Int32"/>
@@ -119,7 +119,7 @@
       <LineObject Name="Line19" Top="207.9" Width="340.2"/>
       <TextObject Name="Text42" Left="170.1" Top="236.25" Width="94.5" Height="28.35" Text="[travelsList.ArrivalDate]" Format="Date" Format.Format="dd/MM/yyyy" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 9pt"/>
       <TextObject Name="Text43" Left="264.6" Top="236.25" Width="75.6" Height="28.35" Text="[travelsList.ArrivalTime]" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 9pt"/>
-      <TextObject Name="Text44" Left="340.2" Top="236.25" Width="160.65" Height="28.35" Text="[travelsList.Accountability]" Format="Date" Format.Format="dd/MM/yyyy" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text44" Left="340.2" Top="236.25" Width="160.65" Height="28.35" Text="[travelsList.Accountability]" Format="Date" Format.Format="d" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 9pt"/>
       <TextObject Name="Text45" Left="500.85" Top="236.25" Width="103.95" Height="28.35" Text="[travelsList.OneWayTickets]" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt"/>
       <TextObject Name="Text46" Left="604.8" Top="236.25" Width="113.4" Height="28.35" Text="[travelsList.ReturnTickets]" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt"/>
       <ShapeObject Name="Shape6" Top="274.05" Width="718.2" Height="56.7"/>

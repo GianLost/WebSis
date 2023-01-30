@@ -138,3 +138,4 @@ System.IO.IOException: Failed to bind to address https://127.0.0.1:5001: address
    at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
    at Microsoft.Extensions.Hosting.Internal.Host.StartAsync(CancellationToken cancellationToken)
    at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.RunAsync(IHost host, CancellationToken token)
+2023-01-30T17:47:21.0950839-03:00 0HMO307K3RSPB:0000000C [ERR] Erro ao Excluir AV !Value cannot be null. (Parameter 'entity') (ea6bad3e)

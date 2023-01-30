@@ -5,6 +5,7 @@ function RegisterUserForm() {
     Password: $("#password").val(),
     CheckedPassword: $("#checkedPassword").val(),
     Type: $("#type").val(),
+    SecretariesId: $("#seclectUserRegister").val(),
   };
   $.post("/Users/RegisterUser", properties)
 
@@ -87,6 +88,14 @@ function FormValidate() {
     );
 
     $("#type").focus();
+    return false;
+
+  }else if (document.formUser.seclectUserRegister.options[seclectUserRegister.selectedIndex].value == -1) {
+    $("#msg").html(
+      '<div class="alert alert-danger"> Selecione uma Secretaria! </div>'
+    );
+
+    $("#seclectUserRegister").focus();
     return false;
 
   } else {

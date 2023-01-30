@@ -23,46 +23,59 @@
     width: 100%;
   }
   
-  .table-TA tr > th:first-child,
   .table-TA tr > td:first-child,
-  .table-TA tr > th:nth-child(4),
   .table-TA tr > td:nth-child(4),
-  .table-TA tr > th:nth-child(6),
   .table-TA tr > td:nth-child(6),
-  .table-TA tr > th:nth-child(8),
   .table-TA tr > td:nth-child(8),
-  .table-TA tr > th:nth-child(10),
   .table-TA tr > td:nth-child(10),
-  .table-TA tr > th:last-child,
   .table-TA tr > td:last-child {
     width: 0.5%;
     white-space: nowrap;
-    text-align: left;
     margin-top: -20em;
+    text-align: left;
   }
 
-  .table-TA tr > th:nth-child(2),
   .table-TA tr > td:nth-child(2),
-  .table-TA tr > th:nth-child(3),
   .table-TA tr > td:nth-child(3),
-  .table-TA tr > th:nth-child(5),
   .table-TA tr > td:nth-child(5),
-  .table-TA tr > th:nth-child(7),
   .table-TA tr > td:nth-child(7),
-  .table-TA tr > th:nth-child(9),
   .table-TA tr > td:nth-child(9),
-  .table-TA tr > th:nth-child(11),
-  .table-TA tr > td:nth-child(11)
-  .table-TA tr > th:nth-child(12),
-  .table-TA tr > th:nth-child(12) {
+  .table-TA tr > td:nth-child(11),
+  .table-TA tr > td:nth-child(13) {
     width: 1.5%;
     white-space: nowrap;
-    text-align: left;
     margin-top: -20em;
+    text-align: left;
   }
 
   .table-TA tr:hover {
     cursor: pointer;
+  }
+
+  .table-TA tr > th:nth-child(2),
+  .table-TA tr > th:nth-child(3),
+  .table-TA tr > th:nth-child(5),
+  .table-TA tr > th:nth-child(7),
+  .table-TA tr > th:nth-child(9),
+  .table-TA tr > th:nth-child(11),
+  .table-TA tr > th:nth-child(12),
+  .table-TA tr > th:nth-child(13) {
+    width: 1.5%;
+    white-space: nowrap;
+    margin-top: -20em;
+    text-align: center;
+  }
+
+  .table-TA tr > th:first-child,
+  .table-TA tr > th:nth-child(4),
+  .table-TA tr > th:nth-child(6),
+  .table-TA tr > th:nth-child(8),
+  .table-TA tr > th:nth-child(10),
+  .table-TA tr > th:last-child {
+    width: 0.5%;
+    white-space: nowrap;
+    margin-top: -20em;
+    text-align: center;
   }
 
   .search-box {
@@ -84,6 +97,10 @@
 
   .btn-searchUser {
     margin-left: 5px;
+  }
+
+  .alert-TA {
+    margin-top: -25%;
   }
   
   @media (max-width: 1200px) {

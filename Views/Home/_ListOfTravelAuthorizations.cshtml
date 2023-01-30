@@ -7,9 +7,17 @@
 @{
     ViewData["Title"] = " Listagem das Autorização de Viagem";
 
+     WebSisContext dataBase = new WebSisContext();
+
     TravelAuthorizationsService tas = new TravelAuthorizationsService();
 
     ICollection<TravelAuthorizations> travelsList = tas.ListAndOrderTravels().Where( ta => ta.UsersId == Context.Session.GetInt32("idUser")).ToList(); // faz uma pesquisa nos registros de AV para retornar ao usuário apenas os AV cadastrados por ele.
+
+    var userId = Context.Session.GetInt32("idUser");
+
+    var countTA = dataBase.TravelAuthorizations.Where( ta => ta.UsersId == userId).Count(); // Retorna a contagem de registros de AV cadastrados pelo usuário que está logado.
+
+    var next = countTA + 1;
 
 }
 
@@ -49,7 +57,7 @@
                 {
 
                     <tr>
-
+                        
                         <td>@item.Id.ToString("D4")</td>
 
                         <td>@item.CurrentDate</td>

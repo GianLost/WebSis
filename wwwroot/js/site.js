@@ -71,7 +71,7 @@ function Calc() {
     document.getElementById('date3').value = "dd/mm/aaaa";
     return false;
   } else {
-    let date = new Date(date2);
+    let date = new Date(date2.toLocaleDateString('pt-BR'));
 
     date.addDays(15);
 

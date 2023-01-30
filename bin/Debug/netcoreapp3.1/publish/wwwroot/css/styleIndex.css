@@ -1,13 +1,22 @@
 :root {
   --greyPrimary: #d9d9d9;
   --blackPrimary: #000;
+  --bluePrimary: #007bff;
   --greySecondary: rgba(255, 255, 255, 0.645);
   --whitePrimary: #fff;
   --shadowPrimary: rgba(0, 0, 0, 0.534) 5px 5px 10px;
 }
 
+.hidden {
+  display: none;
+}
+
 .index-select {
   width: 89%;
+}
+
+.modules-container {
+  width: 100%;
 }
 
 .index-header {
@@ -19,8 +28,9 @@
 }
 
 .logo-index-register {
-  width: 8em;
-  height: 5em;
+  width: 10em;
+  height: 6em;
+  margin-left: -10%;
 }
 
 .av-secretaryName {
@@ -62,11 +72,10 @@
 }
 
 .av-module {
-  /*border: 2px solid var(--blackPrimary);*/
-  display: none;
+
   background: var(--greyPrimary);
   padding: 0%;
-  height: 32.58rem;
+  height: 32.54rem;
   width: 65%;
 }
 
@@ -79,28 +88,27 @@
 .list-TA {
   height: 76%;
   padding: 0%;
-
 }
 
 .rd-module {
-  /*border: 2px solid var(--blackPrimary);*/
-  display: none;
-  background-color: var(--greyPrimary);
-  margin-bottom: 10%;
+  background: var(--greyPrimary);
+  padding: 0%;
+  height: 32.54rem;
+  width: 65%
 }
 
 .sa-module {
-  /*border: 2px solid var(--blackPrimary);*/
-  display: none;
-  background-color: var(--greyPrimary);
-  margin-bottom: 10%;
+  background: var(--greyPrimary);
+  padding: 0%;
+  height: 32.54rem;
+  width: 65%
 }
 
 .rv-module {
-  /*border: 2px solid var(--blackPrimary);*/
-  display: none;
-  background-color: var(--greyPrimary);
-  margin-bottom: 10%;
+  background: var(--greyPrimary);
+  padding: 0%;
+  height: 32.54rem;
+  width: 65%
 }
 
 .modules {
@@ -142,6 +150,7 @@
   font-weight: bold;
   padding: 0%;
   border-radius: 5px;
+  color: var(--bluePrimary);
 }
 
 .btn-module i {
@@ -180,8 +189,9 @@
 .title-index {
   display: flex;
   width: 50em;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
+  padding: 0%;
 }
 
 .register-index-header {
@@ -190,16 +200,17 @@
   justify-content: space-around;
   align-items: center;
   align-content: center;
+  margin-left: -3%;
+  padding: 0%;
 }
 
 .register-index-header h1 {
-  font-size: 25px;
+  font-size: 1.7em;
 }
 
 .register-index-header h2 {
   text-align: center;
-
-  font-size: 20px;
+  font-size: 1.3em;
 }
 
 .secre-row {
@@ -221,6 +232,10 @@
   content: '|';
   margin-left: 5px;
   animation: blink 0.9s infinite;
+}
+
+.index-contai {
+ margin-top: 5%;
 }
 
 @keyframes blink {
