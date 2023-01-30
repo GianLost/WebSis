@@ -2,6 +2,7 @@
 @using Microsoft.AspNetCore.Http;
 @using WebSis.Models;
 @using WebSis.Services;
+@using WebSis.DataBase;
 
 @{
     ViewData["Title"] = "AV - Autorização de Viagem";
@@ -10,14 +11,17 @@
 
     SecretariesService ss = new SecretariesService();
 
-    List<Secretaries> secretaryList = ss.SecretariesList().Where(u => u.Id ==
-    Context.Session.GetInt32("secretariesId")).ToList();
+    WebSisContext dataBase = new WebSisContext();
 
-    TravelAuthorizationsService tas = new TravelAuthorizationsService();
+    var secretaryId = Context.Session.GetInt32("secretariesId");
 
-    var cont = tas.CountRegister();
+    var userId = Context.Session.GetInt32("idUser");
 
-    var next = cont + 1;
+    List<Secretaries> secretaryList = ss.SecretariesList().Where(u => u.Id == secretaryId).ToList(); // Listagem de secretarias que são idênticas a secretaria do usuário que está logado.
+
+    var countTA = dataBase.TravelAuthorizations.Where( ta => ta.UsersId == userId).Count(); // Retorna a contagem de registros de AV cadastrados pelo usuário que está logado.
+
+    var next = countTA + 1;
 }
 
 <body class="text-center">

@@ -9,9 +9,7 @@
 
     TravelAuthorizationsService tas = new TravelAuthorizationsService();
 
-    WebSisContext dataBase = new WebSisContext();
-
-    ICollection<TravelAuthorizations> travelsList = tas.ListAndOrderTravels().Where( ta => ta.UsersId == Context.Session.GetInt32("idUser")).ToList();
+    ICollection<TravelAuthorizations> travelsList = tas.ListAndOrderTravels().Where( ta => ta.UsersId == Context.Session.GetInt32("idUser")).ToList(); // faz uma pesquisa nos registros de AV para retornar ao usuário apenas os AV cadastrados por ele.
 
 }
 

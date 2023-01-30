@@ -1,6 +1,7 @@
 :root {
   --greyPrimary: #d9d9d9;
   --blackPrimary: #000;
+  --bluePrimary: #007bff;
   --greySecondary: rgba(255, 255, 255, 0.645);
   --whitePrimary: #fff;
   --shadowPrimary: rgba(0, 0, 0, 0.534) 5px 5px 10px;
@@ -149,6 +150,7 @@
   font-weight: bold;
   padding: 0%;
   border-radius: 5px;
+  color: var(--bluePrimary);
 }
 
 .btn-module i {
