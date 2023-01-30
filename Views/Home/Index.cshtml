@@ -1,4 +1,4 @@
-﻿@model Users;
+﻿@model TravelAuthorizations;
 @using WebSis.Models;
 @using WebSis.Services;
 @using Microsoft.AspNetCore.Http;
@@ -7,6 +7,8 @@
     ViewData["Title"] = "Módulos";
 
     Secretaries secretary = new Secretaries();
+
+    Users u = new Users();
 
     SecretariesService ss = new SecretariesService();
 
@@ -40,7 +42,7 @@
                         <i class="bi bi-person-fill input-group-text"></i>
                     </div>
 
-                    <input style="cursor: pointer;" class="form-control text-justify" title="Usuário logado na sessão: @userSession" placeholder='Bem Vindo, @Context.Session.GetString("login") !' readonly>
+                    <input style="cursor: pointer;" class="form-control text-justify" title="Usuário logado na sessão : @userSession" placeholder='Bem Vindo, @Context.Session.GetString("login") !' readonly>
 
                 </div>
 
@@ -56,7 +58,7 @@
                         </div>
 
                         <select onchange="return getIndexSecretariesProp()" class="custom-select select-box"
-                            name="selectIndexSecretary" id="selectIndexSecretary" title="Sua secretaria: @secretarySession"
+                            name="selectIndexSecretary" id="selectIndexSecretary" title="Sua secretaria : @secretarySession"
                             disabled>
                             @foreach (var item in secretaryList)
                             {
@@ -331,7 +333,7 @@
                 </div>
 
                 <div class="modal-body p-0">
-                    @await Html.PartialAsync("_RegisterUser.cshtml", @Model)
+                    @await Html.PartialAsync("_RegisterUser.cshtml", @u)
                 </div>
 
             </div>
@@ -412,7 +414,7 @@
                 </div>
 
                 <div class="modal-body p-0">
-                    @await Html.PartialAsync("_RegisterTA.cshtml", @ta)
+                    @await Html.PartialAsync("_RegisterTA.cshtml", @Model)
                 </div>
 
             </div>

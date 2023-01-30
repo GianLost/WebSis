@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using FastReport.Export.PdfSimple;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using WebSis.Identity;
@@ -73,6 +75,38 @@ namespace WebSis.Controllers
                 ViewData["pageQuantity"] = (int)Math.Ceiling((double)registersQuantity / travelsPerPage);
 
                 ICollection<TravelAuthorizations> travelList = tas.ListAllTA(q, pages, travelsPerPage); // coleção de autorização de viagem que chama pelo método ListAllTA de TravelAuthorizationsService e recebe como parâmetros a string de pesquisa, a quantidade de páginas e a quantidade de secretarias por página e atribui seus valores ao objeto criado.
+
+                return View(travelList); // retorna a view carregada com o objeto da coleção travelList.
+            }
+            catch (Exception e)
+            {
+                _logger.LogError("Erro ao Listar Usuários cadastrados!" + e.Message);
+                return RedirectToAction("Login", "Home");
+            }
+        }
+
+         public IActionResult ListTAPerSecretary(string q, int pages = 1) /*Only ADMIN*/
+        {
+            // Retorna a view de TA cadastrados em uma tabela com todos os registros inseridos na tabela de TA e recebe dois parâmetros que serão responsáveis pela busca filtrada das TA através campo de busca que se encontra na view de listagem e um iniciador para a paginação dos registros cadastrados que criará os links para navegação entre as páginas de registros.
+
+            try
+            {
+                Authentication.CheckLogin(this); // utilizando a classe Authentication para verificar se a sessão está estabelecida.
+
+                int travelsPerPage = 10; // variável que atribui o valor de registros a serem mostrados por página
+
+                TravelAuthorizationsService tas = new TravelAuthorizationsService(); // instância da classe de TravelAuthorizationsService 
+
+                if (q == null) // verfica se o parâmetro de busca possui valor nulo.
+                {
+                    q = string.Empty; // se a verificação retornar true, o parâmetro será atribuido como um string.Empty ou seja, um campo vazio apto a receber strings.
+                } 
+
+                int registersQuantity = tas.CountRegister(); // chamada do método CountRegister de TravelAuthorizationsService que retorna o número de registros presentes na tabela de TA e atribui o valor à variável secretariesQuantity.
+
+                ViewData["pageQuantity"] = (int)Math.Ceiling((double)registersQuantity / travelsPerPage);
+
+                ICollection<TravelAuthorizations> travelList = tas.ListAllTA(q, pages, travelsPerPage).Where(ta => ta.SecretariesId == HttpContext.Session.GetInt32("secretariesId")).ToList(); // coleção de autorização de viagem que chama pelo método ListAllTA de TravelAuthorizationsService e recebe como parâmetros a string de pesquisa, a quantidade de páginas e a quantidade de secretarias por página e atribui seus valores ao objeto criado.
 
                 return View(travelList); // retorna a view carregada com o objeto da coleção travelList.
             }

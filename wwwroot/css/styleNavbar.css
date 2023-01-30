@@ -1,3 +1,12 @@
+:root {
+  --greyPrimary: #d9d9d9;
+  --blackPrimary: #000;
+  --greySecondary: rgba(255, 255, 255, 0.645);
+  --whitePrimary: #fff;
+  --shadowPrimary: rgba(0, 0, 0, 0.534) 5px 5px 10px;
+  --shadowSecondary: rgba(255, 255, 255, 0.944) 3px 3px 5px;
+}
+
 .logo-page {
   font-size: 1.8em;
   margin-left: 32%;
@@ -11,6 +20,27 @@
 
 .nav-menu a {
   color: #fff;
+  font-size: 0.9em;
+}
+
+.navigation-bar ul {
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.exit-btn i{
+  font-size: 1.5em
+}
+
+.exit-btn i:hover{
+  text-shadow: var(--shadowSecondary);
+  color: var(--whitePrimary);
+}
+
+.exit-btn a:hover{
+  transition: ease-in-out 0.3s;
+  transform: translateY(-3px);
 }
 
 .nav-menu a:hover {

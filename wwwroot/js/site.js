@@ -1,15 +1,4 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
-
-// Write your JavaScript code.
-/*$(function() {
-    $(".btn-toggle").click(function(e) {
-      e.preventDefault();
-      el = $(this).data('element');
-      $(el).toggle();
-    });
-  });*/
-
+﻿
 $(function () {
   $(".av-btn").click(function (e) {
     e.preventDefault();
@@ -42,6 +31,13 @@ $(function () {
   });
 });
 
+
+
+
+
+
+
+
 function getSecretariesProp() {
   var select = document.querySelector("#selectSecretary");
   var indice = select.selectedIndex;
@@ -54,6 +50,10 @@ function getSecretariesProp() {
 }
 getSecretariesProp();
 
+
+
+
+
 function getIndexSecretariesProp() {
   var select = document.querySelector("#selectIndexSecretary");
   var indice = select.selectedIndex;
@@ -65,3 +65,50 @@ function getIndexSecretariesProp() {
   document.getElementById("rv-secretaryName").value = option.value;
 }
 getIndexSecretariesProp();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function Calc() {
+const date1 = new Date(document.getElementById('date1').value);
+const date2 = new Date(document.getElementById('date2').value);
+
+let start = Math.floor(date1.getTime() / (3600 * 24 * 1000));
+let end = Math.floor(date2.getTime() / (3600 * 24 * 1000));
+let daysDiff = end - start;
+
+document.getElementById('n1').value = daysDiff + 1;
+document.getElementById('n3').value = daysDiff + 1;
+
+Date.prototype.addDays = function(days) 
+{
+  return this.setDate(this.getDate() + days);
+}
+
+if (date2 < date1)
+{
+  alert( "a data de chegada precisa ser igual ou posterior a data de saída !");
+  document.getElementById('date3').value = "dd/mm/aaaa";  
+  return false;
+}else{
+  let date = new Date(date2);
+
+  date.addDays(15);
+
+  document.getElementById('date3').value = date.toLocaleDateString('pt-BR');  
+}
+
+}
