@@ -139,3 +139,4 @@ System.IO.IOException: Failed to bind to address https://127.0.0.1:5001: address
    at Microsoft.Extensions.Hosting.Internal.Host.StartAsync(CancellationToken cancellationToken)
    at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.RunAsync(IHost host, CancellationToken token)
 2023-01-30T17:47:21.0950839-03:00 0HMO307K3RSPB:0000000C [ERR] Erro ao Excluir AV !Value cannot be null. (Parameter 'entity') (ea6bad3e)
+2023-01-30T22:31:39.7569903-03:00 0HMO35B6CFTS9:00000001 [ERR] Erro ao Realizar Login!Unable to connect to any of the specified MySQL hosts. (32d6b91b)

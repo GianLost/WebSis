@@ -44,8 +44,8 @@ namespace WebSis.Models
         [Required(ErrorMessage = "O campo Hora de chegada é obrigatório"), StringLength(12)]
         public string ArrivalTime { get; set; }
 
-        [Required(ErrorMessage = "O campo Prestação de contas é obrigatório")]
-        public DateTime Accountability { get; set; }
+        [Required(ErrorMessage = "O campo Prestação de contas é obrigatório"), StringLength(17)]
+        public string Accountability { get; set; }
 
         [Required(ErrorMessage = "O campo Quantidade de passagens de ida é obrigatório")]
         public int OneWayTickets { get; set; }

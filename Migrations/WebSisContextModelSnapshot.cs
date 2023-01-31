@@ -44,8 +44,10 @@ namespace WebSis.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("Accountability")
-                        .HasColumnType("datetime(6)");
+                    b.Property<string>("Accountability")
+                        .IsRequired()
+                        .HasColumnType("varchar(17) CHARACTER SET utf8mb4")
+                        .HasMaxLength(17);
 
                     b.Property<DateTime>("ArrivalDate")
                         .HasColumnType("datetime(6)");
