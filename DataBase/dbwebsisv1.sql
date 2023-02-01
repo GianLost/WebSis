@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 01-Fev-2023 às 02:45
+-- Tempo de geração: 01-Fev-2023 às 03:16
 -- Versão do servidor: 10.4.24-MariaDB
 -- versão do PHP: 7.4.29
 
@@ -45,9 +45,9 @@ CREATE TABLE `autorização de viagem` (
   `OneWayTickets` int(11) NOT NULL,
   `ReturnTickets` int(11) NOT NULL,
   `Destiny` varchar(60) NOT NULL,
-  `UG` double NOT NULL,
-  `UO` double NOT NULL,
-  `PA` double NOT NULL,
+  `UG` varchar(30) NOT NULL,
+  `UO` varchar(30) NOT NULL,
+  `PA` varchar(30) NOT NULL,
   `Expanses` varchar(30) NOT NULL,
   `Font` int(11) NOT NULL,
   `FoodQuantity` int(11) NOT NULL,
