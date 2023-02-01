@@ -92,8 +92,10 @@ namespace WebSis.Migrations
                         .IsRequired()
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
-                    b.Property<int>("Expanses")
-                        .HasColumnType("int");
+                    b.Property<string>("Expanses")
+                        .IsRequired()
+                        .HasColumnType("varchar(30) CHARACTER SET utf8mb4")
+                        .HasMaxLength(30);
 
                     b.Property<int>("Font")
                         .HasColumnType("int");
@@ -136,10 +138,8 @@ namespace WebSis.Migrations
                     b.Property<int>("OneWayTickets")
                         .HasColumnType("int");
 
-                    b.Property<string>("PA")
-                        .IsRequired()
-                        .HasColumnType("varchar(20) CHARACTER SET utf8mb4")
-                        .HasMaxLength(20);
+                    b.Property<double>("PA")
+                        .HasColumnType("double");
 
                     b.Property<int>("ReturnTickets")
                         .HasColumnType("int");
@@ -155,15 +155,11 @@ namespace WebSis.Migrations
                     b.Property<int>("Type")
                         .HasColumnType("int");
 
-                    b.Property<string>("UG")
-                        .IsRequired()
-                        .HasColumnType("varchar(20) CHARACTER SET utf8mb4")
-                        .HasMaxLength(20);
+                    b.Property<double>("UG")
+                        .HasColumnType("double");
 
-                    b.Property<string>("UO")
-                        .IsRequired()
-                        .HasColumnType("varchar(20) CHARACTER SET utf8mb4")
-                        .HasMaxLength(20);
+                    b.Property<double>("UO")
+                        .HasColumnType("double");
 
                     b.Property<int>("UsersId")
                         .HasColumnType("int");

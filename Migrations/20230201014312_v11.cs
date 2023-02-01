@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace WebSis.Migrations
 {
-    public partial class v10 : Migration
+    public partial class v11 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -68,10 +68,10 @@ namespace WebSis.Migrations
                     OneWayTickets = table.Column<int>(nullable: false),
                     ReturnTickets = table.Column<int>(nullable: false),
                     Destiny = table.Column<string>(maxLength: 60, nullable: false),
-                    UG = table.Column<string>(maxLength: 20, nullable: false),
-                    UO = table.Column<string>(maxLength: 20, nullable: false),
-                    PA = table.Column<string>(maxLength: 20, nullable: false),
-                    Expanses = table.Column<int>(nullable: false),
+                    UG = table.Column<double>(nullable: false),
+                    UO = table.Column<double>(nullable: false),
+                    PA = table.Column<double>(nullable: false),
+                    Expanses = table.Column<string>(maxLength: 30, nullable: false),
                     Font = table.Column<int>(nullable: false),
                     FoodQuantity = table.Column<int>(nullable: false),
                     HostingQuantity = table.Column<int>(nullable: false),

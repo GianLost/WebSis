@@ -21,6 +21,8 @@
 
     var countTA = dataBase.TravelAuthorizations.Where( ta => ta.UsersId == userId).Count(); // Retorna a contagem de registros de AV cadastrados pelo usuário que está logado.
 
+    ICollection<TravelAuthorizations> taI = dataBase.TravelAuthorizations.Where( ta => ta.UsersId == userId).ToList();
+
     var next = countTA + 1;
 }
 
@@ -52,7 +54,7 @@
 
                 </div>
 
-            </div>
+            </div> 
 
             <h3 class="text-center mt-5 mb-5">@ViewData["Title"] (@next.ToString("D4")/@DateTime.Now.ToString("yyyy"))</h3>
 
@@ -173,28 +175,28 @@
                 <div class="col-md-6 mb-3">
 
                     <label class="form-label">UG: </label>
-                    <input type="text" class="form-control" asp-for="@Model.UG " required>
+                    <input type="text" class="form-control values-input2" asp-for="@Model.UG " required>
 
                 </div>
 
                 <div class="col-md-6 mb-3">
 
                     <label class="form-label">UO: </label>
-                    <input type="text" class="form-control" asp-for="@Model.UO" required>
+                    <input type="text" class="form-control values-input2" asp-for="@Model.UO" required>
 
                 </div>
 
                 <div class="col-md-6 mb-3">
 
                     <label class="form-label">PA: </label>
-                    <input type="text" class="form-control" asp-for="@Model.PA" required>
+                    <input type="text" class="form-control values-input2" asp-for="@Model.PA" required>
 
                 </div>
 
                 <div class="col-md-6 mb-3">
 
                     <label class="form-label">Número de despesas: </label>
-                    <input type="number" class="form-control" asp-for="@Model.Expanses" required>
+                    <input type="text" class="form-control" asp-for="@Model.Expanses" required>
 
                 </div>
 

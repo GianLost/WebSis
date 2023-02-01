@@ -53,7 +53,7 @@
 
                         <input asp-for="@Model.Login" name="login" type="text"
                             class="form-control"
-                            placeholder="Nome de usuário" required autofocus>
+                            placeholder="Nome de usuário" required autofocus autocomplete="username">
                     </div>
 
                     <label asp-for="@Model.CheckedPassword" class="sr-only">Senha</label>
@@ -65,7 +65,7 @@
 
                         <input asp-for="@Model.CheckedPassword" name="password"
                             type="password" class="form-control"
-                            placeholder="Insira a senha" required>
+                            placeholder="Insira a senha" required autocomplete="current-password">
 
                     </div>
 
