@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using WebSis.DataBase;
 using WebSis.Identity;
 using WebSis.Models;
 using WebSis.Services;
@@ -20,7 +22,7 @@ namespace WebSis.Controllers
         }
 
         [HttpPost]
-        public IActionResult RegisterUser(Users newRegisterUser) /*Only ADMIN*/
+        public IActionResult RegisterUser(Users newRegisterUser, string Login, string Name) /*Only ADMIN*/
         {
             // O cadastro de usuários é feito através de uma partial view que é renderizada em um modal que traz o formulário de cadastro, a requisição do cadastro de usuários é feita de forma assíncrona utilizando Ajax através da biblioteca JQuery do Js.
 
@@ -30,10 +32,18 @@ namespace WebSis.Controllers
                 Authentication.CheckIfUserIsAdministrator(this); // utilizando a classe Authentication para verificar o usuário na sessão corresponde à um usuário administrador.
 
                 UsersService us = new UsersService(); // instância da classe de UsersService. 
+                WebSisContext dataBase = new WebSisContext();
 
-                us.CreateUserRegister(newRegisterUser); // chamada do método presente em UsersService que salva os dados que foram inseridos no banco de dados recebidos através do objeto de usuário passado como parâmetro no método de registro
+                ICollection<Users> verifyUsers = dataBase.Users.Where( u => u.Name == Name || u.Login == Login).ToList();
 
-                return Json(new { stats = "OK" }); // retorna um arquivo Json que seta um status para a controller.
+                if (verifyUsers.Count() == 0){
+
+                    us.CreateUserRegister(newRegisterUser); // chamada do método presente em UsersService que salva os dados que foram inseridos no banco de dados recebidos através do objeto de usuário passado como parâmetro no método de registro
+
+                    return Json(new { stats = "OK" }); // retorna um arquivo Json que seta um status para a controller.
+                }else {
+                    return Json(new { stats = "INVALID", message = "Usuário já cadastrado!" });
+                }
 
             }
             catch (Exception e)

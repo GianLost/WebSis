@@ -27,6 +27,7 @@
 
                 <input placeholder="Nome completo" asp-for="@Model.Name"
                     type="text" class="form-control" id="name" autocomplete="name">
+                <span class="text-danger login-error">@ViewData["ErrorRegisterUser"]</span>
 
             </div>
 
@@ -34,6 +35,7 @@
 
                 <input placeholder="Nome de acesso" asp-for="@Model.Login"
                     type="text" id="login" class="form-control" autocomplete="username">
+                    <span class="text-danger login-error">@ViewData["ErrorRegisterUser"]</span>
 
             </div>
 
