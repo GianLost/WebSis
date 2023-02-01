@@ -56,14 +56,14 @@ namespace WebSis.Models
         [Required(ErrorMessage = "O campo Destino é obrigatório"), StringLength(60)]
         public string Destiny { get; set; }
 
-        [Required(ErrorMessage = "O campo UG é obrigatório")]
-        public double UG { get; set; }
+        [Required(ErrorMessage = "O campo UG é obrigatório"), StringLength(30)]
+        public string UG { get; set; }
 
-        [Required(ErrorMessage = "O campo UO é obrigatório")]
-        public double UO { get; set; }
+        [Required(ErrorMessage = "O campo UO é obrigatório"), StringLength(30)]
+        public string UO { get; set; }
 
-        [Required(ErrorMessage = "O campo PA é obrigatório")]
-        public double PA { get; set; }
+        [Required(ErrorMessage = "O campo PA é obrigatório"), StringLength(30)]
+        public string PA { get; set; }
 
         [Required(ErrorMessage = "O campo Número de despesas é obrigatório"), StringLength(30)]
         public string Expanses { get; set; }
