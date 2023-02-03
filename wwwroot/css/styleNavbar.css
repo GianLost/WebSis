@@ -1,20 +1,37 @@
-:root {
-  --greyPrimary: #d9d9d9;
-  --blackPrimary: #000;
-  --greySecondary: rgba(255, 255, 255, 0.645);
-  --whitePrimary: #fff;
-  --shadowPrimary: rgba(0, 0, 0, 0.534) 5px 5px 10px;
-  --shadowSecondary: rgba(255, 255, 255, 0.944) 3px 3px 5px;
+* {
+  box-sizing: border-box;
 }
 
-.logo-page {
-  font-size: 1.8em;
-  margin-left: 32%;
+:root {
+  --shadowPrimary: rgba(0, 0, 0, 0.534) 5px 5px 10px;
+  --blackPrimary: #000;
+  --orangePrimary: #fe781f;
+  --greyPrimary: #d9d9d9;
+  --greySecondary: rgba(255, 255, 255, 0.645);
+  --whitePrimary: #fff;
+  --shadowSecondary: rgb(255, 255, 255) 3px 2px 3px;
+}
+
+.my-navbar {
+  width: 100%;
+}
+
+.btn-home {
+  width: 30%;
+}
+
+.line-div {
+  background-color: rgba(255, 255, 255, 0.585);
+}
+
+.logo-login {
+  margin-left: 40%;
 }
 
 .nav-menu {
   background-color: #007bffb7;
-  box-shadow: #007bffa7 5px 5px 10px;
+  box-shadow: #007bffba 5px 5px 5px;
+  margin-top: 2%;
   border: 1px solid #fff;
 }
 
@@ -25,26 +42,26 @@
 
 .navigation-bar ul {
   justify-content: center;
-  align-items: center;
   align-content: center;
+  color: #fff;
 }
 
-.exit-btn i{
-  font-size: 1.5em
+.exit-btn {
+  margin-left: 2%;
+  font-size: 1.5em;
+  color: #fff;
 }
 
-.exit-btn i:hover{
+.exit-btn:hover {
+  cursor: pointer;
   text-shadow: var(--shadowSecondary);
-  color: var(--whitePrimary);
-}
-
-.exit-btn a:hover{
+  color: #fff;
   transition: ease-in-out 0.3s;
   transform: translateY(-3px);
 }
 
 .nav-menu a:hover {
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.725);
 }
 
 @media (max-width: 1200px) {
@@ -57,14 +74,73 @@
 }
 
 @media (max-width: 768px) {
-  .logo-page {
-    font-size: 1.5em;
-    margin-left: 16%;
+  .btn-home {
+    width: 82%;
+  }
+
+  .btn-home {
+    font-size: 1.3em;
+  }
+
+  .btn-home i {
+    margin-right: 2em;
+    font-size: 1.3em;
+  }
+
+  .link {
+    background-color: rgba(255, 255, 255, 0.297);
+    border-radius: 10px;
+  }
+
+  .menu a {
+    font-size: 1em;
+  }
+
+  .logo-login {
+    margin-left: 25%;
   }
 }
 
 @media (max-width: 576px) {
-  .logo-page {
-    font-size: 1.5em;
+  .btn-home {
+    width: 82%;
+  }
+
+  .btn-home {
+    font-size: 1.3em;
+  }
+
+  .btn-home i {
+    margin-right: 2em;
+    font-size: 1.3em;
+  }
+
+  .link {
+    background-color: rgba(255, 255, 255, 0.297);
+    border-radius: 10px;
+  }
+
+  .menu a {
+    font-size: 1em;
+  }
+
+  .logo-login {
+    margin-left: 25%;
+  }
+}
+
+@media (max-width: 360px) {
+
+  .logo-login {
+    margin-left: 10%;
+  }
+
+  .btn-home {
+    font-size: 1em;
+    margin-left: -10%;
+  }
+
+  .btn-home i{
+    margin-left: 10%;
   }
 }

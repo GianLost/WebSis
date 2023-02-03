@@ -29,155 +29,125 @@
 
 <body class="modules-container">
 
-    <div class="container index-contai">
+    <div class="container index-container">
 
-        <div class="col-lg-12 col-md-12 col-sm-12 module-user-access">
+        <div class="title-index">
 
-            <div class="index-header">
-                <!-- Input box que exibe o nome do usuário que está logado -->
+            <img class="img-fluid logo-index-register" src="../images/pmtm-logo.png" alt="Imagem Logo da tela de Login">
 
-                <div class="input-group input-group-md mb-3 hello">
+            <div class="register-index-header">
+                <h1>PREFEITURA MUNICIPAL DE TRÊS MARIAS</h1>
+                <h2>@Context.Session.GetString("secretaryAcronym") - @Context.Session.GetString("secretaryName")</h2>
+            </div>
 
-                    <div class="input-group-prepend">
-                        <i class="bi bi-person-fill input-group-text"></i>
-                    </div>
+        </div>
 
-                    <input style="cursor: pointer;" class="form-control text-justify" title="Usuário logado : @userSession" placeholder='Bem Vindo, @Context.Session.GetString("login") !' readonly>
+        <div class="module-user-access">
 
+            <!-- Input box que exibe o nome do usuário que está logado -->
+
+            <div class="input-group input-group-md hello">
+
+                <div class="input-group-prepend">
+                    <i class="bi bi-person-fill input-group-text"></i>
                 </div>
 
-                <!-- / Input box que exibe o nome do usuário que está logado -->
-
-                <div class="navega mt-4">
-
-                    <div class="input-group input-group-md index-select">
-
-                        <div class="input-group-prepend">
-                            <label class="input-group-text" for="selectSecretary"><i class="bi bi-building-fill-check"
-                                    title="Selecionar Secretarias"></i></label>
-                        </div>
-
-                        <select onchange="return getIndexSecretariesProp()" class="custom-select select-box"
-                            name="selectIndexSecretary" id="selectIndexSecretary" title="Sua secretaria : @secretarySession"
-                            disabled>
-                            @foreach (var item in secretaryList)
-                            {
-                                if (item.Acronym != null)
-                                {
-                                    <option value="@item.Name" selected>@item.Name</option>
-                                    <div class="dropdown-divider"></div>
-
-                                }
-                            }
-                        </select>
-
-                    </div>
-
-                </div>
-
-
-                @if (Context.Session.GetInt32("type") == 1)
-                {
-                    <!-- Input para cadastrar Secretarias -->
-
-
-                    <button class="btn btn-md btn-outline-primary btn-user-register mt-3" type="button" data-toggle="modal"
-                    data-target="#registerSecretary-modal" title="Cadastrar Secretarias"><i
-                        class="bi bi-building-fill-add" title="Cadastrar Secretarias"></i> Cadastrar
-                        Secretarias</button>
-
-
-                    <!-- / Input para cadastrar Secretarias -->
-
-                    <!-- Input para cadastrar Usuário -->
-
-                    <button class="btn btn-md btn-outline-primary btn-user-register mt-3" type="button" data-toggle="modal"
-                    data-target="#registerUser" title="Cadastrar Usuário"> <i class="bi bi-person-fill-add"></i>
-                        Cadastrar Usuário</button>
-
-                    <!-- / Input para cadastrar Usuário -->
-
-                }
+                <input style="cursor: pointer;" class="form-control text-justify" title="Usuário logado : @userSession"placeholder='Bem Vindo, @Context.Session.GetString("login") !' readonly>
 
             </div>
 
-            <div class="title-index">
+            <!-- / Input box que exibe o nome da secretaria do usuário -->
 
-                <img class="img-fluid logo-index-register" src="../images/pmtm-logo.png"
-                    alt="Imagem Logo da tela de Login">
+            <div class="input-group input-group-md index-select">
 
-                <div class="register-index-header">
-                    <h1>PREFEITURA MUNICIPAL DE TRÊS MARIAS</h1>
-
-                    <h2>@Context.Session.GetString("secretaryAcronym") -
-                        @Context.Session.GetString("secretaryName")</h2>
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="selectSecretary"><i class="bi bi-building-fill-check" title="Selecionar Secretarias"></i></label>
                 </div>
+
+                <select onchange="return getIndexSecretariesProp()" class="custom-select select-box" name="selectIndexSecretary"     id="selectIndexSecretary" title="Sua secretaria : @secretarySession" disabled>
+
+                    @foreach (var item in secretaryList)
+                    {
+                        if (item.Acronym != null)
+                        {
+                            <option value="@item.Name" selected>@item.Name</option>
+                            <div class="dropdown-divider"></div>
+
+                        }
+                    }
+
+                </select>
 
             </div>
 
         </div>
 
+        <div class="btn-index-register">
+            @if (Context.Session.GetInt32("type") == 1)
+            {
+                <!-- Input para cadastrar Secretarias -->
+
+                    <button class="btn btn-md btn-outline-primary btn-user-register mt-3" type="button" data-toggle="modal"data-target="#registerSecretary-modal" title="Cadastrar Secretarias"><i class="bi bi-building-fill-add"title="Cadastrar Secretarias"></i> Cadastrar Secretarias</button>
+
+                <!-- / Input para cadastrar Secretarias -->
+
+                <!-- Input para cadastrar Usuário -->
+
+                    <button class="btn btn-md btn-outline-primary btn-user-register mt-3" type="button" data-toggle="modal"data-target="#registerUser" title="Cadastrar Usuário"> <i class="bi bi-person-fill-add"></i> Cadastrar Usuário</button>
+
+                <!-- / Input para cadastrar Usuário -->
+            }
+        </div>
+
         <div class="row modules-container">
 
-            <div class="col-lg-4 col-md-4 col-sm-4 modules">
+            <div class="modules">
 
-                <div class="col-md-12">
+                <button class="btn-module av-btn" onclick=" return ShowModules('av-module')" type="button" title="Autorização de Viagem">
 
-                    <button class="btn-module av-btn" onclick=" return ShowModules('av-module')" type="button" title="Autorização de Viagem">
+                    <i class="bi bi-bus-front" title="Autorização de Viagem"></i>
+                    <span> AV - Autorização de Viagem </span>
 
-                        <i class="bi bi-bus-front" title="Autorização de Viagem"></i>
-                        <span> AV - Autorização de Viagem </span>
+                </button>
 
-                    </button>
+                <hr class="module-hr">
 
-                    <hr class="module-hr">
+                <button class="btn-module rd-btn" onclick="return ShowModules('rd-module')" type="button" title="Relatório de Despesas">
 
-                    <button class="btn-module rd-btn" onclick="return ShowModules('rd-module')" type="button" title="Relatório de Despesas">
+                    <i class="bi bi-coin" title="Relatório de Despesas"></i>
+                    <span> RD - Relatório de Despesas </span>
 
-                        <i class="bi bi-coin" title="Relatório de Despesas"></i>
-                        <span> RD - Relatório de Despesas </span>
+                </button>
 
-                    </button>
+                <hr class="module-hr">
 
-                    <hr class="module-hr">
+                <button class="btn-module sa-btn" onclick="return ShowModules('sa-module')" type="button" title="Solicitação de Adiantamento">
 
-                    <button class="btn-module sa-btn" onclick="return ShowModules('sa-module')" type="button" title="Solicitação de Adiantamento">
+                    <i class="bi bi-bank2" title="Solicitação de Adiantamento"></i>
+                    <span> SA - Solicitação de Adiantamento </span>
 
-                        <i class="bi bi-bank2" title="Solicitação de Adiantamento"></i>
-                        <span> SA - Solicitação de Adiantamento </span>
+                </button>
 
-                    </button>
+                <hr class="module-hr">
 
-                    <hr class="module-hr">
+                <button class="btn-module rv-btn" onclick="return ShowModules('rv-module')" type="button" title="Relatório de Viagem">
 
-                    <button class="btn-module rv-btn" onclick="return ShowModules('rv-module')" type="button" title="Relatório de Viagem">
+                    <i class="bi bi-clipboard2-pulse-fill" title="Relatório de Viagem"></i>
+                    <span> RV - Relatório de Viagem</span>
 
-                        <i class="bi bi-clipboard2-pulse-fill" title="Relatório de Viagem"></i>
-                        <span> RV - Relatório de Viagem</span>
-
-                    </button>
-
-                </div>
+                </button>
 
             </div>
 
-            <div id="av-module" class="av-module hidden">
-
-                <div class="col-md-12 mt-3">
-
-                    <input class="form-control av-secretaryName" id="av-secretaryName" disabled />
-
-                </div>
+            <div id="av-module" class="av-module hidden">  
 
                 <div class="av-info mt-3">
 
-                    <div>
-                        <input value="AV - Autorização de Viagem" class="form-control title-module" disabled />
-                    </div>
+                    <input class="form-control av-secretaryName" id="av-secretaryName" disabled />
 
-                    <div>
-                        <input class="form-control year-module" value='@DateTime.Now.ToString("yyyy")' disabled />
-                    </div>
+                    <input value="AV - Autorização de Viagem" class="form-control title-module" disabled />
+
+                    <input class="form-control year-module" value='@DateTime.Now.ToString("yyyy")' disabled />
 
                 </div>
 
@@ -198,21 +168,13 @@
 
             <div id="rd-module" class="rd-module hidden">
 
-                <div class="col-md-12 mt-3">
+                <div class="av-info mt-3">
 
                     <input class="form-control av-secretaryName" id="rd-secretaryName" disabled />
 
-                </div>
+                    <input value="RD - Relatório de Despesas" class="form-control title-module" disabled />
 
-                <div class="av-info mt-3">
-
-                    <div>
-                        <input value="RD - Relatório de Despesas" class="form-control title-module" disabled />
-                    </div>
-
-                    <div>
-                        <input class="form-control year-module" value='@DateTime.Now.ToString("yyyy")' disabled />
-                    </div>
+                    <input class="form-control year-module" value='@DateTime.Now.ToString("yyyy")' disabled />
 
                 </div>
 
@@ -224,7 +186,7 @@
 
                 </div>
 
-                <div class="alert alert-danger alert-modules">
+                <div class="col-md-12 list-TA alert alert-danger alert-modules">
                     <h2>O Módulo RD - Relatório de despesas está em desenvolvimento !</h2>
                     <p>Em breve você terá acesso ao módulo...</p>
                 </div>
@@ -233,21 +195,13 @@
 
             <div id="sa-module" class="sa-module hidden">
 
-                <div class="col-md-12 mt-3">
+                <div class="av-info mt-3">
 
                     <input class="form-control av-secretaryName" id="sa-secretaryName" disabled />
 
-                </div>
+                    <input value="SA - Solicitação de Adiantamento" class="form-control title-module" disabled />
 
-                <div class="av-info mt-3">
-
-                    <div>
-                        <input value="SA - Solicitação de Adiantamento" class="form-control title-module" disabled />
-                    </div>
-
-                    <div>
-                        <input class="form-control year-module" value='@DateTime.Now.ToString("yyyy")' disabled />
-                    </div>
+                    <input class="form-control year-module" value='@DateTime.Now.ToString("yyyy")' disabled />
 
                 </div>
 
@@ -258,7 +212,7 @@
 
                 </div>
 
-                <div class="alert alert-danger alert-modules">
+                <div class="col-md-12 list-TA alert alert-danger alert-modules">
                     <h2>O Módulo SA - Solicitação de adiantamento está em desenvolvimento !</h2>
                     <p>Em breve você terá acesso ao módulo...</p>
                 </div>
@@ -267,21 +221,13 @@
 
             <div id="rv-module" class="rv-module hidden">
 
-                <div class="col-md-12 mt-3">
+                <div class="av-info mt-3">
 
                     <input class="form-control av-secretaryName" id="rv-secretaryName" disabled />
 
-                </div>
+                    <input value="RV - Relatório de Viagem" class="form-control title-module" disabled />
 
-                <div class="av-info mt-3">
-
-                    <div>
-                        <input value="RV - Relatório de Viagem" class="form-control title-module" disabled />
-                    </div>
-
-                    <div>
-                        <input class="form-control year-module" value='@DateTime.Now.ToString("yyyy")' disabled />
-                    </div>
+                    <input class="form-control year-module" value='@DateTime.Now.ToString("yyyy")' disabled />
 
                 </div>
 
@@ -292,7 +238,7 @@
 
                 </div>
 
-                <div class="alert alert-danger alert-modules">
+                <div class="col-md-12 list-TA alert alert-danger alert-modules">
                     <h2>O Módulo RV - Relatório de Viagem está em desenvolvimento !</h2>
                     <p>Em breve você terá acesso ao módulo...</p>
                 </div>

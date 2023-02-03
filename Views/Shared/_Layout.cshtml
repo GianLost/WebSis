@@ -34,29 +34,25 @@
 
         <header>
 
-            <nav
-                class="navbar fixed-Top border-bottom navbar-expand-md navbar-toggleable-md navbar-toggleable-sm navbar-dark bg-primary
-                box-shadow">
+            <nav class="navbar navbar-expand-md navbar-dark bg-primary my-navbar">
 
-                <div class="container">
+                <div class="container w-100">
 
                 @if (Context.Session.GetString("login") != null)
                 {
-                    <a class="navbar-brand" asp-controller="Home" asp-action="Index"><i class="bi bi-globe2"> </i> Sistema
-                            Web de Formulários</a>
+                    <a class="navbar-brand btn-home" asp-controller="Home" asp-action="Index"><i class="bi bi-clipboard-data-fill"></i> Sistema  Web de Formulários</a>
 
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse"
-                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+
                 }
                 else
                 {
-                    <a class="navbar-brand logo-page" asp-controller="Home" asp-action="Index"><i class="bi bi-globe2"> </i>
-                        Sistema Web de Formulários</a>
+                    <a class="navbar-brand logo-login" asp-controller="Home" asp-action="Index"><i class="bi bi-clipboard-data-fill"></i> Sistema  Web de Formulários</a>
                 }
 
                     <div class="navbar-collapse collapse d-md-inline-flex flex-md-row-reverse navigation-bar">
+
+                        <hr class="line-div">
 
                         <ul class="navbar-nav ml-auto text-center menu">
 
@@ -69,40 +65,44 @@
                         {
                             <li class="nav-item dropdown">
 
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="bi bi-shield-fill-exclamation"></i> Acesso de administrador </a>
+                                <a class="nav-link dropdown-toggle link" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="bi bi-shield-fill-exclamation"></i> Acesso de administrador </a>
 
                                 <div class="dropdown-menu nav-menu" aria-labelledby="navbarDropdownMenuLink">
 
-                                    <a class="dropdown-item text-shadow" title="Todos os usuários cadastrados são vistos aqui !" asp-controller="Users" asp-action="ListOfRegisteredUsers"><i class="bi bi-person-lines-fill"></i> Usuários cadastrados</a>
+                                    <a class="dropdown-item text-shadow text-center" title="Todos os usuários cadastrados são vistos aqui !" asp-controller="Users" asp-action="ListOfRegisteredUsers"><i class="bi bi-person-lines-fill"></i> Usuários cadastrados</a>
 
                                     <div class="dropdown-divider"></div>
 
-                                    <a class="dropdown-item text-shadow" title="Todas as secretarias cadastradas são vistas aqui !" asp-controller="Secretaries" asp-action="ListOfRegisteredSecretaries">
+                                    <a class="dropdown-item text-shadow text-center" title="Todas as secretarias cadastradas são vistas aqui !" asp-controller="Secretaries" asp-action="ListOfRegisteredSecretaries">
                                         <i class="bi bi-building-fill-add"></i> Secretarias Cadastradas</a>
 
                                 </div>
 
                             </li>
 
+                            <hr class="line-div">
+
                             <li class="nav-item dropdown">
 
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="bi bi-layout-text-window-reverse"></i> Módulos de Acesso
+                                <a class="nav-link dropdown-toggle link" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="bi bi-layout-text-window-reverse"></i> Módulos de Acesso
                                 </a>
 
                                 <div class="dropdown-menu nav-menu" aria-labelledby="navbarDropdownMenuLink">
 
-                                    <a class="dropdown-item text-shadow" title="Todos os registros de AV são vistos aqui !" asp-controller="TravelAuthorizations" asp-action="ListAllTravels"><i class="bi bi-envelope-plus"></i> AV - Todos os Registros cadastrados</a>
+                                    <a class="dropdown-item text-shadow text-center" title="Todos os registros de AV são vistos aqui !" asp-controller="TravelAuthorizations" asp-action="ListAllTravels"><i class="bi bi-envelope-plus"></i> AV - Todos os Registros cadastrados</a>
 
                                     <div class="dropdown-divider"></div>
 
-                                    <a class="dropdown-item text-shadow" title="Rregistros AV com base na sua secretaria !"  asp-controller="TravelAuthorizations" asp-action="ListTAPerSecretary"><i class="bi bi-buildings"></i> AV - Registros de <b>@Context.Session.GetString("secretaryAcronym")</b></a>
+                                    <a class="dropdown-item text-shadow text-center" title="Rregistros AV com base na sua secretaria !"  asp-controller="TravelAuthorizations" asp-action="ListTAPerSecretary"><i class="bi bi-buildings"></i> AV - Registros de <b>@Context.Session.GetString("secretaryAcronym")</b></a>
 
                                 </div>
 
                             </li>
 
-                            <li class="nav-item exit-btn">
-                                <a class="nav-link text-light" asp-area="" asp-controller="Home" title="Sair" asp-action="Logout"><i class="bi bi-box-arrow-right" title="Sair"></i></a>
+                            <hr class="line-div">
+
+                            <li class="exit-btn">
+                                <a class="text-light" asp-controller="Home" asp-action="Logout" title="Sair" ><i class="bi bi-box-arrow-right" title="Sair"></i></a>
                             </li>
                         }
 
@@ -111,18 +111,20 @@
 
                             <li class="nav-item dropdown">
 
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="bi bi-layout-text-window-reverse"></i> Módulos de Acesso </a>
+                                <a class="nav-link dropdown-toggle link" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="bi bi-layout-text-window-reverse"></i> Módulos de Acesso </a>
 
                                 <div class="dropdown-menu nav-menu" aria-labelledby="navbarDropdownMenuLink">
 
-                                    <a class="dropdown-item text-shadow" title=' AV - Registros cadastrados de @Context.Session.GetString("secretaryAcronym")' title="Rregistros AV com base na sua secretaria !" asp-controller="TravelAuthorizations" asp-action="ListTAPerSecretary"><i class="bi bi-buildings"></i> AV - Registros de <b>@Context.Session.GetString("secretaryAcronym")</b></a>
+                                    <a class="dropdown-item text-shadow text-center" title=' AV - Registros cadastrados de @Context.Session.GetString("secretaryAcronym")' title="Rregistros AV com base na sua secretaria !" asp-controller="TravelAuthorizations" asp-action="ListTAPerSecretary"><i class="bi bi-buildings"></i> AV - Registros de <b>@Context.Session.GetString("secretaryAcronym")</b></a>
 
                                 </div>
 
                             </li>
 
-                            <li class="nav-item exit-btn">
-                                <a class="nav-link text-light" asp-area="" asp-controller="Home" title="Sair" asp-action="Logout"><i class="bi bi-box-arrow-right" title="Sair"></i></a>
+                            <hr class="line-div">
+
+                            <li class="exit-btn">
+                                <a class=" text-light" asp-area="" asp-controller="Home" title="Sair" asp-action="Logout"><i class="bi bi-box-arrow-right" title="Sair"></i></a>
                             </li>
 
                         }
@@ -137,14 +139,13 @@
 
         </header>
 
-        <main role="main" class="container-fluid">
+        <main role="main" class="container-fluid main-login">
 
-        @RenderBody()
+            @RenderBody()
 
         </main>
 
-        <footer class="border-top footer text-muted footer-dark bg-primary
-            text-center">
+        <footer class="border-top footer text-muted footer-dark bg-primary text-center">
 
             <div class="container">
 
@@ -155,20 +156,14 @@
         </footer>
 
         <script src="~/lib/jquery/dist/jquery.min.js" asp-append-version="true"></script>
-
         <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js" asp-append-version="true"></script>
-
         <script src="~/js/site.js" asp-append-version="true"></script>
-
         <script src="~/js/RegisterUserValidation.js" asp-append-version="true"></script>
-
         <script src="~/js/RegisterSecretaryValidation.js" asp-append-version="true"></script>
-
         <script src="~/js/AVCalculator.js" asp-append-version="true"></script>
-
         <script src="~/js/effectIndex.js" asp-append-version="true"></script>
         
-    @RenderSection("Scripts", required: false)
+        @RenderSection("Scripts", required: false)
 
     </body>
 

@@ -1,0 +1,7 @@
+2023-02-03T17:47:52.3578840-03:00 0HMO64SBDJ2CT:000000B3 [ERR] Erro ao Realizar Login!Sequence contains no elements (37d50196)
+2023-02-03T17:47:55.8707081-03:00 0HMO64SBDJ2CT:000000B5 [ERR] Erro ao Realizar Login!Sequence contains no elements (37d50196)
+2023-02-03T17:47:57.1196812-03:00 0HMO64SBDJ2CT:000000B7 [ERR] Erro ao Realizar Login!Sequence contains no elements (37d50196)
+2023-02-03T17:47:57.5879094-03:00 0HMO64SBDJ2CT:000000B9 [ERR] Erro ao Realizar Login!Sequence contains no elements (37d50196)
+2023-02-03T17:47:58.0985692-03:00 0HMO64SBDJ2CT:000000BB [ERR] Erro ao Realizar Login!Sequence contains no elements (37d50196)
+2023-02-03T17:48:16.3926645-03:00 0HMO64SBDJ2CT:000000D1 [ERR] Erro ao Realizar Login!Sequence contains no elements (37d50196)
+2023-02-03T17:49:29.4597377-03:00 0HMO6501OSKA7:0000002F [ERR] Erro ao Realizar Login!Unable to connect to any of the specified MySQL hosts. (32d6b91b)

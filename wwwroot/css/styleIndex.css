@@ -7,45 +7,109 @@
   --shadowPrimary: rgba(0, 0, 0, 0.534) 5px 5px 10px;
 }
 
-.hidden {
-  display: none;
-}
-
-.index-select {
-  width: 89%;
-}
-
 .modules-container {
   width: 100%;
 }
 
-.index-header {
-  width: 30em;
+.index-container {
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  width: 100%;
+  height: 100%;
+  margin-top: 1%;
+  margin-bottom: 3%;
+}
+
+.title-index {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 1%;
+}
+
+.logo-index-register {
+  display: flex;
+  align-items: center;
+  width: 13.5em;
+  height: 7em;
+  margin-left: -2%;
+  margin-top: 2%;
+}
+
+.register-index-header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  align-content: center;
+  margin-left: -3%;
+  margin-top: 2.5%;
+  margin-bottom: 0%;
+}
+
+.register-index-header h1 {
+  font-size: 2.5em;
+  font-weight: 600;
+  text-align: center;
+}
+
+.register-index-header h2 {
+  text-align: center;
+  font-weight: 400;
+  font-size: 2em;
+}
+
+.module-user-access {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 33.5%;
+  height: 8em;
+  margin-top: 3%;
+  margin-left: -1.5%;
+  padding: 0.5%;
+}
+
+.btn-index-register {
+  margin-left: -1.3%;
+  margin-bottom: 1.5%;
+}
+
+.hello {
+  width: 100%;
+}
+
+.index-select {
+  width: 100%;
 }
 
 .select-box:hover {
   cursor: pointer;
 }
 
-.logo-index-register {
-  width: 10em;
-  height: 6em;
-  margin-left: -10%;
+.hidden {
+  display: none;
 }
 
 .av-secretaryName {
   text-align: center;
   font-size: 23px;
-  width: 99%;
+  width: 100%;
   font-weight: 500;
   background: none;
   border: 3px solid var(--greySecondary);
   color: rgba(105, 105, 105, 0.645);
+  margin-bottom: 4%;
 }
 
 .av-info {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-around;
   width: 97%;
   margin-left: 1%;
@@ -77,6 +141,7 @@
   padding: 0%;
   height: 32.54rem;
   width: 65%;
+
 }
 
 .av-row {
@@ -86,7 +151,7 @@
 }
 
 .list-TA {
-  height: 76%;
+  height: 73%;
   padding: 0%;
 }
 
@@ -112,12 +177,13 @@
 }
 
 .modules {
+  width: 33.5%;
+  height: 100%;
   background-color: var(--greyPrimary);
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  margin-bottom: 10%;
-  height: 100%;
+  margin-bottom: 10%; 
   padding: 1%;
 }
 
@@ -125,17 +191,6 @@
   /*border: 2px solid var(--blackPrimary);*/
   background-color: var(--greyPrimary);
   margin-bottom: 10%;
-}
-
-.module-user-access {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 100%;
-  margin-top: 3%;
-  margin-bottom: 3%;
-  margin-left: -1%;
-  padding: 0%;
 }
 
 .btn-module {
@@ -152,7 +207,10 @@
   border-radius: 5px;
   color: var(--bluePrimary);
 }
-
+.alert-modules {
+  width: 96%;
+  height: 56%;
+}
 .btn-module i {
   font-size: 2rem;
 }
@@ -173,44 +231,12 @@
   box-shadow: var(--shadowPrimary);
 }
 
-.hello {
-  width: 89%;
-  padding: 0%;
-}
-
 .btn-av-register {
   margin-left: 1%;
 }
 
 .btn-av-register:hover {
   box-shadow: var(--shadowPrimary);
-}
-
-.title-index {
-  display: flex;
-  width: 50em;
-  justify-content: space-evenly;
-  align-items: center;
-  padding: 0%;
-}
-
-.register-index-header {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  align-content: center;
-  margin-left: -3%;
-  padding: 0%;
-}
-
-.register-index-header h1 {
-  font-size: 1.7em;
-}
-
-.register-index-header h2 {
-  text-align: center;
-  font-size: 1.3em;
 }
 
 .secre-row {
@@ -220,22 +246,10 @@
   justify-content: space-evenly;
 }
 
-.navega {
-  width: 100%;
-}
-
-.select-secretary {
-  width: 100%;
-}
-
 #elementEl::after {
   content: '|';
   margin-left: 5px;
   animation: blink 0.9s infinite;
-}
-
-.index-contai {
- margin-top: 5%;
 }
 
 @keyframes blink {
@@ -259,33 +273,82 @@
 }
 
 @media (max-width: 768px) {
-  .modules {
-    margin-bottom: 18%;
+
+  .index-container {
+    /*border: 2px solid red;*/
+    margin-top: 5%;
+  }
+
+  .title-index {
+    margin-top: 2%;
+    margin-bottom: -15%;
+    padding: 3%;
+  }
+
+  .logo-index-register {
+    width: 8em;
+    height: 5em;
+    margin-left: -6%;
+  }
+
+  .register-index-header h1 {
+    font-size: 1.18em;
   }
 
   .module-user-access {
-    margin-top: 18%;
-    margin-bottom: 10px;
+    margin-left: 0%;
   }
 
-  .navega {
-    width: 88%;
+  .btn-index-register {
+    margin-left: 2%;
+    width: 95%;
+    margin-bottom: 5%;
   }
 
-  .btn-user-register {
-    width: 100%
+  .register-index-header h2 {
+    font-size: 1em;
   }
 
-  .secre-row {
-    margin-left: 0.5%;
+  .modules {
     width: 100%;
+    height: 100%;
+    margin-left: 5%;
+    margin-right: -1%;
+    padding: 2%;
+  }
+
+  .av-module {
+    margin-left: 3%;
+    margin-top: -3%;
+    width: 100%;
+    height: 50%;
+    margin-bottom: 2%;
+  }
+
+  .title-module {
+    width: 20em;
+  }
+
+  .av-secretaryName {
+    width: 100%;
+  }
+
+  .year-module {
+    width: 100%;
+    margin-top: 4%;
+  }
+
+  .list-TA {
+    margin-left: 1%;
+    margin-top: 0%;
+    margin-bottom: 0%;
   }
 
 }
 
 @media (max-width: 576px) {
-  .modules {
-    margin-bottom: 18%;
+  .module-user-access {
+    width: 100%;
   }
 
   .module-user-access {
@@ -301,9 +364,220 @@
     width: 100%
   }
 
+  .av-module {
+    margin-left: 3.5%;
+    margin-top: -3%;
+    width: 100%;
+    height: 50%;
+    margin-bottom: 2%;
+    padding: 2%;
+  }
+
+  .rd-module {
+    margin-left: 3.5%;
+    margin-right: -6%;
+    margin-top: -3%;
+    width: 100%;
+    height: 50%;
+    margin-bottom: 2%;
+    padding: 2%;
+  }
+
+  .sa-module {
+    margin-left: 3.5%;
+    margin-right: -6%;
+    margin-top: -3%;
+    width: 100%;
+    height: 50%;
+    margin-bottom: 2%;
+    padding: 2%;
+  }
+
+  .rv-module {
+    margin-left: 3.5%;
+    margin-right: -6%;
+    margin-top: -3%;
+    width: 100%;
+    height: 50%;
+    margin-bottom: 2%;
+    padding: 2%;
+  }
+
   .secre-row {
     margin-left: 0.5%;
     width: 100%;
+  }
+
+  .year-module {
+    width: 100%;
+    font-size: 1.2em;
+  }
+
+  .list-TA {
+    margin-left: 1%;
+    margin-top: 0%;
+    margin-bottom: 0%;
+  }
+
+  .alert-modules {
+    margin-top: 5%;
+    width: 98%;
+  }
+
+  .alert-modules h2{
+    font-size: 0.8em;
+    margin-top: 5%;
+    font-weight: 800;
+  }
+
+  .alert-modules p{
+    font-size: 0.8em;
+  }
+
+  .av-info input:nth-child(1) {
+    width: 100%;
+    font-size: 1.2em;
+  }
+
+  .av-info input:nth-child(2) {
+    width: 100%;
+    font-size: 1.2em;
+  }
+
+}
+
+@media (max-width: 360px) {
+  .index-container {
+    /*border: 2px solid red;*/
+    margin-top: 5%;
+  }
+
+  .title-index {
+    margin-top: 2%;
+    margin-bottom: -15%;
+    padding: 3%;
+  }
+
+  .logo-index-register {
+    width: 6em;
+    height: 3.5em;
+    margin-left: -6%;
+  }
+
+  .register-index-header h1 {
+    font-size: 0.74em;
+  }
+
+  .module-user-access {
+    margin-left: 0%;
+  }
+
+  .module-user-access .input-group input{
+    height: 2em;
+  }
+
+  .module-user-access .input-group select {
+    height: 2.5em;
+    font-size: 0.94em;
+  }
+
+  .btn-index-register {
+    margin-left: 2%;
+    width: 95%;
+    margin-top: -5%;
+    margin-bottom: 5%;
+  }
+
+  .register-index-header h2 {
+    font-weight: 450;
+    font-size: 0.67em;
+  }
+
+  .modules {
+    width: 100%;
+    height: 100%;
+    margin-left: 6%;
+    margin-right: -3%;
+    padding: 3%;
+  }
+
+  .av-module {
+    margin-left: 5%;
+    margin-top: -3%;
+    width: 100%;
+    height: 50%;
+    margin-bottom: 2%;
+    padding: 2%;
+  }
+
+  .rd-module {
+    margin-left: 5%;
+    margin-right: -6%;
+    margin-top: -3%;
+    width: 100%;
+    height: 50%;
+    margin-bottom: 2%;
+    padding: 2%;
+  }
+
+  .sa-module {
+    margin-left: 5%;
+    margin-right: -6%;
+    margin-top: -3%;
+    width: 100%;
+    height: 50%;
+    margin-bottom: 2%;
+    padding: 2%;
+  }
+
+  .rv-module {
+    margin-left: 5%;
+    margin-right: -6%;
+    margin-top: -3%;
+    width: 100%;
+    height: 50%;
+    margin-bottom: 2%;
+    padding: 2%;
+  }
+
+  .title-module {
+    width: 100%;
+    font-size: 1.2em;
+  }
+
+  .av-secretaryName {
+    width: 100%;
+    font-size: 1em;
+  }
+
+  .year-module {
+    width: 100%;
+    font-size: 1.2em;
+  }
+
+  .list-TA {
+    margin-left: 1%;
+    margin-top: 0%;
+    margin-bottom: 0%;
+  }
+
+  .alert-modules {
+    margin-top: 5%;
+    width: 98%;
+  }
+
+  .alert-modules h2{
+    font-size: 0.8em;
+    margin-top: 5%;
+    font-weight: 800;
+  }
+
+  .alert-modules p{
+    font-size: 0.8em;
+  }
+
+  .av-info input:nth-child(2) {
+    font-size: 1em;
   }
 
 }

@@ -18,6 +18,9 @@ function RegisterUserForm() {
             )
             .fadeOut(5000);
         }, 80);
+      } else if (output.stats == "INVALID") {
+        $("#msg").html('<div class="alert alert-danger"> Este usuário já existe. Informe novamente os campos Nome e Login para se cadsatrar !</div>');
+
       }
     })
 
@@ -75,7 +78,7 @@ function FormValidate() {
 
     $("#checkedPassword").focus();
     return false;
-  }else if (Password.length <= 7 || CheckedPassword.length <= 7 ) {
+  } else if (Password.length <= 7 || CheckedPassword.length <= 7) {
     $("#msg").html(
       '<div class="alert alert-danger"> As senhas precisam ter no mínimo 8 caracteres! </div>'
     );
@@ -90,7 +93,7 @@ function FormValidate() {
     $("#type").focus();
     return false;
 
-  }else if (document.formUser.seclectUserRegister.options[seclectUserRegister.selectedIndex].value == -1) {
+  } else if (document.formUser.seclectUserRegister.options[seclectUserRegister.selectedIndex].value == -1) {
     $("#msg").html(
       '<div class="alert alert-danger"> Selecione uma Secretaria! </div>'
     );
@@ -101,6 +104,6 @@ function FormValidate() {
   } else {
 
     return true;
-    
+
   }
 }

@@ -5,47 +5,59 @@
   --orangePrimary: #fe781f;
 }
 
+.main-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
 .header-login {
   display: flex;
   align-items: center;
   align-content: center;
 }
 
+.title-login {
+  margin-left: -5%;
+}
+
 .login-body {
-  background-image: url("../images/prefeitura-bg.jpg");
-  background-repeat: nrepeat;
+  background-image: url(../images/prefeitura-bg.jpg);
+  background-repeat: repeat;
   background-size: contain;
-  justify-content: center;
-  align-content: center;
   padding: 0%;
 }
 
 .login-container {
   background-image: url("../images/form-bg.jpg");
   box-shadow: var(--shadowPrimary);
-  border-radius: 30px;
-  margin-top: 15%;
-  margin-left: 15%;
-  padding: 0%;
+  border-radius: 1em;
+  margin-top: 5.5%;
+  margin-bottom: 5.5%;
+  margin-left: 18%;
+  padding: 1%;
 }
 
 .login-form {
   border-radius: 30px;
-  margin-top: 12%;
-  margin-bottom: 25%;
-  padding: 0%;
+}
+
+.img-login {
+  width: 10em;
+  height: 6em;
 }
 
 .login-form h1 {
-  font-size: 1.7em;
-  margin-top: 15px;
-  margin-left: -25%;
+  font-size: 1.5em;
+  font-weight: bold;
+  text-align: center;
 }
 
 .login-title {
+  text-align: center;
   font-size: 4em;
   font-weight: bold;
-  margin-bottom: -20px;
   font-family: "garamond";
   text-decoration: 3px underline var(--blackPrimary);
   text-shadow: rgba(0, 0, 0, 0.534) 5px 5px 5px;
@@ -58,49 +70,17 @@
 
 .login-form h2 {
   font-size: 1.2em;
-  margin-left: -25%;
+  font-weight: bold;
+  text-align: center;
 }
 
 .btn-access {
-  width: 200px;
-  margin-bottom: 5%;
-}
-
-.btn-access:hover {
-  box-shadow: var(--shadowPrimary);
-  transition: ease-in-out 0.3s;
-  transform: translateY(-5px);
+  width: 140px;
 }
 
 .login-error {
   font-style: italic;
-  margin-top: -30px;
-}
-
-.inputs-login i {
-  width: 100%;
-  margin-bottom: 10px;
-}
-
-.icon {
-  padding: 10px;
-  min-width: 40px;
-}
-
-.input-field {
-  width: 100%;
-  padding: 10px;
-  text-align: center;
-}
-
-.img-login {
-  width: 10em;
-  height: 6em;
-  margin-top: 5%;
-}
-
-.inputs-login i {
-  position: absolute;
+  margin-top: -5%;
 }
 
 @media (max-width: 1200px) {
@@ -113,41 +93,137 @@
 }
 
 @media (max-width: 768px) {
+
+  .title-login {
+    margin-left: -8%;
+    margin-top: 1%;
+  }
+
   .login-container {
-    width: 420px;
-    margin-top: 10%;
-    margin-bottom: 20%;
-    margin-left: 5%;
-    padding: 1%;
+    margin-top: 18%;
+    margin-left: 0%;
   }
 
   .login-form h1 {
-    font-size: 1em;
-    margin-left: 0%;
+    font-size: 1.3em;
+    text-align: center;
   }
 
   .login-form h2 {
-    font-size: 1em;
+    font-size: 0.9em;
+    text-align: center;
+  }
+
+  .img-login {
+    width: 11.5em;
+    height: 5em;
+  }
+
+  .btn-access {
+    margin-bottom: 1%;
+  }
+  
+}
+
+@media (max-width: 576px) {
+
+  .title-login {
+    margin-left: -8%;
+    margin-top: 1%;
+  }
+
+  .login-container {
+    margin-top: 18%;
     margin-left: 0%;
   }
 
-  .login-form {
-    border-radius: 30px;
-    margin-top: 2%;
-    margin-bottom: 2%;
-    padding: 2%;
+  .login-form h1 {
+    font-size: 1.1em;
+    text-align: center;
+  }
+
+  .login-form h2 {
+    font-size: 0.83em;
+    text-align: center;
+  }
+
+  .img-login {
+    width: 10em;
+    height: 4.2em;
   }
 
   .login-title {
     font-size: 3em;
+    margin-bottom: -0.6em;
   }
+
+  .btn-access {
+    margin-bottom: 1%;
+  }
+
 }
 
-@media (max-width: 576px) {
+@media (max-width: 360px) {
+
+  .login-container input{
+    font-size: 1em;
+  }
+
+  .select-login select, input{
+    font-size: 1em;
+  }
+
+  .login-title {
+    text-align: center;
+    font-size: 2.3em;
+    margin-bottom: -8%;
+    font-weight: bold;
+    font-family: "garamond";
+    text-decoration: 3px underline var(--blackPrimary);
+    text-shadow: rgba(0, 0, 0, 0.534) 5px 5px 5px;
+    color: #000;
+  }
+  
+  .login-title span {
+    color: var(--orangePrimary);
+  }
+
   .login-container {
-    width: 420px;
-    margin-top: 10%;
-    margin-left: 5%;
-    margin-bottom: 20%;
+    margin-top: 50%;
+    padding: 0%;
+  }
+
+  .login-form h1 {
+    margin-top: 8%;
+    font-size: 0.7em;
+    text-align: center;
+  }
+
+  .login-form h2 {
+    font-size: 0.54em;
+    text-align: center;
+  }
+
+  .img-login {
+    margin-top: 3%;
+    width: 7em;
+    height: 3em;
+  }
+
+  .login-error {
+    margin-top: -10%;
+  }
+
+  .btn-access {
+    width: 10em;
+    font-size: 0.8em;
+    margin-bottom: 5%;
+  }
+  
+
+  .input-login  .input-group{
+    font-size: 0.93em;
+    margin-bottom: 2%;
+
   }
 }
