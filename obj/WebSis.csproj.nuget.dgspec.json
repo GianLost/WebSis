@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Ufo\\Desktop\\Websis-novo\\WebSis\\WebSis.csproj": {}
+    "C:\\Users\\Ufo\\Desktop\\WebSis\\WebSis.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Ufo\\Desktop\\Websis-novo\\WebSis\\WebSis.csproj": {
+    "C:\\Users\\Ufo\\Desktop\\WebSis\\WebSis.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Ufo\\Desktop\\Websis-novo\\WebSis\\WebSis.csproj",
+        "projectUniqueName": "C:\\Users\\Ufo\\Desktop\\WebSis\\WebSis.csproj",
         "projectName": "WebSis",
-        "projectPath": "C:\\Users\\Ufo\\Desktop\\Websis-novo\\WebSis\\WebSis.csproj",
+        "projectPath": "C:\\Users\\Ufo\\Desktop\\WebSis\\WebSis.csproj",
         "packagesPath": "C:\\Users\\Ufo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Ufo\\Desktop\\Websis-novo\\WebSis\\obj\\",
+        "outputPath": "C:\\Users\\Ufo\\Desktop\\WebSis\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Ufo\\AppData\\Roaming\\NuGet\\NuGet.Config"

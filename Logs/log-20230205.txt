@@ -1,19 +1,12 @@
-2023-02-03T17:47:52.3578840-03:00 0HMO64SBDJ2CT:000000B3 [ERR] Erro ao Realizar Login!Sequence contains no elements (37d50196)
-2023-02-03T17:47:55.8707081-03:00 0HMO64SBDJ2CT:000000B5 [ERR] Erro ao Realizar Login!Sequence contains no elements (37d50196)
-2023-02-03T17:47:57.1196812-03:00 0HMO64SBDJ2CT:000000B7 [ERR] Erro ao Realizar Login!Sequence contains no elements (37d50196)
-2023-02-03T17:47:57.5879094-03:00 0HMO64SBDJ2CT:000000B9 [ERR] Erro ao Realizar Login!Sequence contains no elements (37d50196)
-2023-02-03T17:47:58.0985692-03:00 0HMO64SBDJ2CT:000000BB [ERR] Erro ao Realizar Login!Sequence contains no elements (37d50196)
-2023-02-03T17:48:16.3926645-03:00 0HMO64SBDJ2CT:000000D1 [ERR] Erro ao Realizar Login!Sequence contains no elements (37d50196)
-2023-02-03T17:49:29.4597377-03:00 0HMO6501OSKA7:0000002F [ERR] Erro ao Realizar Login!Unable to connect to any of the specified MySQL hosts. (32d6b91b)
-2023-02-03T18:35:14.9682638-03:00 0HMO65JNUCG4G:00000001 [ERR] An unhandled exception has occurred while executing the request. (48a46595)
-MySql.Data.MySqlClient.MySqlException (0x80004005): Table 'dbwebsis.secretarias' doesn't exist
- ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Table 'dbwebsis.secretarias' doesn't exist
-   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ResultSet.cs:line 49
-   at MySql.Data.MySqlClient.MySqlDataReader.ActivateResultSet() in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlDataReader.cs:line 130
-   at MySql.Data.MySqlClient.MySqlDataReader.CreateAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlDataReader.cs:line 391
-   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(IReadOnlyList`1 commands, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\CommandExecutor.cs:line 62
-   at MySql.Data.MySqlClient.MySqlCommand.ExecuteDbDataReader(CommandBehavior behavior) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlCommand.cs:line 217
-   at System.Data.Common.DbCommand.ExecuteReader()
+2023-02-05T15:04:19.4391957-03:00 0HMO7KDHNMT7J:00000001 [ERR] An unhandled exception has occurred while executing the request. (48a46595)
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ServerSession.cs:line 442
+   at MySql.Data.MySqlClient.MySqlConnection.CreateSessionAsync(ConnectionPool pool, Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 657
+   at MySql.Data.MySqlClient.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 312
+   at MySql.Data.MySqlClient.MySqlConnection.Open() in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 280
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlRelationalConnection.Open(Boolean errorsExpected)
    at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
    at Microsoft.EntityFrameworkCore.Query.RelationalShapedQueryCompilingExpressionVisitor.QueryingEnumerable`1.Enumerator.MoveNext()
    at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
