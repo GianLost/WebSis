@@ -46,13 +46,13 @@
 
             <!-- Input box que exibe o nome do usuário que está logado -->
 
-            <div class="input-group input-group-md hello">
+            <div class="input-group input-group-md">
 
                 <div class="input-group-prepend">
                     <i class="bi bi-person-fill input-group-text"></i>
                 </div>
 
-                <input style="cursor: pointer;" class="form-control text-justify" title="Usuário logado : @userSession"placeholder='Bem Vindo, @Context.Session.GetString("login") !' readonly>
+                <input style="cursor: pointer;" class="form-control text-justify hello" title="Usuário logado : @userSession"placeholder='Bem Vindo, @Context.Session.GetString("login") !' readonly>
 
             </div>
 
@@ -64,7 +64,7 @@
                     <label class="input-group-text" for="selectSecretary"><i class="bi bi-building-fill-check" title="Selecionar Secretarias"></i></label>
                 </div>
 
-                <select onchange="return getIndexSecretariesProp()" class="custom-select select-box" name="selectIndexSecretary"     id="selectIndexSecretary" title="Sua secretaria : @secretarySession" disabled>
+                <select onchange="return getIndexSecretariesProp()" class="custom-select select-box" name="selectIndexSecretary" id="selectIndexSecretary" title="Sua secretaria : @secretarySession" disabled>
 
                     @foreach (var item in secretaryList)
                     {
@@ -186,7 +186,7 @@
 
                 </div>
 
-                <div class="col-md-12 list-TA alert alert-danger alert-modules">
+                <div class="col-md-12 alert alert-danger alert-modules">
                     <h2>O Módulo RD - Relatório de despesas está em desenvolvimento !</h2>
                     <p>Em breve você terá acesso ao módulo...</p>
                 </div>

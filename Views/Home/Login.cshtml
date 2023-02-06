@@ -13,84 +13,88 @@
 
     <div class="container">
 
-        <div class="col-md-8 col-lg-8 col-sm-12 login-container">
+        <form method="post" asp-action="Login" asp-controller="Home" class="login-container col-md-10 col-lg-10 col-sm-12">
 
-            <form method="post" asp-action="Login" asp-controller="Home" class="login-form">
+            <div class="header-login">
 
-                <div class="header-login">
+                <img class="img-fluid img-login" src="../images/pmtm-logo.png"
+                    alt="Imagem Logo da tela de Login">
 
-                    <img class="img-fluid img-login" src="../images/pmtm-logo.png"  alt="Imagem Logo da tela de Login">
+                <div class="col-md-10 col-sm-10 title-login">
 
-                    <div class="col-md-10 col-sm-10 title-login">
+                    <h1>PREFEITURA MUNICIPAL DE TRÊS MARIAS</h1>
 
-                        <h1>PREFEITURA MUNICIPAL DE TRÊS MARIAS</h1>
+                    <h2>SEMAD - SECRETARIA MUNICIPAL DE ADMINISTRAÇÃO</h2>
+                </div>
 
-                        <h2>SEMAD - SECRETARIA MUNICIPAL DE ADMINISTRAÇÃO</h2>
+            </div>
 
+            <hr class="line-login">
+
+            <h3 class="login-title">Log<span>I</span>n</h3>
+
+            <div class="row p-4 input-login">
+
+                <input type="hidden" asp-for="@Model.Id">
+
+                <label asp-for="@Model.Login" class="sr-only">Login</label>
+                <div class="input-group mb-3">
+
+                    <div class="input-group-prepend">
+                        <i class="bi bi-person-fill input-group-text"></i>
                     </div>
+
+                    <input asp-for="@Model.Login" name="login" type="text"
+                        class="form-control" placeholder="Nome de usuário"
+                        required autofocus autocomplete="username">
 
                 </div>
 
-                <hr>
+                <label asp-for="@Model.CheckedPassword" class="sr-only">Senha</label>
+                <div class="input-group mb-3">
 
-                <h3 class="login-title">Log<span>I</span>n</h3>
-
-                <div class="row p-5 input-login">
-
-                    <input type="hidden" asp-for="@Model.Id">
-
-                    <label asp-for="@Model.Login" class="sr-only">Login</label>
-                    <div class="input-group mb-3">
-
-                        <div class="input-group-prepend">
-                            <i class="bi bi-person-fill input-group-text"></i>
-                        </div>
-
-                        <input asp-for="@Model.Login" name="login" type="text" class="form-control" placeholder="Nome de usuário" required autofocus autocomplete="username">
-
+                    <div class="input-group-prepend">
+                        <i class="bi bi-lock-fill input-group-text"></i>
                     </div>
 
-                    <label asp-for="@Model.CheckedPassword" class="sr-only">Senha</label>
-                    <div class="input-group mb-3">
+                    <input asp-for="@Model.CheckedPassword" name="password"
+                        type="password" class="form-control" placeholder="Insira a senha" required autocomplete="current-password">
+                </div>
 
-                        <div class="input-group-prepend">
-                            <i class="bi bi-lock-fill input-group-text"></i>
-                        </div>
+                <div class="input-group input-group-md mb-1 select-login">
 
-                        <input asp-for="@Model.CheckedPassword" name="password" type="password" class="form-control" placeholder="Insira a senha" required autocomplete="current-password">
-
+                    <div class="input-group-prepend">
+                        <label class="input-group-text"><i class="bi
+                                bi-building-fill-check" title="Selecionar
+                                Secretarias"></i></label>
                     </div>
 
-                    <div class="input-group input-group-md mb-1 select-login">
+                    <select asp-for="@Model.SecretariesId" for="secretaryId"
+                        name="secretaryId" class="custom-select"
+                        title="Selecionar Secretarias" required>
 
-                        <div class="input-group-prepend">
-                            <label class="input-group-text"><i class="bi bi-building-fill-check" title="Selecionar Secretarias"></i></label>
-                        </div>
-
-                        <select asp-for="@Model.SecretariesId" for="secretaryId" name="secretaryId" class="custom-select" title="Selecionar Secretarias" required>
-
-                            <option value="-1" selected>Selecione a secretaria...</option>
-
-                            @foreach (var item in secretaryList)
+                        <option value="-1" selected>Selecione a secretaria...</option>
+                        @foreach (var item in secretaryList)
+                        {
+                            if (item.Acronym != null)
                             {
-                                if (item.Acronym != null)
-                                {
-                                    <option for="secretaryId" value="@item.Id">@item.Acronym - @item.Name</option>
-                                    <div class="dropdown-divider"></div>
-                                }
+                                <option for="secretaryId" value="@item.Id">@item.Acronym
+                                    - @item.Name</option>
+                                <div class="dropdown-divider"></div>
                             }
+                        }
 
-                        </select>
-
-                    </div>
+                    </select>
 
                 </div>
 
-                <p class="text-danger login-error">@ViewData["ErrorLogin"]</p> <button class="btn btn-md btn-outline-primary btn-access" type="submit">Acessar <i class="bi bi-box-arrow-in-right"></i></button>
+            </div>
 
-            </form>
+            <p class="text-danger mt-1">@ViewData["ErrorLogin"]</p> <button
+                class="btn btn-md btn-outline-primary btn-access" type="submit">Acessar
+                <i class="bi bi-box-arrow-in-right"></i></button>
 
-        </div>
+        </form>
 
     </div>
 

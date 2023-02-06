@@ -129,18 +129,41 @@
   }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 286px) {
+
+  .my-navbar {
+    width: 21.5em;
+  }
 
   .logo-login {
-    margin-left: 10%;
+    width: 100%;
+    font-size: 1.1em;
+    margin-left: 0%;
+  }
+
+  .logo-login i{
+    margin-right: 4%;
   }
 
   .btn-home {
-    font-size: 1em;
+    font-size: 0.85em;
     margin-left: -10%;
+  }
+
+  .click-menu{
+    margin-right: 3%;
+  }
+
+  .navigation-bar li a{
+    width: 96%;
+    font-size: 0.9em;
   }
 
   .btn-home i{
     margin-left: 10%;
+  }
+
+  .footer a{
+    font-size: 0.9em;
   }
 }

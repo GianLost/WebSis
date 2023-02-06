@@ -396,7 +396,7 @@
   }
 
   .av-module {
-    margin-left: 5%;
+    margin-left: 3.5%;
     margin-top: -3%;
     width: 100%;
     height: 32rem;
@@ -405,7 +405,7 @@
   }
 
   .rd-module {
-    margin-left: 5%;
+    margin-left: 3.5%;
     margin-right: -6%;
     margin-top: -3%;
     width: 100%;
@@ -415,7 +415,7 @@
   }
 
   .sa-module {
-    margin-left: 5%;
+    margin-left: 3.5%;
     margin-right: -6%;
     margin-top: -3%;
     width: 100%;
@@ -425,7 +425,7 @@
   }
 
   .rv-module {
-    margin-left: 5%;
+    margin-left: 3.5%;
     margin-right: -6%;
     margin-top: -3%;
     width: 100%;
@@ -454,6 +454,7 @@
   .alert-modules {
     margin-top: 5%;
     width: 98%;
+    height: 15em;
   }
 
   .alert-modules h2{
@@ -478,63 +479,26 @@
 
 }
 
-@media (max-width: 360px) {
-  .index-container {
-    /*border: 2px solid red;*/
-    margin-top: 5%;
-  }
-
-  .title-index {
-    margin-top: 2%;
-    margin-bottom: -15%;
-    padding: 3%;
-  }
-
-  .logo-index-register {
-    width: 6em;
-    height: 3.5em;
-    margin-left: -6%;
-  }
-
-  .register-index-header h1 {
-    font-size: 0.74em;
+@media (min-width: 286px) {
+  .module-user-access {
+    width: 100%;
   }
 
   .module-user-access {
-    margin-left: 0%;
+    margin-top: 18%;
+    margin-bottom: 10px;
   }
 
-  .module-user-access .input-group input{
-    height: 2em;
-  }
-
-  .module-user-access .input-group select {
-    height: 2.5em;
-    font-size: 0.94em;
-  }
-
-  .btn-index-register {
-    margin-left: 2%;
-    width: 95%;
-    margin-top: -5%;
-    margin-bottom: 5%;
-  }
-
-  .register-index-header h2 {
-    font-weight: 450;
-    font-size: 0.67em;
-  }
-
-  .modules {
+  .navega {
     width: 100%;
-    height: 100%;
-    margin-left: 6%;
-    margin-right: -3%;
-    padding: 3%;
+  }
+
+  .btn-user-register {
+    width: 100%
   }
 
   .av-module {
-    margin-left: 5%;
+    margin-left: 3.5%;
     margin-top: -3%;
     width: 100%;
     height: 32rem;
@@ -543,7 +507,7 @@
   }
 
   .rd-module {
-    margin-left: 5%;
+    margin-left: 3.5%;
     margin-right: -6%;
     margin-top: -3%;
     width: 100%;
@@ -553,7 +517,7 @@
   }
 
   .sa-module {
-    margin-left: 5%;
+    margin-left: 3.5%;
     margin-right: -6%;
     margin-top: -3%;
     width: 100%;
@@ -563,7 +527,7 @@
   }
 
   .rv-module {
-    margin-left: 5%;
+    margin-left: 3.5%;
     margin-right: -6%;
     margin-top: -3%;
     width: 100%;
@@ -572,14 +536,9 @@
     padding: 2%;
   }
 
-  .title-module {
+  .secre-row {
+    margin-left: 0.5%;
     width: 100%;
-    font-size: 1.2em;
-  }
-
-  .av-secretaryName {
-    width: 100%;
-    font-size: 1em;
   }
 
   .year-module {
@@ -597,6 +556,7 @@
   .alert-modules {
     margin-top: 5%;
     width: 98%;
+    height: 15em;
   }
 
   .alert-modules h2{
@@ -609,8 +569,16 @@
     font-size: 0.8em;
   }
 
+  .av-info input:nth-child(1) {
+    width: 100%;
+    font-size: 1.2em;
+  }
+
   .av-info input:nth-child(2) {
-    font-size: 1em;
+    width: 100%;
+    font-size: 1.2em;
   }
 
 }
+
+
