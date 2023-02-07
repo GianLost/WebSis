@@ -86,21 +86,13 @@
 
                         <td>
 
-                            <button class="btn btn-sm btn-outline-secondary" type="button" data-toggle="modal" data-target="#upgradeSecretary-@item.Id" title="Editar Autorização de Viagem"><i class="bi bi-pencil-square"></i></button>
+                            <button class="btn btn-sm btn-outline-secondary" type="button" data-toggle="modal" data-target="#upgradeTA-@item.Id" title="Editar Autorização de Viagem"><i class="bi bi-pencil-square"></i></button>
                             @if (Context.Session.GetInt32("type") == 1)
                         {
                             <button class="btn btn-sm btn-outline-danger" type="button" data-toggle="modal" data-target="#deleteTA-@item.Id" title="Excluir Autorização de Viagem"><i class="bi bi-trash3-fill"></i></button>
                         }
-                        <!--<button class="btn btn-sm btn-outline-secondary" type="button" data-toggle="modal"
-                        data-target="#deleteSecretary-@item.Id" title="Imprimir Relatório"><i class="bi bi-filetype-pdf"></i></button>-->
 
-                        <a href="/TravelAuthorizations/TAPrintToPdf?Id=@item.Id" target="_blank" class="btn btn-sm btn-outline-primary" title="Imprimir Relatório"><i class="bi bi-filetype-pdf"></i></a>
-
-                        <!--<button class="btn btn-sm btn-outline-info" type="button" data-toggle="modal"
-                        data-target="#deleteSecretary-@item.Id" title="Vizualizar Relatório"><i class="bi bi-eye-fill"></i></button>
-
-                        <a href="/TravelAuthorizations/TravelsViewer?Id=@item.Id" class="btn btn-sm btn-outline-info"
-                        title="Vizualizar Relatório"><i class="bi bi-eye-fill"></i></a>-->
+                            <a href="/TravelAuthorizations/TAPrintToPdf?Id=@item.Id" target="_blank" class="btn btn-sm btn-outline-primary" title="Imprimir Relatório"><i class="bi bi-filetype-pdf"></i></a>
 
                         </td>
 
@@ -141,6 +133,46 @@
                     </div>
 
                     <!--Finish DeleteTA Modal-->
+
+                    <!--Start RegisterTA Modal-->
+
+                    <div class="modal fade" id="upgradeTA-@item.Id" tabindex="-1" role="dialog">
+
+                        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+
+                            <div class="modal-content">
+
+                                <div class="modal-header">
+
+                                    <img class="img-fluid logo-register" src="../images/pmtm-logo.png"
+                                        alt="Imagem Logo da tela de Login">
+
+                                    <div class="col-md-8 register-header">
+                                        <h1 class="">PREFEITURA MUNICIPAL DE TRÊS MARIAS</h1>
+
+                                        <h2 class="">SEMAD - SECRETARIA MUNICIPAL DE ADMINISTRAÇÃO</h2>
+                                    </div>
+
+
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+
+                                        <span aria-hidden="true">&times;</span>
+
+                                    </button>
+
+                                </div>
+
+                                <div class="modal-body p-0">
+                                    @await Html.PartialAsync("_UpgradeTA.cshtml", @item)
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!--Finish RegisterTA Modal-->
                 }
 
             </tbody>

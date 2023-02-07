@@ -255,10 +255,6 @@
   box-shadow: var(--shadowPrimary);
 }
 
-.btn-av-register {
-  margin-left: 1%;
-}
-
 .btn-av-register:hover {
   box-shadow: var(--shadowPrimary);
 }

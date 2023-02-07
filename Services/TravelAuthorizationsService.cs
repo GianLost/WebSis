@@ -71,6 +71,46 @@ namespace WebSis.Services
             return dataBase.TravelAuthorizations.ToList();
         }
 
+        public void EditTA(TravelAuthorizations editTA)
+        {
+            using WebSisContext dataBase = new WebSisContext();
+
+            TravelAuthorizations ta = dataBase.TravelAuthorizations.Find(editTA.Id);
+
+            ta.CurrentYear = editTA.CurrentYear;
+            ta.CurrentDate = editTA.CurrentDate;
+            ta.ClientName = editTA.ClientName;
+            ta.SecretaryName = editTA.SecretaryName;
+            ta.Office = editTA.Office;
+            ta.Level = editTA.Level;
+            ta.Code = editTA.Code;
+            ta.DepartureDate = editTA.DepartureDate;
+            ta.DepartureTime = editTA.DepartureTime;
+            ta.ArrivalDate = editTA.ArrivalDate;
+            ta.ArrivalTime = editTA.ArrivalTime;
+            ta.Accountability = editTA.Accountability;
+            ta.OneWayTickets = editTA.OneWayTickets;
+            ta.ReturnTickets = editTA.ReturnTickets;
+            ta.Destiny = editTA.Destiny;
+            ta.UG = editTA.UG;
+            ta.UO = editTA.UO;
+            ta.PA = editTA.PA;
+            ta.Expanses = editTA.Expanses;
+            ta.Font = editTA.Font;
+            ta.FoodQuantity = editTA.FoodQuantity;
+            ta.HostingQuantity = editTA.HostingQuantity;
+            ta.FoodUnitaryValue = editTA.FoodUnitaryValue;
+            ta.HostingUnitaryValue = editTA.HostingUnitaryValue;
+            ta.FoodTotalValue = editTA.FoodTotalValue;
+            ta.HostingTotalValue = editTA.HostingTotalValue;
+            ta.ExpanseTotalValue = editTA.ExpanseTotalValue;
+            ta.Goal = editTA.Goal;
+            ta.SecretariesId = editTA.SecretariesId;
+            ta.UsersId = editTA.UsersId;
+
+            dataBase.SaveChanges();
+        }
+
         public TravelAuthorizations SearchTAForId(int id)
         {
             using WebSisContext dataBase = new WebSisContext();

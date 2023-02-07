@@ -6,6 +6,7 @@ using Microsoft.Extensions.Logging;
 using WebSis.DataBase;
 using WebSis.Identity;
 using WebSis.Models;
+using WebSis.Services;
 
 /* Controller responsável pelas rotas da página inicial e página de login que valida os dados de usuário para estabelecer uma sessão com base nos métodos de Identity. */
 
@@ -100,6 +101,27 @@ namespace WebSis.Controllers
 
             }
 
+        }
+
+        [HttpPost]
+        public IActionResult UpgradeTA(TravelAuthorizations editTA) /*Only ADMIN*/
+        {
+            try
+            {
+
+                Authentication.CheckLogin(this); 
+                Authentication.CheckIfUserIsAdministrator(this);
+
+                new TravelAuthorizationsService().EditTA(editTA);
+
+                return RedirectToAction("Index", "Home");
+
+            }
+            catch (Exception e)
+            {
+                _logger.LogError("Erro ao Editar a Usuário !" + e.Message);
+                return RedirectToAction("Login", "Home");
+            }
         }
 
         public IActionResult Logout()
