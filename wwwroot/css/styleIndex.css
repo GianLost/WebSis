@@ -73,29 +73,27 @@
 .hello {
   width: 22.5em;
   box-shadow: var( --shadowPrimary);
+  height: 2em;
 }
 
 .user-in {
   text-align: center;
-  
 }
 
 .select-box {
-  text-align: left;
-  
+  text-align: center;
   opacity: 100%;
-  
 }
 
 .index-select {
   width: 22.5em;
+  height: 2em;
   box-shadow: var( --shadowPrimary);
 }
 
 .modules-container {
-
   width: 100%;
-  height: 32.5em;
+  height: 32.55em;
   margin-left: 0%;
   margin-top: 1%;
   margin-bottom: 2%;
@@ -110,14 +108,6 @@
   justify-content: space-evenly;
   padding: 1%;
 }
-
-
-
-
-
-
-
-
 
 .btn-index-register {
   width: 100%;
@@ -214,8 +204,6 @@
   height: 32.54rem;
   width: 65%
 }
-
-
 
 .btn-module {
   background-color: var(--greySecondary);
