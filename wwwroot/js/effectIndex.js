@@ -1,10 +1,10 @@
 
 /*function WriterText(el) {
-    const textArray = el.innerHTML.split("");
-    el.innerHTML = "";
+    const textArray = el.innerHTML.split('');
+    el.innerHTML = '';
 
     textArray.forEach((letter, i) => {
-        setTimeout( () => (el.innerHTML += letter) ,100 * i);
+        setTimeout( () => (el.innerHTML += letter) ,95 * i);
     });
 
     setInterval(() => WriterText(el), 10000);

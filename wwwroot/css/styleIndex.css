@@ -7,52 +7,47 @@
   --shadowPrimary: rgba(0, 0, 0, 0.534) 5px 5px 10px;
 }
 
-.modules-container {
-  width: 100%;
-}
-
 .index-container {
+
   justify-content: center;
   align-items: center;
   align-content: center;
   width: 100%;
   height: 100%;
-  margin-top: 1%;
-  margin-bottom: 3%;
+  margin-top: 2%;
+  margin-bottom: 8%;
 }
 
 .title-index {
+
   width: 100%;
   display: flex;
+  justify-content: center;
   flex-direction: row;
   align-items: center;
+  margin-top: 1%;
+  margin-left: -3%;
   padding: 1%;
 }
 
 .logo-index-register {
+
   display: flex;
   align-items: center;
-  width: 13.5em;
-  height: 7em;
-  margin-left: -2%;
-  margin-top: 2%;
+  width: 14em;
+  height: 8em;
 }
 
 .register-index-header {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  align-content: center;
-  margin-left: -3%;
-  margin-top: 2.5%;
+
+  width: 75%;
   margin-bottom: 0%;
 }
 
 .register-index-header h1 {
+  
   font-size: 2.5em;
-  font-weight: 600;
+  font-weight: 500;
   text-align: center;
 }
 
@@ -66,25 +61,69 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  align-items: left;
   flex-wrap: wrap;
-  width: 33.5%;
-  height: 8em;
-  margin-top: 3%;
-  margin-left: -1.5%;
+  width: 33%;
+  height: 10em;
+  margin-top: 1%;
   padding: 0.5%;
 }
 
-.btn-index-register {
-  margin-left: -1.3%;
-  margin-bottom: 1.5%;
-}
 
 .hello {
-  width: 100%;
+  width: 22.5em;
+  box-shadow: var( --shadowPrimary);
+}
+
+.user-in {
+  text-align: center;
+  
+}
+
+.select-box {
+  text-align: left;
+  
+  opacity: 100%;
+  
 }
 
 .index-select {
+  width: 22.5em;
+  box-shadow: var( --shadowPrimary);
+}
+
+.modules-container {
+
   width: 100%;
+  height: 32.5em;
+  margin-left: 0%;
+  margin-top: 1%;
+  margin-bottom: 2%;
+}
+
+.modules {
+  width: 33.5%;
+  height: 100%;
+  background-color: var(--greyPrimary);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 1%;
+}
+
+
+
+
+
+
+
+
+
+.btn-index-register {
+  width: 100%;
+  margin-top: 1%;
+  margin-left: -1%;
+  padding: 1%;
 }
 
 .select-box:hover {
@@ -176,22 +215,7 @@
   width: 65%
 }
 
-.modules {
-  width: 33.5%;
-  height: 100%;
-  background-color: var(--greyPrimary);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  margin-bottom: 10%; 
-  padding: 1%;
-}
 
-.modules2 {
-  /*border: 2px solid var(--blackPrimary);*/
-  background-color: var(--greyPrimary);
-  margin-bottom: 10%;
-}
 
 .btn-module {
   background-color: var(--greySecondary);
@@ -396,7 +420,7 @@
   }
 
   .av-module {
-    margin-left: 3.5%;
+    margin-left: 5%;
     margin-top: -3%;
     width: 100%;
     height: 32rem;
@@ -405,7 +429,7 @@
   }
 
   .rd-module {
-    margin-left: 3.5%;
+    margin-left: 5%;
     margin-right: -6%;
     margin-top: -3%;
     width: 100%;
@@ -415,7 +439,7 @@
   }
 
   .sa-module {
-    margin-left: 3.5%;
+    margin-left: 5%;
     margin-right: -6%;
     margin-top: -3%;
     width: 100%;
@@ -425,7 +449,7 @@
   }
 
   .rv-module {
-    margin-left: 3.5%;
+    margin-left: 5%;
     margin-right: -6%;
     margin-top: -3%;
     width: 100%;
@@ -454,7 +478,6 @@
   .alert-modules {
     margin-top: 5%;
     width: 98%;
-    height: 15em;
   }
 
   .alert-modules h2{
@@ -479,26 +502,63 @@
 
 }
 
-@media (min-width: 286px) {
-  .module-user-access {
-    width: 100%;
+@media (max-width: 360px) {
+  .index-container {
+    /*border: 2px solid red;*/
+    margin-top: 5%;
+  }
+
+  .title-index {
+    margin-top: 2%;
+    margin-bottom: -15%;
+    padding: 3%;
+  }
+
+  .logo-index-register {
+    width: 6em;
+    height: 3.5em;
+    margin-left: -6%;
+  }
+
+  .register-index-header h1 {
+    font-size: 0.74em;
   }
 
   .module-user-access {
-    margin-top: 18%;
-    margin-bottom: 10px;
+    margin-left: 0%;
   }
 
-  .navega {
+  .module-user-access .input-group input{
+    height: 2em;
+  }
+
+  .module-user-access .input-group select {
+    height: 2.5em;
+    font-size: 0.94em;
+  }
+
+  .btn-index-register {
+    margin-left: 2%;
+    width: 95%;
+    margin-top: -5%;
+    margin-bottom: 5%;
+  }
+
+  .register-index-header h2 {
+    font-weight: 450;
+    font-size: 0.67em;
+  }
+
+  .modules {
     width: 100%;
-  }
-
-  .btn-user-register {
-    width: 100%
+    height: 100%;
+    margin-left: 6%;
+    margin-right: -3%;
+    padding: 3%;
   }
 
   .av-module {
-    margin-left: 3.5%;
+    margin-left: 5%;
     margin-top: -3%;
     width: 100%;
     height: 32rem;
@@ -507,7 +567,7 @@
   }
 
   .rd-module {
-    margin-left: 3.5%;
+    margin-left: 5%;
     margin-right: -6%;
     margin-top: -3%;
     width: 100%;
@@ -517,7 +577,7 @@
   }
 
   .sa-module {
-    margin-left: 3.5%;
+    margin-left: 5%;
     margin-right: -6%;
     margin-top: -3%;
     width: 100%;
@@ -527,7 +587,7 @@
   }
 
   .rv-module {
-    margin-left: 3.5%;
+    margin-left: 5%;
     margin-right: -6%;
     margin-top: -3%;
     width: 100%;
@@ -536,9 +596,14 @@
     padding: 2%;
   }
 
-  .secre-row {
-    margin-left: 0.5%;
+  .title-module {
     width: 100%;
+    font-size: 1.2em;
+  }
+
+  .av-secretaryName {
+    width: 100%;
+    font-size: 1em;
   }
 
   .year-module {
@@ -556,7 +621,6 @@
   .alert-modules {
     margin-top: 5%;
     width: 98%;
-    height: 15em;
   }
 
   .alert-modules h2{
@@ -569,16 +633,8 @@
     font-size: 0.8em;
   }
 
-  .av-info input:nth-child(1) {
-    width: 100%;
-    font-size: 1.2em;
-  }
-
   .av-info input:nth-child(2) {
-    width: 100%;
-    font-size: 1.2em;
+    font-size: 1em;
   }
 
 }
-
-

@@ -27,7 +27,7 @@
 
 }
 
-<body class="modules-container">
+<body class="">
 
     <div class="container index-container">
 
@@ -46,13 +46,13 @@
 
             <!-- Input box que exibe o nome do usuário que está logado -->
 
-            <div class="input-group input-group-md">
+            <div class="input-group input-group-md hello">
 
                 <div class="input-group-prepend">
                     <i class="bi bi-person-fill input-group-text"></i>
                 </div>
 
-                <input style="cursor: pointer;" class="form-control text-justify hello" title="Usuário logado : @userSession"placeholder='Bem Vindo, @Context.Session.GetString("login") !' readonly>
+                <input style="cursor: pointer;" class="form-control user-in" title="Usuário logado : @userSession"placeholder='Bem Vindo, @Context.Session.GetString("login") !' readonly>
 
             </div>
 
@@ -87,13 +87,13 @@
             {
                 <!-- Input para cadastrar Secretarias -->
 
-                    <button class="btn btn-md btn-outline-primary btn-user-register mt-3" type="button" data-toggle="modal"data-target="#registerSecretary-modal" title="Cadastrar Secretarias"><i class="bi bi-building-fill-add"title="Cadastrar Secretarias"></i> Cadastrar Secretarias</button>
+                    <button class="btn btn-md btn-outline-primary btn-user-register" type="button" data-toggle="modal"data-target="#registerSecretary-modal" title="Cadastrar Secretarias"><i class="bi bi-building-fill-add"title="Cadastrar Secretarias"></i> Cadastrar Secretarias</button>
 
                 <!-- / Input para cadastrar Secretarias -->
 
                 <!-- Input para cadastrar Usuário -->
 
-                    <button class="btn btn-md btn-outline-primary btn-user-register mt-3" type="button" data-toggle="modal"data-target="#registerUser" title="Cadastrar Usuário"> <i class="bi bi-person-fill-add"></i> Cadastrar Usuário</button>
+                    <button class="btn btn-md btn-outline-primary btn-user-register" type="button" data-toggle="modal"data-target="#registerUser" title="Cadastrar Usuário"> <i class="bi bi-person-fill-add"></i> Cadastrar Usuário</button>
 
                 <!-- / Input para cadastrar Usuário -->
             }
@@ -153,7 +153,7 @@
 
                 <div class="row av-row">
 
-                    <button class="btn btn-md btn-outline-primary btn-av-register mt-3" type="button"
+                    <button class="btn btn-md btn-outline-success btn-av-register mt-3" type="button"
                         data-toggle="modal" data-target="#myModal" title="Cadastrar AV - Autorização de viagem"> <i
                             class="bi bi-journal-check"> </i> Cadastrar AV
                     </button>
