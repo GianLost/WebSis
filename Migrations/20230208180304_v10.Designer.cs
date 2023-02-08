@@ -9,8 +9,8 @@ using WebSis.DataBase;
 namespace WebSis.Migrations
 {
     [DbContext(typeof(WebSisContext))]
-    [Migration("20230201014312_v11")]
-    partial class v11
+    [Migration("20230208180304_v10")]
+    partial class v10
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -140,8 +140,10 @@ namespace WebSis.Migrations
                     b.Property<int>("OneWayTickets")
                         .HasColumnType("int");
 
-                    b.Property<double>("PA")
-                        .HasColumnType("double");
+                    b.Property<string>("PA")
+                        .IsRequired()
+                        .HasColumnType("varchar(30) CHARACTER SET utf8mb4")
+                        .HasMaxLength(30);
 
                     b.Property<int>("ReturnTickets")
                         .HasColumnType("int");
@@ -157,11 +159,15 @@ namespace WebSis.Migrations
                     b.Property<int>("Type")
                         .HasColumnType("int");
 
-                    b.Property<double>("UG")
-                        .HasColumnType("double");
+                    b.Property<string>("UG")
+                        .IsRequired()
+                        .HasColumnType("varchar(30) CHARACTER SET utf8mb4")
+                        .HasMaxLength(30);
 
-                    b.Property<double>("UO")
-                        .HasColumnType("double");
+                    b.Property<string>("UO")
+                        .IsRequired()
+                        .HasColumnType("varchar(30) CHARACTER SET utf8mb4")
+                        .HasMaxLength(30);
 
                     b.Property<int>("UsersId")
                         .HasColumnType("int");

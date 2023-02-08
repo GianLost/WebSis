@@ -30,7 +30,7 @@
 
     <div class="container">
 
-        <form method="post" asp-controller="Home" asp-action="UpgradeTA" onchange="SA()" class="form">
+        <form method="post" asp-controller="Home" asp-action="UpgradeTA" onchange="upSA()" class="form">
 
             <div class="navega mt-4">
 
@@ -39,15 +39,14 @@
                         <label class="input-group-text" for="selectSecretary"><i class="bi bi-building-fill-check"
                                 title="Selecionar Secretarias"></i></label>
                     </div>
-                    <select onchange="return getSecretariesProp()" class="custom-select select-secretary" name="selectSecretary"
-                        id="selectSecretary" title="Selecionar Secretarias" disabled>
+                    <select onchange="return getUpSecretariesProp()" class="custom-select select-secretary" name="upSelectSecretary"
+                        id="upSelectSecretary" title="Selecionar Secretarias" disabled>
                         @foreach (var item in secretaryList)
                         {
                             if (item.Acronym != null)
                             {
                                 <option class="text-center" value="@item.Id" selected>@item.Acronym - @item.Name</option>
                                 <div class="dropdown-divider"></div>
-
                             }
                         }
                     </select>
@@ -62,7 +61,7 @@
 
                 <input asp-for="@Model.Id" type="hidden" class="form-control" placeholder='@next.ToString("D4")' name="Id" required>
 
-                <input type="hidden" id="secretaryId" class="form-control" asp-for="@Model.SecretariesId" required>
+                <input type="hidden" id="upSecretaryId" class="form-control" asp-for="@Model.SecretariesId" required>
 
                 <input type="hidden" value='@Context.Session.GetInt32("type")' class="form-control" asp-for="@Model.Type" required>
 
@@ -84,7 +83,7 @@
                 <div class="col-md-6 mb-3">
 
                     <label class="form-label">Nome da secretaria: </label>
-                    <input type="text" id="secretaryName" class="form-control" asp-for="@Model.SecretaryName" required readonly>
+                    <input type="text" id="upSecretaryName" class="form-control" asp-for="@Model.SecretaryName" required readonly>
 
                 </div>
 
@@ -119,7 +118,7 @@
                 <div class="col-md-6 mb-3">
 
                     <label class="form-label">Data de saída: </label>
-                    <input type="date" id="date1" class="form-control" asp-for="@Model.DepartureDate" required>
+                    <input type="date" id="update1" class="form-control" asp-for="@Model.DepartureDate" required>
 
                 </div>
 
@@ -133,7 +132,7 @@
                 <div class="col-md-6 mb-3">
 
                     <label class="form-label">Data de chegada: </label>
-                    <input onblur="return Calc()" placeholder="Data de chegada" id="date2" type="date" class="form-control" asp-for="@Model.ArrivalDate" required>
+                    <input onblur="return upCalc()" placeholder="Data de chegada" id="update2" type="date" class="form-control" asp-for="@Model.ArrivalDate" required>
 
                 </div>
 
@@ -147,7 +146,7 @@
                 <div class="col-md-6 mb-3">
 
                     <label class="form-label">Prestação de contas: </label>
-                    <input placeholder="dd/mm/aaaa" id="date3" type="datetime" class="form-control" asp-for="@Model.Accountability" required readonly>
+                    <input placeholder="dd/mm/aaaa" id="update3" type="datetime" class="form-control" asp-for="@Model.Accountability" required readonly>
 
                 </div>
 
@@ -210,14 +209,14 @@
                 <div class="col-md-6 mb-3">
 
                     <label class="form-label">Alimentação (Und.): </label>
-                    <input id="n1" type="number" class="form-control" asp-for="@Model.FoodQuantity" required>
+                    <input id="upn1" type="number" class="form-control" asp-for="@Model.FoodQuantity" required>
 
                 </div>
 
                 <div class="col-md-6 mb-3">
 
                     <label class="form-label">Hospedagem (Und.): </label>
-                    <input id="n3" type="number" class="form-control" asp-for="@Model.HostingQuantity" required>
+                    <input id="upn3" type="number" class="form-control" asp-for="@Model.HostingQuantity" required>
 
                 </div>
 
@@ -230,7 +229,7 @@
                             <i class="input-group-text">R$</i>
                         </div>
 
-                        <input value="0.00" id="n2" type="text" class="form-control values-input" asp-for="@Model.FoodUnitaryValue" required>
+                        <input value="0.00" id="upn2" type="text" class="form-control values-input" asp-for="@Model.FoodUnitaryValue" required>
 
                     </div>
 
@@ -245,7 +244,7 @@
                             <i class="input-group-text">R$</i>
                         </div>
 
-                        <input value="0.00" id="n4" type="text" class="form-control values-input" asp-for="@Model.HostingUnitaryValue" required>
+                        <input value="0.00" id="upn4" type="text" class="form-control values-input" asp-for="@Model.HostingUnitaryValue" required>
 
                     </div>
 
@@ -260,7 +259,7 @@
                             <i class="input-group-text">R$</i>
                         </div>
 
-                        <input id="totalfood" type="text" class="form-control" asp-for="@Model.FoodTotalValue" required readonly>
+                        <input id="uptotalfood" type="text" class="form-control" asp-for="@Model.FoodTotalValue" required readonly>
 
                     </div>
 
@@ -275,7 +274,7 @@
                             <i class="input-group-text">R$</i>
                         </div>
 
-                        <input id="totalhosting" type="text" class="form-control" asp-for="@Model.HostingTotalValue" required readonly>
+                        <input id="uptotalhosting" type="text" class="form-control" asp-for="@Model.HostingTotalValue" required readonly>
 
                     </div>
 
@@ -290,7 +289,7 @@
                             <i class="input-group-text">R$</i>
                         </div>
 
-                        <input id="total" type="text" class="form-control text-center" asp-for="@Model.ExpanseTotalValue" required readonly>
+                        <input id="uptotal" type="text" class="form-control text-center" asp-for="@Model.ExpanseTotalValue" required readonly>
 
                     </div>
 

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "yR4GPsVtlpJmZDFOV4aQ1vqZzlm4mlFCSkJbWWSsTsGw4ywQgL+FEUq1i4fi8HfldMrwLSvMMUIylQE7fRyizA==",
+  "dgSpecHash": "DdROYtxdws6UgBfPVJYLYe7lVFjSjIQrSnFu+EH+ptO7mRMKoLfsRlQFkmSaklsVLlDhwl20frHRekUR2ToAfQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\gianluca.vialli\\Desktop\\WebSis\\WebSis.csproj",
+  "projectFilePath": "D:\\WebSisProject\\Nova pasta\\WebSis\\WebSis.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\gianluca.vialli\\.nuget\\packages\\fastreport.compat\\2023.1.0\\fastreport.compat.2023.1.0.nupkg.sha512",
     "C:\\Users\\gianluca.vialli\\.nuget\\packages\\fastreport.opensource\\2023.1.8\\fastreport.opensource.2023.1.8.nupkg.sha512",
