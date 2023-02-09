@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Report ScriptLanguage="CSharp" ReportInfo.Created="01/13/2023 10:05:16" ReportInfo.Modified="01/31/2023 22:57:54" ReportInfo.CreatorVersion="2023.1.0.0">
+<Report ScriptLanguage="CSharp" ReportInfo.Created="01/13/2023 10:05:16" ReportInfo.Modified="02/09/2023 17:46:06" ReportInfo.CreatorVersion="2023.1.0.0">
   <Dictionary>
     <BusinessObjectDataSource Name="travelsList" ReferenceName="travelsList" DataType="null" Enabled="true">
       <Column Name="Id" DataType="System.Int32"/>
@@ -78,7 +78,7 @@
       <ShapeObject Name="Shape4" Top="75.6" Width="718.2" Height="56.7"/>
       <LineObject Name="Line2" Top="103.95" Width="718.2"/>
       <TextObject Name="Text15" Left="567" Top="37.8" Width="56.7" Height="18.9" Text="Data:" VertAlign="Center" Font="Times New Roman, 9pt"/>
-      <TextObject Name="Text16" Left="576.45" Top="47.25" Width="141.75" Height="18.9" Text="[travelsList.CurrentDate]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text16" Left="576.45" Top="47.25" Width="141.75" Height="18.9" Text="[travelsList.CurrentDate]" Format="Date" Format.Format="d" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
       <TextObject Name="Text20" Left="9.45" Top="75.6" Width="75.6" Height="28.35" Text="Nome:" VertAlign="Center" Font="Times New Roman, 9pt"/>
       <TextObject Name="Text21" Left="9.45" Top="103.95" Width="75.6" Height="28.35" Text="Cargo:" VertAlign="Center" Font="Times New Roman, 9pt"/>
       <LineObject Name="Line3" Left="569.8" Top="75.6" Height="56.7"/>
@@ -196,7 +196,7 @@
       <ShapeObject Name="Shape13" Top="614.25" Width="718.2" Height="56.7"/>
       <LineObject Name="Line40" Top="642.6" Width="718.2"/>
       <TextObject Name="Text98" Left="567" Top="576.45" Width="56.7" Height="18.9" Text="Data:" VertAlign="Center" Font="Times New Roman, 9pt"/>
-      <TextObject Name="Text99" Left="576.45" Top="585.9" Width="141.75" Height="18.9" Text="[travelsList.CurrentDate]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text99" Left="576.45" Top="585.9" Width="141.75" Height="18.9" Text="[travelsList.CurrentDate]" Format="Date" Format.Format="d" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
       <TextObject Name="Text100" Left="9.45" Top="614.25" Width="75.6" Height="28.35" Text="Nome:" VertAlign="Center" Font="Times New Roman, 9pt"/>
       <TextObject Name="Text101" Left="9.45" Top="642.6" Width="75.6" Height="28.35" Text="Cargo:" VertAlign="Center" Font="Times New Roman, 9pt"/>
       <LineObject Name="Line41" Left="569.8" Top="614.25" Height="56.7"/>

@@ -67,8 +67,8 @@ namespace WebSis.Migrations
 
                     b.Property<string>("CurrentDate")
                         .IsRequired()
-                        .HasColumnType("varchar(12) CHARACTER SET utf8mb4")
-                        .HasMaxLength(12);
+                        .HasColumnType("varchar(14) CHARACTER SET utf8mb4")
+                        .HasMaxLength(14);
 
                     b.Property<string>("CurrentYear")
                         .IsRequired()

@@ -11,7 +11,7 @@ namespace WebSis.Models
         [Required(ErrorMessage = "O campo Ano Corrente é obrigatório"), StringLength(4)]
         public string CurrentYear { get; set; }
 
-        [Required(ErrorMessage = "O campo Data Atual é obrigatório"), StringLength(12)]
+        [Required(ErrorMessage = "O campo Data Atual é obrigatório"), StringLength(14)]
         public string CurrentDate { get; set; }
 
         [Required(ErrorMessage = "O campo Nome do Cliente é obrigatório"), StringLength(80)]
@@ -32,13 +32,13 @@ namespace WebSis.Models
         [Required(ErrorMessage = "O campo Tipo é obrigatório")]
         public int Type { get; set; }
 
-        [Required(ErrorMessage = "O campo Data de Saída é obrigatório")]
+        [Required(ErrorMessage = "O campo Data de Saída é obrigatório"), DataType(DataType.Date)]
         public DateTime DepartureDate { get; set; }
 
         [Required(ErrorMessage = "O campo Hora de saída é obrigatório"), StringLength(12)]
         public string DepartureTime { get; set; }
 
-        [Required(ErrorMessage = "O campo Data de chegada é obrigatório")]
+        [Required(ErrorMessage = "O campo Data de chegada é obrigatório"), DataType(DataType.Date)]
         public DateTime ArrivalDate { get; set; }
 
         [Required(ErrorMessage = "O campo Hora de chegada é obrigatório"), StringLength(12)]

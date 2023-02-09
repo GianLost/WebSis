@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\WebSisProject\\Nova pasta\\WebSis\\WebSis.csproj": {}
+    "C:\\Users\\gianluca.vialli\\Desktop\\WebSis\\WebSis.csproj": {}
   },
   "projects": {
-    "D:\\WebSisProject\\Nova pasta\\WebSis\\WebSis.csproj": {
+    "C:\\Users\\gianluca.vialli\\Desktop\\WebSis\\WebSis.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\WebSisProject\\Nova pasta\\WebSis\\WebSis.csproj",
+        "projectUniqueName": "C:\\Users\\gianluca.vialli\\Desktop\\WebSis\\WebSis.csproj",
         "projectName": "WebSis",
-        "projectPath": "D:\\WebSisProject\\Nova pasta\\WebSis\\WebSis.csproj",
+        "projectPath": "C:\\Users\\gianluca.vialli\\Desktop\\WebSis\\WebSis.csproj",
         "packagesPath": "C:\\Users\\gianluca.vialli\\.nuget\\packages\\",
-        "outputPath": "D:\\WebSisProject\\Nova pasta\\WebSis\\obj\\",
+        "outputPath": "C:\\Users\\gianluca.vialli\\Desktop\\WebSis\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\gianluca.vialli\\AppData\\Roaming\\NuGet\\NuGet.Config"

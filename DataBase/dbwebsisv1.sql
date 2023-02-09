@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 01-Fev-2023 às 03:16
--- Versão do servidor: 10.4.24-MariaDB
--- versão do PHP: 7.4.29
+-- Tempo de geração: 09-Fev-2023 às 21:32
+-- Versão do servidor: 10.4.25-MariaDB
+-- versão do PHP: 7.4.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `autorização de viagem` (
   `Id` int(11) NOT NULL,
   `CurrentYear` varchar(4) NOT NULL,
-  `CurrentDate` varchar(12) NOT NULL,
+  `CurrentDate` varchar(14) NOT NULL,
   `ClientName` varchar(80) NOT NULL,
   `SecretaryName` varchar(80) NOT NULL,
   `Office` varchar(60) NOT NULL,
@@ -111,27 +111,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`Id`, `Name`, `Login`, `Password`, `CheckedPassword`, `Type`, `SecretariesId`) VALUES
-(1, 'Administrator', 'admin', '21232f297a57a5a743894a0e4a801fc3', '21232f297a57a5a743894a0e4a801fc3', 1, 1),
-(2, 'Marcos Aurélio Silva', 'Marcos.Silva', '25f9e794323b453885f5181f1b624d0b', '25f9e794323b453885f5181f1b624d0b', 1, 2),
-(3, 'Joana Arruda de Oliveira', 'Joana.Oliveira', '25f9e794323b453885f5181f1b624d0b', '25f9e794323b453885f5181f1b624d0b', 1, 3),
-(4, 'Amilton Vieira de Souza', 'Amilton.Vieira', '25f9e794323b453885f5181f1b624d0b', '25f9e794323b453885f5181f1b624d0b', 1, 4),
-(5, 'Anna Caroline Ribeiro Vieira', 'Anna.Ribeiro', '25f9e794323b453885f5181f1b624d0b', '25f9e794323b453885f5181f1b624d0b', 1, 5),
-(6, 'Marcelo Batista Vespasiano', 'Marcelo.Batista', '25f9e794323b453885f5181f1b624d0b', '25f9e794323b453885f5181f1b624d0b', 1, 6),
-(7, 'Luana Cristina de Oliveira', 'Luana.Cristina', '25f9e794323b453885f5181f1b624d0b', '25f9e794323b453885f5181f1b624d0b', 1, 7),
-(8, 'João Fernando Alves do Nascimento', 'João.Alves', '25f9e794323b453885f5181f1b624d0b', '25f9e794323b453885f5181f1b624d0b', 1, 8),
-(9, 'Sarah Marilia Agostinho', 'Sarah.Agostinho', '25f9e794323b453885f5181f1b624d0b', '25f9e794323b453885f5181f1b624d0b', 1, 9),
-(10, 'Miquéias Stanford Salatiel', 'Miqueias.Salatiel', '25f9e794323b453885f5181f1b624d0b', '25f9e794323b453885f5181f1b624d0b', 1, 10),
-(11, 'Lidia Cristina Martins', 'Lidia.Martins', '25f9e794323b453885f5181f1b624d0b', '25f9e794323b453885f5181f1b624d0b', 1, 1),
-(12, 'Carlos Cabral de Assis', 'Carlos.Cabral', '25f9e794323b453885f5181f1b624d0b', '25f9e794323b453885f5181f1b624d0b', 0, 2),
-(13, 'Márcia Pimentel de Souza', 'Marcia.Pimentel', '25f9e794323b453885f5181f1b624d0b', '25f9e794323b453885f5181f1b624d0b', 0, 3),
-(14, 'Renata Coelho Rocha', 'Renata.Rocha', '25f9e794323b453885f5181f1b624d0b', '25f9e794323b453885f5181f1b624d0b', 0, 4),
-(15, 'Raimundo Elzo Fagundes Lontra', 'Raimundo.Elzo', '25f9e794323b453885f5181f1b624d0b', '25f9e794323b453885f5181f1b624d0b', 0, 5),
-(16, 'Pedro Henrrique Cardoso', 'Pedro.Henrrique', '25f9e794323b453885f5181f1b624d0b', '25f9e794323b453885f5181f1b624d0b', 0, 6),
-(17, 'Carol Viana da Conceição', 'Carol.Viana', '25f9e794323b453885f5181f1b624d0b', '25f9e794323b453885f5181f1b624d0b', 0, 7),
-(18, 'Mário Neto de Assis', 'Mario.Neto', '25f9e794323b453885f5181f1b624d0b', '25f9e794323b453885f5181f1b624d0b', 0, 8),
-(19, 'Neuza Cristina Mariles de Souza', 'Neuza.Souza', '25f9e794323b453885f5181f1b624d0b', '25f9e794323b453885f5181f1b624d0b', 0, 9),
-(20, 'Fátima de Castro Alves', 'Fatima.Castro', '25f9e794323b453885f5181f1b624d0b', '25f9e794323b453885f5181f1b624d0b', 0, 10),
-(21, 'Mauro Duarte Rocha', 'Mauro.Duarte', '25f9e794323b453885f5181f1b624d0b', '25f9e794323b453885f5181f1b624d0b', 0, 1);
+(1, 'Administrator', 'admin', '21232f297a57a5a743894a0e4a801fc3', '21232f297a57a5a743894a0e4a801fc3', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -149,7 +129,7 @@ CREATE TABLE `__efmigrationshistory` (
 --
 
 INSERT INTO `__efmigrationshistory` (`MigrationId`, `ProductVersion`) VALUES
-('20230201014312_v11', '3.0.0');
+('20230209203041_v11', '3.0.0');
 
 --
 -- Índices para tabelas despejadas
@@ -202,7 +182,7 @@ ALTER TABLE `secretarias`
 -- AUTO_INCREMENT de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Restrições para despejos de tabelas

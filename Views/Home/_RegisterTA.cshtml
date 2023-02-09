@@ -64,7 +64,7 @@
 
                 <input type="hidden" id="secretaryId" class="form-control" asp-for="@Model.SecretariesId" required>
 
-                <input type="hidden" value='@Context.Session.GetInt32("type")' class="form-control" asp-for="@Model.Type" required>
+                <input type="hidden" id="secretaryName" class="form-control" asp-for="@Model.SecretaryName" required>
 
                 <input asp-for="@Model.UsersId" type="hidden" class="form-control" value='@Context.Session.GetInt32("idUser")'name="UsersId" required>
 
@@ -76,15 +76,8 @@
 
                 <div class="col-md-6 mb-3">
 
-                    <label class="form-label">Data Atual: </label>
-                    <input class="form-control" value='@DateTime.Now.ToString("dd/MM/yyyy")' asp-for="@Model.CurrentDate" required readonly>
-
-                </div>
-
-                <div class="col-md-6 mb-3">
-
-                    <label class="form-label">Nome da secretaria: </label>
-                    <input type="text" id="secretaryName" class="form-control" asp-for="@Model.SecretaryName" required readonly>
+                    <label class="form-label">Data de empenho: </label>
+                    <input class="form-control" type="date" asp-for="@Model.CurrentDate" required>
 
                 </div>
 
@@ -92,6 +85,13 @@
 
                     <label class="form-label">Nome completo do solicitante: </label>
                     <input type="text" class="form-control" asp-for="@Model.ClientName" required>
+
+                </div>
+
+                <div class="col-md-6 mb-3">
+
+                    <label class="form-label">Código: </label>
+                    <input type="number" class="form-control" asp-for="@Model.Code" required>
 
                 </div>
 
@@ -110,10 +110,8 @@
                 </div>
 
                 <div class="col-md-6 mb-3">
-
-                    <label class="form-label">Código: </label>
-                    <input type="number" class="form-control" asp-for="@Model.Code" required>
-
+                    <label class="form-label">Tipo: </label>
+                    <input type="number" class="form-control" asp-for="@Model.Type" required>
                 </div>
 
                 <div class="col-md-6 mb-3">
