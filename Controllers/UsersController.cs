@@ -24,7 +24,7 @@ namespace WebSis.Controllers
         [HttpPost]
         public IActionResult RegisterUser(Users newRegisterUser, string Login, string Name) /*Only ADMIN*/
         {
-            // O cadastro de usuários é feito através de uma partial view que é renderizada em um modal que traz o formulário de cadastro, a requisição do cadastro de usuários é feita de forma assíncrona utilizando Ajax através da biblioteca JQuery do Js.
+            // O cadastro de usuários é feito através de uma partial view que é renderizada em um modal que traz o formulário de cadastro, a requisição do cadastro de usuários é feita de forma assíncrona utilizando Ajax através da biblioteca JQuery. O método controlador recebe por parâmetro uma string referente à Login e uma referente ao nome de usuário para validar a existência de registros e evitar duplicidade nos cadastros.
 
             try
             {
@@ -32,16 +32,20 @@ namespace WebSis.Controllers
                 Authentication.CheckIfUserIsAdministrator(this); // utilizando a classe Authentication para verificar o usuário na sessão corresponde à um usuário administrador.
 
                 UsersService us = new UsersService(); // instância da classe de UsersService. 
-                WebSisContext dataBase = new WebSisContext();
 
-                ICollection<Users> verifyUsers = dataBase.Users.Where( u => u.Name == Name || u.Login == Login).ToList();
+                WebSisContext dataBase = new WebSisContext(); // instância da classe de Contexto do Banco de dados. 
+
+                ICollection<Users> verifyUsers = dataBase.Users.Where( u => u.Name == Name || u.Login == Login).ToList(); // Retorna uma busca na tabela de usuários que atribui o valor à um objeto de coleção de usuários, a busca retorna os nomes de login e nome de usuário para que seja feita uma verificação à fim de evitar registros duplicados
 
                 if (verifyUsers.Count() == 0){
+
+                    // A estrutura de verificação valida se a busca feita por verifyUsers retorna 0, que significa que nenhum registro foi encontrado. Se a estrutura retornar true os registros serão adicionados.
 
                     us.CreateUserRegister(newRegisterUser); // chamada do método presente em UsersService que salva os dados que foram inseridos no banco de dados recebidos através do objeto de usuário passado como parâmetro no método de registro
 
                     return Json(new { stats = "OK" }); // retorna um arquivo Json que seta um status para a controller.
                 }else {
+                    // Se a verificação retornar false, um novo status será passado para a controller através de um arquivo json que irá tratar a requisição como erro informando ao usuário de que já existe m usuário cadastrado com os dados que foram inseridos e solicitando que os dados sejam reinseridos para continuar.
                     return Json(new { stats = "INVALID", message = "Usuário já cadastrado!" });
                 }
 
@@ -72,7 +76,7 @@ namespace WebSis.Controllers
 
                 int registersQuantity = us.CountRegister(); // chamada do método CountRegister de UsersServices que retorna o número de registros presentes na tabela de usuários e atribui o valor à variável registersQuantity.
 
-                ViewData["pageQuantity"] = (int)Math.Ceiling((double)registersQuantity / usersPerPage);
+                ViewData["pageQuantity"] = (int)Math.Ceiling((double)registersQuantity / usersPerPage); // Cálculo da quantidade de páginas geradas pelo número total de registros, o ViewData irá armazenar esse valor para que seja gerado os links de navegação entr páginas na view de listagem.
 
                 ICollection<Users> usersList = us.ListAndFilterUsers(q, pages, usersPerPage); // coleção de usuários que chama pelo método ListAndFilterUsers de UsersService e recebe como parâmetros a string de pesquisa, a quantidade de páginas e a quantidade de usuários por página e atribui seus valores ao objeto usersList criado.
 
@@ -80,6 +84,7 @@ namespace WebSis.Controllers
             }
             catch (Exception e)
             {
+                // caso uma excessão seja gerada o usuário é redirecionado para a página de login e o gerenciador de LOG's irá registrar a execessão junto à mensagem de erro em um novo LOG. 
                 _logger.LogError("Erro ao Listar Usuários cadastrados!" + e.Message);
                 return RedirectToAction("Login", "Home");
             }
@@ -104,9 +109,9 @@ namespace WebSis.Controllers
             }
             catch (Exception e)
             {
+                // caso uma excessão seja gerada o usuário é redirecionado para a página de login e o gerenciador de LOG's irá registrar a execessão junto à mensagem de erro em um novo LOG. 
                 _logger.LogError("Erro ao Editar a Usuário !" + e.Message);
                 return RedirectToAction("Login", "Home");
-                //return Json(new { upstats = "ERROR", upmessage = "Falha ao cadastrar usuário!" });
             }
         }
 
@@ -144,6 +149,7 @@ namespace WebSis.Controllers
             }
             catch (Exception e)
             {
+                // caso uma excessão seja gerada o usuário é redirecionado para a página de login e o gerenciador de LOG's irá registrar a execessão junto à mensagem de erro em um novo LOG. 
                 _logger.LogError("Erro ao Excluir Usuário !" + e.Message);
                 return RedirectToAction("Login", "Home");
 

@@ -47,6 +47,7 @@ namespace WebSis.Controllers
             }
             catch (Exception e)
             {
+                // caso uma excessão seja gerada o usuário é redirecionado para a página de login e o gerenciador de LOG's irá registrar a execessão junto à mensagem de erro em um novo LOG. 
                 _logger.LogError("Erro ao Criar formulário de Autorização de viagem!" + e.Message);
                 return RedirectToAction("Login", "Home");
             }
@@ -80,14 +81,15 @@ namespace WebSis.Controllers
             }
             catch (Exception e)
             {
-                _logger.LogError("Erro ao Listar Usuários cadastrados!" + e.Message);
+                // caso uma excessão seja gerada o usuário é redirecionado para a página de login e o gerenciador de LOG's irá registrar a execessão junto à mensagem de erro em um novo LOG. 
+                _logger.LogError("Erro ao Listar todos Av's cadastrados!" + e.Message);
                 return RedirectToAction("Login", "Home");
             }
         }
 
          public IActionResult ListTAPerSecretary(string q, int pages = 1) /*Only ADMIN*/
         {
-            // Retorna a view de TA cadastrados em uma tabela com todos os registros inseridos na tabela de TA e recebe dois parâmetros que serão responsáveis pela busca filtrada das TA através campo de busca que se encontra na view de listagem e um iniciador para a paginação dos registros cadastrados que criará os links para navegação entre as páginas de registros.
+            // Retorna a view de TA cadastrados em uma tabela com todos relativos à secretaria do usuário logado na sessão.O método controlador recebe dois parâmetros que serão responsáveis pela busca filtrada das TA através campo de busca que se encontra na view de listagem e um iniciador para a paginação dos registros cadastrados que criará os links para navegação entre as páginas de registros.
 
             try
             {
@@ -104,7 +106,7 @@ namespace WebSis.Controllers
 
                 int registersQuantity = tas.CountRegister(); // chamada do método CountRegister de TravelAuthorizationsService que retorna o número de registros presentes na tabela de TA e atribui o valor à variável secretariesQuantity.
 
-                ViewData["pageQuantity"] = (int)Math.Ceiling((double)registersQuantity / travelsPerPage);
+                ViewData["pageQuantity"] = (int)Math.Ceiling((double)registersQuantity / travelsPerPage); // Cálculo da quantidade de páginas geradas pelo número total de registros, o ViewData irá armazenar esse valor para que seja gerado os links de navegação entr páginas na view de listagem.
 
                 ICollection<TravelAuthorizations> travelList = tas.ListAllTA(q, pages, travelsPerPage).Where(ta => ta.SecretariesId == HttpContext.Session.GetInt32("secretariesId")).ToList(); // coleção de autorização de viagem que chama pelo método ListAllTA de TravelAuthorizationsService e recebe como parâmetros a string de pesquisa, a quantidade de páginas e a quantidade de secretarias por página e atribui seus valores ao objeto criado.
 
@@ -112,7 +114,8 @@ namespace WebSis.Controllers
             }
             catch (Exception e)
             {
-                _logger.LogError("Erro ao Listar Usuários cadastrados!" + e.Message);
+                // caso uma excessão seja gerada o usuário é redirecionado para a página de login e o gerenciador de LOG's irá registrar a execessão junto à mensagem de erro em um novo LOG. 
+                _logger.LogError("Erro ao Listar Av's cadastrados po secretaria!" + e.Message);
                 return RedirectToAction("Login", "Home");
             }
         }
@@ -120,7 +123,7 @@ namespace WebSis.Controllers
         [HttpGet]
         public IActionResult TACreateReport() /*Only ADMIN*/
         {
-            // O método TACreateReport utiliza o framework FastReporter para gerar um arquivo de Report que será usado para gerar o pdf com dados do banco em um arquivo modelo presente em /wwwroot/pdf/TAReports.frx
+            // O método TACreateReport utiliza o framework FastReporter para gerar um arquivo de Report que será usado para gerar o pdf com dados do banco em um arquivo modelo presente em /wwwroot/pdf/TAReports.frx.
             try
             {
                 Authentication.CheckLogin(this); // utilizando a classe Authentication para verificar se a sessão está estabelecida.
@@ -141,7 +144,7 @@ namespace WebSis.Controllers
             }
             catch (Exception e)
             {
-
+                // caso uma excessão seja gerada o usuário é redirecionado para a página de login e o gerenciador de LOG's irá registrar a execessão junto à mensagem de erro em um novo LOG. 
                 _logger.LogError("Erro ao Gerar Report via FastReporter !" + e.Message);
                 return RedirectToAction("Login", "Home");
 
@@ -178,7 +181,7 @@ namespace WebSis.Controllers
             }
             catch (Exception e)
             {
-
+                // caso uma excessão seja gerada o usuário é redirecionado para a página de login e o gerenciador de LOG's irá registrar a execessão junto à mensagem de erro em um novo LOG. 
                 _logger.LogError("Erro ao Gerar AV PDF !" + e.Message);
                 return RedirectToAction("Login", "Home");
 
@@ -220,6 +223,7 @@ namespace WebSis.Controllers
             }
             catch (Exception e)
             {
+                // caso uma excessão seja gerada o usuário é redirecionado para a página de login e o gerenciador de LOG's irá registrar a execessão junto à mensagem de erro em um novo LOG. 
                 _logger.LogError("Erro ao Excluir AV !" + e.Message);
                 return RedirectToAction("Login", "Home");
 

@@ -11,9 +11,6 @@ namespace WebSis.Services
         public void AddTA(TravelAuthorizations newTravel)
         {
             using WebSisContext dataBase = new WebSisContext();
-            TravelAuthorizations ta = new TravelAuthorizations();
-
-            //ta.CurrentDate =  DateTime.Parse(newTravel.CurrentDate.ToShortDateString());
 
             dataBase.TravelAuthorizations.Add(newTravel);
             dataBase.SaveChanges();

@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using WebSis.DataBase;
 using WebSis.Identity;
 using WebSis.Models;
 using WebSis.Services;
@@ -24,13 +23,13 @@ namespace WebSis.Controllers
         [HttpPost]
         public IActionResult RegisterSecretaries(Secretaries newSecretary)
         {
-            // O registro de secretarias é feito através de uma partial view que é renderizada em um modal dentro da view index de Home. A partial view mostra um formulário que abre junto ao modal e a requisição é feita por este método de Secretaries controller. O método recebe um objeto de secretarias como parâmetro e chama um método de SecretariesService que salva os dados inseridos e logo após redireciona para uma ação.
+            // O registro de secretarias é feito através de uma partial view que é renderizada em um modal dentro da view index de Home. A partial view mostra um formulário que abre junto ao modal e a requisição é feita por este método de Secretaries controller. O método recebe um objeto de secretarias como parâmetro e chama um método de SecretariesService que salva os dados inseridos e logo após trata o redirecionamento via ajax.
 
             try
             {
                 Authentication.CheckLogin(this); // utilizando a classe Authentication para verificar se a sessão está estabelecida.
 
-                SecretariesService ss = new SecretariesService(); // Instância da classe SecretariesService
+                SecretariesService ss = new SecretariesService(); // Instância da classe SecretariesService.
                 ss.AddSecretary(newSecretary); // chamada do método presente em SecretariesService que salva os dados inseridos no banco de dados recebendo o objeto instanciado de secretarias.
 
                 return Json(new { stats = "OK" });
@@ -38,6 +37,7 @@ namespace WebSis.Controllers
             }
             catch (Exception e)
             {
+                // Caso seja gerado uma excessão o usuário irá receber um alert informando que não foi possível realizar o cadastro e será redirecionado para a página de login precisando estabelcer uma conexão novamente.
                 _logger.LogError("Erro ao Cadastrar Secretaria!" + e.Message);
                 return Json(new { stats = "ERROR", message = "Falha ao cadastrar secretaria!" });
             }
@@ -46,7 +46,7 @@ namespace WebSis.Controllers
 
         public IActionResult ListOfRegisteredSecretaries(string q, int pages = 1) /*Only ADMIN*/
         {
-            // Retorna a view de secretarias cadastradas em uma tabela com todos os registros inseridos na tabela de secretarias e recebe dois parâmetros que serão responsáveis pela busca filtrada de secretarias através campo de busca que se encontra na view de listagem e um iniciador para a paginação dos registros cadastrados que criará os links para navegação entre as páginas de registros.
+            // Retorna a view de secretarias cadastradas em uma tabela com todos os registros inseridos na tabela de secretarias e recebe dois parâmetros que serão responsáveis pela busca filtrada de secretarias através do campo de busca que se encontra na view de listagem e um iniciador para a paginação dos registros cadastrados que criará os links para navegação entre as páginas de registros.
 
             Authentication.CheckLogin(this); // utilizando a classe Authentication para verificar se a sessão está estabelecida.
             Authentication.CheckIfUserIsAdministrator(this); // utilizando a classe Authentication para verificar o usuário na sessão corresponde à um usuário administrador.
@@ -62,7 +62,7 @@ namespace WebSis.Controllers
 
             int secretariesQuantity = ss.CountRegister(); // chamada do método CountRegister de SecretariesServices que retorna o número de registros presentes na tabela de secretarias e atribui o valor à variável secretariesQuantity.
 
-            ViewData["pageQuantity"] = (int)Math.Ceiling((double)secretariesQuantity / secretariesPerPage);
+            ViewData["pageQuantity"] = (int)Math.Ceiling((double)secretariesQuantity / secretariesPerPage); // Cálculo da quantidade de páginas geradas pelo número total de registros, o ViewData irá armazenar esse valor para que seja gerado os links de navegação entr páginas na view de listagem.
 
             ICollection<Secretaries> secretaryList = ss.GetSecretary(q, pages, secretariesPerPage); // coleção de secretarias que chama pelo método GetSecretary de SecretariesService e recebe como parâmetros a string de pesquisa, a quantidade de páginas e a quantidade de secretarias por página e atribui seus valores ao objeto criado.
 
@@ -79,13 +79,14 @@ namespace WebSis.Controllers
                 Authentication.CheckLogin(this); // utilizando a classe Authentication para verificar se a sessão está estabelecida.
                 Authentication.CheckIfUserIsAdministrator(this); // utilizando a classe Authentication para verificar o usuário na sessão corresponde à um usuário administrador.
 
-                new SecretariesService().SecretaryUpgrade(upgradeSecretary); // chamada do método SecretaryUpgrade de SecretariesService que realiza a edição do registro selecionado com base no objeto que é recebido como parâmetro
+                new SecretariesService().SecretaryUpgrade(upgradeSecretary); // chamada do método SecretaryUpgrade de SecretariesService que realiza a edição do registro selecionado com base no objeto que é recebido como parâmetro.
 
                 return RedirectToAction("ListOfRegisteredSecretaries", "Secretaries"); // Redireciona para a action de Listagem de secretarias.
 
             }
             catch (Exception e)
             {
+                // caso uma excessão seja gerada o usuário é redirecionado para a página de login e o gerenciador de LOG's irá registrar a execessão junto à mensagem de erro em um novo LOG. 
                 _logger.LogError("Erro ao Editar Secretaria !" + e.Message);
                 return RedirectToAction("Login", "Home");
             }
@@ -107,8 +108,8 @@ namespace WebSis.Controllers
 
                 switch (decision) // Estrutura de decisão que irá verificar a opção clicada pelo usuário e retornará a decisão de acordo com a opção clicada.
                 {
-                    case "Delete": 
-                    
+                    case "Delete":
+
                         // chama o método de exclusão de secretarias e que deleta o registro com base no id selecionado.
 
                         ss.DeleteSecretaries(deleteSecreatry.Id);
@@ -123,6 +124,7 @@ namespace WebSis.Controllers
             }
             catch (Exception e)
             {
+                // caso uma excessão seja gerada o usuário é redirecionado para a página de login e o gerenciador de LOG's irá registrar a execessão junto à mensagem de erro em um novo LOG. 
                 _logger.LogError("Erro ao Excluir Secretaria !" + e.Message);
                 return RedirectToAction("Login", "Home");
 
