@@ -11,6 +11,9 @@ namespace WebSis.Services
         public void AddTA(TravelAuthorizations newTravel)
         {
             using WebSisContext dataBase = new WebSisContext();
+            TravelAuthorizations ta = new TravelAuthorizations();
+
+            //ta.CurrentDate =  DateTime.Parse(newTravel.CurrentDate.ToShortDateString());
 
             dataBase.TravelAuthorizations.Add(newTravel);
             dataBase.SaveChanges();
@@ -43,7 +46,7 @@ namespace WebSis.Services
 
             int jump = (page - 1) * size;
 
-            IQueryable<TravelAuthorizations> query = dataBase.TravelAuthorizations.Where(u => u.ClientName.Contains(q, StringComparison.OrdinalIgnoreCase) || u.CurrentDate.Contains(q, StringComparison.CurrentCulture));
+            IQueryable<TravelAuthorizations> query = dataBase.TravelAuthorizations.Where(u => u.ClientName.Contains(q, StringComparison.OrdinalIgnoreCase) || u.SecretaryName.Contains(q, StringComparison.CurrentCulture));
 
             if (q != null)
             {

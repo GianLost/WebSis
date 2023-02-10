@@ -11,8 +11,9 @@ namespace WebSis.Models
         [Required(ErrorMessage = "O campo Ano Corrente é obrigatório"), StringLength(4)]
         public string CurrentYear { get; set; }
 
-        [Required(ErrorMessage = "O campo Data Atual é obrigatório"), StringLength(14)]
-        public string CurrentDate { get; set; }
+        [Required(ErrorMessage = "O campo Data Atual é obrigatório"), DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
+        public DateTime CurrentDate { get; set; }
 
         [Required(ErrorMessage = "O campo Nome do Cliente é obrigatório"), StringLength(80)]
         public string ClientName { get; set; }
