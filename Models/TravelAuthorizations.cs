@@ -60,14 +60,14 @@ namespace WebSis.Models
         [Required(ErrorMessage = "O campo Destino é obrigatório"), StringLength(60)]
         public string Destiny { get; set; }
 
-        [Required(ErrorMessage = "O campo UG é obrigatório"), StringLength(8)]
-        public string UG { get; set; }
+        [Required(ErrorMessage = "O campo UG é obrigatório")]
+        public double UG { get; set; }
 
-        [Required(ErrorMessage = "O campo UO é obrigatório"), StringLength(8)]
-        public string UO { get; set; }
+        [Required(ErrorMessage = "O campo UO é obrigatório")]
+        public double UO { get; set; }
 
-        [Required(ErrorMessage = "O campo PA é obrigatório"), StringLength(8)]
-        public string PA { get; set; }
+        [Required(ErrorMessage = "O campo PA é obrigatório")]
+        public double PA { get; set; }
 
         [Required(ErrorMessage = "O campo Número de despesas é obrigatório"), StringLength(30)]
         public string Expanses { get; set; }
@@ -81,19 +81,19 @@ namespace WebSis.Models
         [Required(ErrorMessage = "O campo Quantidade de Hospedagem é obrigatório")]
         public int HostingQuantity { get; set; }
 
-        [Required(ErrorMessage = "O campo Valor unitário de Alimentação é obrigatório")]
+        [Required(ErrorMessage = "O campo Valor unitário de Alimentação é obrigatório")] /* deve ser double */
         public string FoodUnitaryValue { get; set; }
 
-        [Required(ErrorMessage = "O campo Valor unitário de Hospedagem é obrigatório")]
+        [Required(ErrorMessage = "O campo Valor unitário de Hospedagem é obrigatório")] /* deve ser double */
         public string HostingUnitaryValue { get; set; }
 
-        [Required(ErrorMessage = "O campo Valor Total de Alimentação é obrigatório")]
+        [Required(ErrorMessage = "O campo Valor Total de Alimentação é obrigatório")] /* deve ser double */
         public string FoodTotalValue { get; set; }
 
-        [Required(ErrorMessage = "O campo Total unitário de Hospedagem é obrigatório")]
+        [Required(ErrorMessage = "O campo Total unitário de Hospedagem é obrigatório")] /* deve ser double */
         public string HostingTotalValue { get; set; }
 
-        [Required(ErrorMessage = "O campo Valor Total de Despesas é obrigatório")]
+        [Required(ErrorMessage = "O campo Valor Total de Despesas é obrigatório")] /* deve ser double */
         public string ExpanseTotalValue { get; set; }
 
         [Required(ErrorMessage = "O campo Objetivo é obrigatório"), StringLength(300)]

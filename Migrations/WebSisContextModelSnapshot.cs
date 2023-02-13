@@ -134,10 +134,8 @@ namespace WebSis.Migrations
                     b.Property<int>("OneWayTickets")
                         .HasColumnType("int");
 
-                    b.Property<string>("PA")
-                        .IsRequired()
-                        .HasColumnType("varchar(8) CHARACTER SET utf8mb4")
-                        .HasMaxLength(8);
+                    b.Property<double>("PA")
+                        .HasColumnType("double");
 
                     b.Property<int>("ReturnTickets")
                         .HasColumnType("int");
@@ -153,15 +151,11 @@ namespace WebSis.Migrations
                     b.Property<int>("Type")
                         .HasColumnType("int");
 
-                    b.Property<string>("UG")
-                        .IsRequired()
-                        .HasColumnType("varchar(8) CHARACTER SET utf8mb4")
-                        .HasMaxLength(8);
+                    b.Property<double>("UG")
+                        .HasColumnType("double");
 
-                    b.Property<string>("UO")
-                        .IsRequired()
-                        .HasColumnType("varchar(8) CHARACTER SET utf8mb4")
-                        .HasMaxLength(8);
+                    b.Property<double>("UO")
+                        .HasColumnType("double");
 
                     b.Property<int>("UsersId")
                         .HasColumnType("int");

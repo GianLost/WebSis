@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Report ScriptLanguage="CSharp" ReportInfo.Created="01/13/2023 10:05:16" ReportInfo.Modified="02/13/2023 13:38:00" ReportInfo.CreatorVersion="2023.1.0.0">
+<Report ScriptLanguage="CSharp" ReportInfo.Created="01/13/2023 10:05:16" ReportInfo.Modified="02/13/2023 17:39:28" ReportInfo.CreatorVersion="2023.1.0.0">
   <Dictionary>
     <BusinessObjectDataSource Name="travelsList" ReferenceName="travelsList" DataType="null" Enabled="true">
       <Column Name="Id" DataType="System.Int32"/>
@@ -19,9 +19,9 @@
       <Column Name="OneWayTickets" DataType="System.Int32"/>
       <Column Name="ReturnTickets" DataType="System.Int32"/>
       <Column Name="Destiny" DataType="System.String"/>
-      <Column Name="UG" DataType="System.String"/>
-      <Column Name="UO" DataType="System.String"/>
-      <Column Name="PA" DataType="System.String"/>
+      <Column Name="UG" DataType="System.Double"/>
+      <Column Name="UO" DataType="System.Double"/>
+      <Column Name="PA" DataType="System.Double"/>
       <Column Name="Expanses" DataType="System.Int32"/>
       <Column Name="Font" DataType="System.Int32"/>
       <Column Name="FoodQuantity" DataType="System.Int32"/>
@@ -134,9 +134,9 @@
       <TextObject Name="Text56" Left="349.65" Top="217.35" Width="66.15" Height="18.9" Text="P.A" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 9pt"/>
       <TextObject Name="Text49" Top="217.35" Width="217.35" Height="18.9" Text="Local de Destino" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 9pt"/>
       <TextObject Name="Text57" Top="236.25" Width="217.35" Height="28.35" Text="[travelsList.Destiny]" Format="Date" Format.Format="d" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 9pt, style=Bold"/>
-      <TextObject Name="Text58" Left="217.35" Top="236.25" Width="66.15" Height="28.35" Text="[travelsList.UG]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 9pt, style=Bold"/>
-      <TextObject Name="Text59" Left="283.5" Top="236.25" Width="66.15" Height="28.35" Text="[travelsList.UO]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 9pt, style=Bold"/>
-      <TextObject Name="Text60" Left="349.65" Top="236.25" Width="66.15" Height="28.35" Text="[travelsList.PA]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 9pt, style=Bold"/>
+      <TextObject Name="Text58" Left="217.35" Top="236.25" Width="66.15" Height="28.35" Text="[travelsList.UG]" Format="Number" Format.UseLocale="true" Format.DecimalDigits="2" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 9pt, style=Bold"/>
+      <TextObject Name="Text59" Left="283.5" Top="236.25" Width="66.15" Height="28.35" Text="[travelsList.UO]" Format="Number" Format.UseLocale="true" Format.DecimalDigits="2" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 9pt, style=Bold"/>
+      <TextObject Name="Text60" Left="349.65" Top="236.25" Width="66.15" Height="28.35" Text="[travelsList.PA]" Format="Number" Format.UseLocale="true" Format.DecimalDigits="2" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 9pt, style=Bold"/>
       <TextObject Name="Text61" Left="415.8" Top="236.25" Width="207.9" Height="28.35" Text="[travelsList.Expanses]" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 9pt, style=Bold"/>
       <TextObject Name="Text62" Left="623.7" Top="236.25" Width="94.5" Height="28.35" Text="[travelsList.Font]" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 9pt, style=Bold"/>
       <ShapeObject Name="Shape7" Top="274.05" Width="718.2" Height="94.5"/>
@@ -251,9 +251,9 @@
       <TextObject Name="Text130" Left="349.65" Top="756" Width="66.15" Height="18.9" Text="P.A" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 9pt"/>
       <TextObject Name="Text131" Top="756" Width="217.35" Height="18.9" Text="Local de Destino" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 9pt"/>
       <TextObject Name="Text132" Top="774.9" Width="217.35" Height="28.35" Text="[travelsList.Destiny]" Format="Date" Format.Format="d" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 9pt, style=Bold"/>
-      <TextObject Name="Text133" Left="217.35" Top="774.9" Width="66.15" Height="28.35" Text="[travelsList.UG]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 9pt, style=Bold"/>
-      <TextObject Name="Text134" Left="283.5" Top="774.9" Width="66.15" Height="28.35" Text="[travelsList.UO]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 9pt, style=Bold"/>
-      <TextObject Name="Text135" Left="349.65" Top="774.9" Width="66.15" Height="28.35" Text="[travelsList.PA]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 9pt, style=Bold"/>
+      <TextObject Name="Text133" Left="217.35" Top="774.9" Width="66.15" Height="28.35" Text="[travelsList.UG]" Format="Number" Format.UseLocale="true" Format.DecimalDigits="2" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 9pt, style=Bold"/>
+      <TextObject Name="Text134" Left="283.5" Top="774.9" Width="66.15" Height="28.35" Text="[travelsList.UO]" Format="Number" Format.UseLocale="true" Format.DecimalDigits="2" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 9pt, style=Bold"/>
+      <TextObject Name="Text135" Left="349.65" Top="774.9" Width="66.15" Height="28.35" Text="[travelsList.PA]" Format="Number" Format.UseLocale="true" Format.DecimalDigits="2" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 9pt, style=Bold"/>
       <TextObject Name="Text136" Left="415.8" Top="774.9" Width="207.9" Height="28.35" Text="[travelsList.Expanses]" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 9pt, style=Bold"/>
       <TextObject Name="Text137" Left="623.7" Top="774.9" Width="94.5" Height="28.35" Text="[travelsList.Font]" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 9pt, style=Bold"/>
       <ShapeObject Name="Shape16" Top="812.7" Width="718.2" Height="94.5"/>
