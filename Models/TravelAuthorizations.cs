@@ -34,19 +34,22 @@ namespace WebSis.Models
         public int Type { get; set; }
 
         [Required(ErrorMessage = "O campo Data de Saída é obrigatório"), DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime DepartureDate { get; set; }
 
-        [Required(ErrorMessage = "O campo Hora de saída é obrigatório"), StringLength(12)]
+        [Required(ErrorMessage = "O campo Hora de saída é obrigatório"), StringLength(5)]
         public string DepartureTime { get; set; }
 
         [Required(ErrorMessage = "O campo Data de chegada é obrigatório"), DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime ArrivalDate { get; set; }
 
-        [Required(ErrorMessage = "O campo Hora de chegada é obrigatório"), StringLength(12)]
+        [Required(ErrorMessage = "O campo Hora de chegada é obrigatório"), StringLength(5)]
         public string ArrivalTime { get; set; }
 
-        [Required(ErrorMessage = "O campo Prestação de contas é obrigatório"), StringLength(17)]
-        public string Accountability { get; set; }
+        [Required(ErrorMessage = "O campo Prestação de contas é obrigatório"), DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
+        public DateTime Accountability { get; set; }
 
         [Required(ErrorMessage = "O campo Quantidade de passagens de ida é obrigatório")]
         public int OneWayTickets { get; set; }
@@ -57,13 +60,13 @@ namespace WebSis.Models
         [Required(ErrorMessage = "O campo Destino é obrigatório"), StringLength(60)]
         public string Destiny { get; set; }
 
-        [Required(ErrorMessage = "O campo UG é obrigatório"), StringLength(30)]
+        [Required(ErrorMessage = "O campo UG é obrigatório"), StringLength(8)]
         public string UG { get; set; }
 
-        [Required(ErrorMessage = "O campo UO é obrigatório"), StringLength(30)]
+        [Required(ErrorMessage = "O campo UO é obrigatório"), StringLength(8)]
         public string UO { get; set; }
 
-        [Required(ErrorMessage = "O campo PA é obrigatório"), StringLength(30)]
+        [Required(ErrorMessage = "O campo PA é obrigatório"), StringLength(8)]
         public string PA { get; set; }
 
         [Required(ErrorMessage = "O campo Número de despesas é obrigatório"), StringLength(30)]

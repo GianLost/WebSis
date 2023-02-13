@@ -44,18 +44,16 @@ namespace WebSis.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<string>("Accountability")
-                        .IsRequired()
-                        .HasColumnType("varchar(17) CHARACTER SET utf8mb4")
-                        .HasMaxLength(17);
+                    b.Property<DateTime>("Accountability")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<DateTime>("ArrivalDate")
                         .HasColumnType("datetime(6)");
 
                     b.Property<string>("ArrivalTime")
                         .IsRequired()
-                        .HasColumnType("varchar(12) CHARACTER SET utf8mb4")
-                        .HasMaxLength(12);
+                        .HasColumnType("varchar(5) CHARACTER SET utf8mb4")
+                        .HasMaxLength(5);
 
                     b.Property<string>("ClientName")
                         .IsRequired()
@@ -78,8 +76,8 @@ namespace WebSis.Migrations
 
                     b.Property<string>("DepartureTime")
                         .IsRequired()
-                        .HasColumnType("varchar(12) CHARACTER SET utf8mb4")
-                        .HasMaxLength(12);
+                        .HasColumnType("varchar(5) CHARACTER SET utf8mb4")
+                        .HasMaxLength(5);
 
                     b.Property<string>("Destiny")
                         .IsRequired()
@@ -138,8 +136,8 @@ namespace WebSis.Migrations
 
                     b.Property<string>("PA")
                         .IsRequired()
-                        .HasColumnType("varchar(30) CHARACTER SET utf8mb4")
-                        .HasMaxLength(30);
+                        .HasColumnType("varchar(8) CHARACTER SET utf8mb4")
+                        .HasMaxLength(8);
 
                     b.Property<int>("ReturnTickets")
                         .HasColumnType("int");
@@ -157,13 +155,13 @@ namespace WebSis.Migrations
 
                     b.Property<string>("UG")
                         .IsRequired()
-                        .HasColumnType("varchar(30) CHARACTER SET utf8mb4")
-                        .HasMaxLength(30);
+                        .HasColumnType("varchar(8) CHARACTER SET utf8mb4")
+                        .HasMaxLength(8);
 
                     b.Property<string>("UO")
                         .IsRequired()
-                        .HasColumnType("varchar(30) CHARACTER SET utf8mb4")
-                        .HasMaxLength(30);
+                        .HasColumnType("varchar(8) CHARACTER SET utf8mb4")
+                        .HasMaxLength(8);
 
                     b.Property<int>("UsersId")
                         .HasColumnType("int");
