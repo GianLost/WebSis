@@ -1,5 +1,6 @@
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WebSis.Models
 {
@@ -82,19 +83,24 @@ namespace WebSis.Models
         public int HostingQuantity { get; set; }
 
         [Required(ErrorMessage = "O campo Valor unitário de Alimentação é obrigatório")] /* deve ser double */
-        public string FoodUnitaryValue { get; set; }
+        [Column(TypeName = "decimal(10,2)")]
+        public decimal FoodUnitaryValue { get; set; }
 
         [Required(ErrorMessage = "O campo Valor unitário de Hospedagem é obrigatório")] /* deve ser double */
-        public string HostingUnitaryValue { get; set; }
+        [Column(TypeName = "decimal(10,2)")]
+        public decimal HostingUnitaryValue { get; set; }
 
         [Required(ErrorMessage = "O campo Valor Total de Alimentação é obrigatório")] /* deve ser double */
-        public string FoodTotalValue { get; set; }
+        [Column(TypeName = "decimal(10,2)")]
+        public decimal FoodTotalValue { get; set; }
 
         [Required(ErrorMessage = "O campo Total unitário de Hospedagem é obrigatório")] /* deve ser double */
-        public string HostingTotalValue { get; set; }
+        [Column(TypeName = "decimal(10,2)")]
+        public decimal HostingTotalValue { get; set; }
 
         [Required(ErrorMessage = "O campo Valor Total de Despesas é obrigatório")] /* deve ser double */
-        public string ExpanseTotalValue { get; set; }
+        [Column(TypeName = "decimal(10,2)")]
+        public decimal ExpanseTotalValue { get; set; }
 
         [Required(ErrorMessage = "O campo Objetivo é obrigatório"), StringLength(300)]
         public string Goal { get; set; }

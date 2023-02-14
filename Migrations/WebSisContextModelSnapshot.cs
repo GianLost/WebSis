@@ -84,9 +84,8 @@ namespace WebSis.Migrations
                         .HasColumnType("varchar(60) CHARACTER SET utf8mb4")
                         .HasMaxLength(60);
 
-                    b.Property<string>("ExpanseTotalValue")
-                        .IsRequired()
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+                    b.Property<decimal>("ExpanseTotalValue")
+                        .HasColumnType("decimal(10,2)");
 
                     b.Property<string>("Expanses")
                         .IsRequired()
@@ -99,13 +98,11 @@ namespace WebSis.Migrations
                     b.Property<int>("FoodQuantity")
                         .HasColumnType("int");
 
-                    b.Property<string>("FoodTotalValue")
-                        .IsRequired()
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+                    b.Property<decimal>("FoodTotalValue")
+                        .HasColumnType("decimal(10,2)");
 
-                    b.Property<string>("FoodUnitaryValue")
-                        .IsRequired()
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+                    b.Property<decimal>("FoodUnitaryValue")
+                        .HasColumnType("decimal(10,2)");
 
                     b.Property<string>("Goal")
                         .IsRequired()
@@ -115,13 +112,11 @@ namespace WebSis.Migrations
                     b.Property<int>("HostingQuantity")
                         .HasColumnType("int");
 
-                    b.Property<string>("HostingTotalValue")
-                        .IsRequired()
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+                    b.Property<decimal>("HostingTotalValue")
+                        .HasColumnType("decimal(10,2)");
 
-                    b.Property<string>("HostingUnitaryValue")
-                        .IsRequired()
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+                    b.Property<decimal>("HostingUnitaryValue")
+                        .HasColumnType("decimal(10,2)");
 
                     b.Property<int>("Level")
                         .HasColumnType("int");
