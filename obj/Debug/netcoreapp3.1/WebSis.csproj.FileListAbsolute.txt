@@ -1425,3 +1425,4 @@ C:\Users\gianluca.vialli\Desktop\Nova pasta\WebSis\obj\Debug\netcoreapp3.1\WebSi
 C:\Users\gianluca.vialli\Desktop\Nova pasta\WebSis\obj\Debug\netcoreapp3.1\WebSis.dll
 C:\Users\gianluca.vialli\Desktop\Nova pasta\WebSis\obj\Debug\netcoreapp3.1\WebSis.pdb
 C:\Users\gianluca.vialli\Desktop\Nova pasta\WebSis\obj\Debug\netcoreapp3.1\WebSis.genruntimeconfig.cache
+C:\Users\Ufo\Desktop\WebSis\obj\Debug\netcoreapp3.1\Razor\Views\Home\_UpgradeTA.cshtml.g.cs

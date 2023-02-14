@@ -9,7 +9,7 @@ using WebSis.DataBase;
 namespace WebSis.Migrations
 {
     [DbContext(typeof(WebSisContext))]
-    [Migration("20230213185515_v10")]
+    [Migration("20230214011918_v10")]
     partial class v10
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

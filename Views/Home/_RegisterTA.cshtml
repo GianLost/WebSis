@@ -124,15 +124,7 @@
                 <div class="col-md-6 mb-3">
 
                     <label class="form-label">Hora de saída: </label>
-                    <div class="input-group">
-
-                        <div class="input-group-prepend">
-                            <i class="bi bi-clock-history input-group-text"></i>
-                        </div>
-
-                        <input placeholder="hh:mm" maxlength="5" type="text" class="form-control time-first" asp-for="@Model.DepartureTime" required>
-
-                    </div>
+                    <input  type="time" class="form-control" asp-for="@Model.DepartureTime" required>
 
                 </div>
 
@@ -146,15 +138,7 @@
                 <div class="col-md-6 mb-3">
 
                     <label class="form-label">Hora de chegada: </label>
-                    <div class="input-group">
-
-                        <div class="input-group-prepend">
-                            <i class="bi bi-clock-history input-group-text"></i>
-                        </div>
-
-                        <input placeholder="hh:mm" maxlength="5" type="text" class="form-control time-first" asp-for="@Model.ArrivalTime" required>
-
-                    </div>
+                    <input type="time" class="form-control" asp-for="@Model.ArrivalTime" required>
 
                 </div>
 
