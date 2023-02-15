@@ -27,14 +27,39 @@ function SA() {
         $(this).val($(this).val().replace(/\D/g, '').replace(/(\d{1})(\d{1,2})$/, "$1,$2").replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1'));
 
         let n1 = document.getElementById('n1').value;
-        let n2 = parseFloat(document.getElementById('n2').value).toFixed(2);
+        console.log('Numero 1: ' + n1); //qtd
+
+        let n2 = document.getElementById('n2').value;
+        console.log('Numero 2: ' + n2); //value
+
         let n3 = document.getElementById('n3').value;
-        let n4 = parseFloat(document.getElementById('n4').value).toFixed(2);
+        console.log('Numero 3: ' + n3);// qtd
 
-        let result = document.getElementById('totalfood').value = (n1 * parseFloat(n2)).toLocaleString('pt-br', {minimumFractionDigits: 2});
-        let result2 = document.getElementById('totalhosting').value = (n3 * parseFloat(n4)).toLocaleString('pt-br', {minimumFractionDigits: 2});
+        let n4 = document.getElementById('n4').value;
+        console.log('Numero 4: ' + n4); //value
 
-        document.getElementById('total').value = (parseInt(result) + parseFloat(result2)).toLocaleString('pt-br', {minimumFractionDigits: 2});
+        let n2Convert = parseFloat(n2).toFixed(2);
+        console.log('n2Convert: ' + n2Convert)
+
+        let n4Convert = parseFloat(n4).toFixed(2);
+        console.log('n4Convert: ' + n4Convert)
+
+        let totalFood = parseInt(n1) * parseFloat(n2Convert).toFixed(2).toLocaleString('pt-br', {minimumFractionDigits: 2});
+        console.log('TotalFood: ' + totalFood);
+
+        let totalHosting = parseInt(n3) * parseFloat(n4Convert).toFixed(2).toLocaleString('pt-br', {minimumFractionDigits: 2});
+        console.log('totalHosting: ' + totalHosting);
+
+        let resultFood = document.getElementById('totalfood').value = totalFood.toFixed(2).replace(/\D/g, '').replace(/(\d{1})(\d{1,2})$/, "$1,$2").replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1');
+        console.log('resultFood: ' + resultFood);
+
+        let resultHost = document.getElementById('totalhosting').value = totalHosting.toFixed(2).replace(/\D/g, '').replace(/(\d{1})(\d{1,2})$/, "$1,$2").replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1');
+        console.log('resultHost: ' + resultHost);
+
+        let total = parseInt(resultFood) + parseInt(resultHost);
+        console.log('Total: ' + total);
+
+        document.getElementById('total').value = parseFloat(total).toFixed(2).replace(/\D/g, '').replace(/(\d{1})(\d{1,2})$/, "$1,$2").replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
     
     })
 }

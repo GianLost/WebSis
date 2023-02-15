@@ -5352,11 +5352,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\gianluca.vialli\\Desktop\\WebSis\\WebSis.csproj",
+      "projectUniqueName": "C:\\Users\\gianluca.vialli\\Desktop\\Nova pasta\\WebSis\\WebSis.csproj",
       "projectName": "WebSis",
-      "projectPath": "C:\\Users\\gianluca.vialli\\Desktop\\WebSis\\WebSis.csproj",
+      "projectPath": "C:\\Users\\gianluca.vialli\\Desktop\\Nova pasta\\WebSis\\WebSis.csproj",
       "packagesPath": "C:\\Users\\gianluca.vialli\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\gianluca.vialli\\Desktop\\WebSis\\obj\\",
+      "outputPath": "C:\\Users\\gianluca.vialli\\Desktop\\Nova pasta\\WebSis\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\gianluca.vialli\\AppData\\Roaming\\NuGet\\NuGet.Config"
