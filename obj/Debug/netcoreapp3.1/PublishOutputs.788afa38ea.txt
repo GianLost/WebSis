@@ -13,6 +13,11 @@ C:\Users\Ufo\Desktop\Nova pasta\WebSis\bin\Debug\netcoreapp3.1\publish\wwwroot\i
 C:\Users\Ufo\Desktop\Nova pasta\WebSis\bin\Debug\netcoreapp3.1\publish\wwwroot\images\pmtm-bg.jpg
 C:\Users\Ufo\Desktop\Nova pasta\WebSis\bin\Debug\netcoreapp3.1\publish\wwwroot\images\pmtm-logo.png
 C:\Users\Ufo\Desktop\Nova pasta\WebSis\bin\Debug\netcoreapp3.1\publish\wwwroot\images\prefeitura-bg.jpg
+C:\Users\Ufo\Desktop\Nova pasta\WebSis\bin\Debug\netcoreapp3.1\publish\wwwroot\images\represa.jpg
+C:\Users\Ufo\Desktop\Nova pasta\WebSis\bin\Debug\netcoreapp3.1\publish\wwwroot\images\teste1.jpg
+C:\Users\Ufo\Desktop\Nova pasta\WebSis\bin\Debug\netcoreapp3.1\publish\wwwroot\images\teste2.jpg
+C:\Users\Ufo\Desktop\Nova pasta\WebSis\bin\Debug\netcoreapp3.1\publish\wwwroot\images\teste3.jpg
+C:\Users\Ufo\Desktop\Nova pasta\WebSis\bin\Debug\netcoreapp3.1\publish\wwwroot\images\teste4.jpg
 C:\Users\Ufo\Desktop\Nova pasta\WebSis\bin\Debug\netcoreapp3.1\publish\wwwroot\js\AVCalculator.js
 C:\Users\Ufo\Desktop\Nova pasta\WebSis\bin\Debug\netcoreapp3.1\publish\wwwroot\js\effectIndex.js
 C:\Users\Ufo\Desktop\Nova pasta\WebSis\bin\Debug\netcoreapp3.1\publish\wwwroot\js\RegisterSecretaryValidation.js
