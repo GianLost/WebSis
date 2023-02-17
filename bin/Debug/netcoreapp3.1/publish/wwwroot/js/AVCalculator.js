@@ -1,13 +1,3 @@
-/*function FormatDateInputs() {
-    // calcula o total em R$ do custo de alimentação e hospedagem de acordo com foodQtd * foodValue = totalFood e o mesmo para hospedagem e dps utiliza os dois totais para calcular o valor total de despesas. foodTotal + hostTotal = totalExpanses;
-    $('.date-first').keyup(function (e) {
-
-        $(this).val($(this).val().replace(/\D/g, '').replace(/(\d{2})(\d{2})(\d{4})$/, "$1/$2/$3"));
-    }
-)};
-
-FormatDateInputs();*/
-
 function FormatDoubleInputs() {
     // calcula o total em R$ do custo de alimentação e hospedagem de acordo com foodQtd * foodValue = totalFood e o mesmo para hospedagem e dps utiliza os dois totais para calcular o valor total de despesas. foodTotal + hostTotal = totalExpanses;
     $('.double-first').keyup(function (e) {
@@ -25,7 +15,7 @@ function SA() {
 
     $('.money-input').keyup(function (e) {
 
-        $(this).val($(this).val().replace(/\D/g, '').replace(/(\d{1})(\d{1,2})$/, "$1,$2").replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1'));
+        $(this).val($(this).val().replace(/\D/g, '').replace(/(\d{1})(\d{1,2})$/, "$1.$2").replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1'));
 
         function getMoney(str) {
             return str.replace(/[^\d,]/g, '').replace(',', '.');
@@ -43,36 +33,35 @@ function SA() {
 
         /*let convertFoodQtd = parseInt(foodQtd);
         console.log(typeof(convertFoodQtd) + ' | convertFoodQtd: ' + convertFoodQtd);
-
         let convertHostQtd = parseInt(hostQtd);
         console.log(typeof(convertHostQtd) + ' | convertHostQtd: ' + convertHostQtd);*/
 
-        let convertFoodValue = getMoney(foodUnitaryValue);
+        let convertFoodValue = getMoney(foodUnitaryValue); //string
         console.log(typeof(getMoney(convertFoodValue)) + ' | convertFoodValue: ' + getMoney(convertFoodValue));
 
-        let convertHostValue = getMoney(hostUnitaryValue);
+        let convertHostValue = getMoney(hostUnitaryValue); //string
         console.log(typeof(getMoney(convertHostValue)) + ' | convertHostValue: ' + getMoney(convertHostValue));
 
-        let totalOfFood = foodQtd * convertFoodValue;
+        let totalOfFood = foodQtd * convertFoodValue; // number
         console.log(typeof(totalOfFood) + ' | totalOfFood: ' + totalOfFood);
 
-        document.getElementById('totalfood').value = totalOfFood;
-        console.log(typeof(formatReal(totalOfFood)) + ' | INPUT totalFood: ' + formatReal(totalOfFood));
+        document.getElementById('totalfood').value = totalOfFood; // number
+        console.log(typeof(totalOfFood) + ' | INPUT totalFood: ' + totalOfFood);
 
-        let totalOfHost = hostQtd * convertHostValue;
+        let totalOfHost = hostQtd * convertHostValue; // number
         console.log(typeof(totalOfHost) + ' | totalOfHost: ' + totalOfHost);
 
-        document.getElementById('totalhosting').value = totalOfHost;
+        document.getElementById('totalhosting').value = totalOfHost; // number
         console.log(typeof(totalOfHost) + ' | INPUT totalHost: ' + totalOfHost);
 
-        let totalExpanses = totalOfFood + totalOfHost;
+        let totalExpanses = totalOfFood + totalOfHost; // number
         console.log(typeof(totalExpanses) + ' | totalExpanses: ' + totalExpanses);
 
-        let totalExpansesConvert = formatReal(totalExpanses);
-        console.log(typeof(formatReal(totalExpansesConvert)) + ' | totalExpansesConvert: ' + formatReal(totalExpansesConvert));
+        //let totalExpansesConvert = totalExpanses;
+        //console.log(typeoftotalExpansesConvert + ' | totalExpansesConvert: ' + totalExpansesConvert);
 
-        document.getElementById('total').value = totalExpansesConvert;
-        console.log('Tipo de dado: ' + typeof (totalExpansesConvert) + ' | INPUT totalExpansesConvert: ' + totalExpansesConvert);
+        document.getElementById('total').value = totalExpanses.toFixed(2);
+        console.log('Tipo de dado: ' + typeof (totalExpanses) + ' | INPUT totalExpansesConvert: ' + totalExpanses);
 
     })
 }
@@ -85,7 +74,7 @@ function upSA() {
 
     $('.values-input').keyup(function (e) {
 
-        $(this).val($(this).val().replace(/\D/g, '').replace(/(\d{1})(\d{1,2})$/, "$1,$2").replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.'));
+        $(this).val($(this).val().replace(/\D/g, '').replace(/(\d{1})(\d{1,2})$/, "$1.$2").replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1'));
 
         function getMoney(str) {
             let clearStr = str.replace(/[^\d,]/g, '');
@@ -113,8 +102,8 @@ function upSA() {
         let totalOfFood = convertFoodQtd * convertFoodValue;
         let totalOfHost = convertHostQtd * convertHostValue;
 
-        document.getElementById('uptotalfood').value = formatReal(totalOfFood);
-        document.getElementById('uptotalhosting').value = formatReal(totalOfHost);
+        document.getElementById('uptotalfood').value = totalOfFood;
+        document.getElementById('uptotalhosting').value = totalOfHost;
 
         let totalExpanses = totalOfFood + totalOfHost;
 
