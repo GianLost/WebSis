@@ -3,7 +3,7 @@ using WebSis.Models;
 
 namespace WebSis.DataBase
 {
-    // Classe de contexto que armazena a string de conexão com banco de dados, o método que define a nomenclatura das tabelas e a instância das tabelas que serão usadas para acessar os registro dentro das tabelas.
+    // Classe de contexto que armazena a string de conexão com banco de dados, o método que define a nomenclatura das tabelas e a instância das tabelas que serão usadas para acessar os registro dentro das tabelas
     public class WebSisContext : DbContext
     {
 
