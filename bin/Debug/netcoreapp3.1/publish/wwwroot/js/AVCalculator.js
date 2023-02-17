@@ -25,13 +25,10 @@ function SA() {
 
     $('.money-input').keyup(function (e) {
 
-        $(this).val($(this).val().replace(/\D/g, '').replace(/(\d{1})(\d{1,2})$/, "$1.$2").replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,'));
+        $(this).val($(this).val().replace(/\D/g, '').replace(/(\d{1})(\d{1,2})$/, "$1,$2").replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1'));
 
         function getMoney(str) {
-            let clearStr = str.replace(/[^\d,]/g, '');
-            clearStr = clearStr.replace('.', ',');
-            return parseFloat(clearStr);
-
+            return str.replace(/[^\d,]/g, '').replace(',', '.');
         }
 
         function formatReal(realValue) {
@@ -39,29 +36,43 @@ function SA() {
         }
 
         let foodQtd = document.getElementById('n1').value;
-        let hostQtd = document.getElementById('n3').value;
-
         let foodUnitaryValue = document.getElementById('n2').value;
+        
+        let hostQtd = document.getElementById('n3').value;
         let hostUnitaryValue = document.getElementById('n4').value;
 
-        let convertFoodQtd = parseInt(foodQtd);
+        /*let convertFoodQtd = parseInt(foodQtd);
+        console.log(typeof(convertFoodQtd) + ' | convertFoodQtd: ' + convertFoodQtd);
+
         let convertHostQtd = parseInt(hostQtd);
+        console.log(typeof(convertHostQtd) + ' | convertHostQtd: ' + convertHostQtd);*/
 
         let convertFoodValue = getMoney(foodUnitaryValue);
+        console.log(typeof(getMoney(convertFoodValue)) + ' | convertFoodValue: ' + getMoney(convertFoodValue));
+
         let convertHostValue = getMoney(hostUnitaryValue);
+        console.log(typeof(getMoney(convertHostValue)) + ' | convertHostValue: ' + getMoney(convertHostValue));
 
-        let totalOfFood = convertFoodQtd * convertFoodValue;
-        let totalOfHost = convertHostQtd * convertHostValue;
+        let totalOfFood = foodQtd * convertFoodValue;
+        console.log(typeof(totalOfFood) + ' | totalOfFood: ' + totalOfFood);
 
-        document.getElementById('totalfood').value = formatReal(totalOfFood);
-        document.getElementById('totalhosting').value = formatReal(totalOfHost);
+        document.getElementById('totalfood').value = totalOfFood;
+        console.log(typeof(formatReal(totalOfFood)) + ' | INPUT totalFood: ' + formatReal(totalOfFood));
+
+        let totalOfHost = hostQtd * convertHostValue;
+        console.log(typeof(totalOfHost) + ' | totalOfHost: ' + totalOfHost);
+
+        document.getElementById('totalhosting').value = totalOfHost;
+        console.log(typeof(totalOfHost) + ' | INPUT totalHost: ' + totalOfHost);
 
         let totalExpanses = totalOfFood + totalOfHost;
+        console.log(typeof(totalExpanses) + ' | totalExpanses: ' + totalExpanses);
 
         let totalExpansesConvert = formatReal(totalExpanses);
-        document.getElementById('total').value = totalExpansesConvert;
+        console.log(typeof(formatReal(totalExpansesConvert)) + ' | totalExpansesConvert: ' + formatReal(totalExpansesConvert));
 
-        console.log('Tipo de dado: ' + typeof (formatReal(totalExpansesConvert)) + ' | totalExpansesConvert: ' + formatReal(totalExpansesConvert));
+        document.getElementById('total').value = totalExpansesConvert;
+        console.log('Tipo de dado: ' + typeof (totalExpansesConvert) + ' | INPUT totalExpansesConvert: ' + totalExpansesConvert);
 
     })
 }
