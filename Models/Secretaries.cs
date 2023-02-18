@@ -14,10 +14,5 @@ namespace WebSis.Models
         [Required(ErrorMessage = "O campo Sigla é obrigatório"), StringLength(15)]
         public string Acronym { get; set; }
 
-        /*[Required(ErrorMessage = "O campo Id do Usuário é obrigatório")]
-        public int UsersId { get; set; }
-
-        public Users Users { get; set; }*/
-
     }
 }

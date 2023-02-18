@@ -69,7 +69,7 @@ namespace WebSis.Controllers
                 if (q == null) // verfica se o parâmetro de busca possui valor nulo.
                 {
                     q = string.Empty; // se a verificação retornar true, o parâmetro será atribuido como um string.Empty ou seja, um campo vazio apto a receber strings.
-                } 
+                }
 
                 int registersQuantity = tas.CountRegister(); // chamada do método CountRegister de TravelAuthorizationsService que retorna o número de registros presentes na tabela de TA e atribui o valor à variável secretariesQuantity.
 
@@ -87,7 +87,7 @@ namespace WebSis.Controllers
             }
         }
 
-         public IActionResult ListTAPerSecretary(string q, int pages = 1) /*Only ADMIN*/
+        public IActionResult ListTAPerSecretary(string q, int pages = 1) /*Only ADMIN*/
         {
             // Retorna a view de TA cadastrados em uma tabela com todos relativos à secretaria do usuário logado na sessão.O método controlador recebe dois parâmetros que serão responsáveis pela busca filtrada das TA através campo de busca que se encontra na view de listagem e um iniciador para a paginação dos registros cadastrados que criará os links para navegação entre as páginas de registros.
 
@@ -102,7 +102,7 @@ namespace WebSis.Controllers
                 if (q == null) // verfica se o parâmetro de busca possui valor nulo.
                 {
                     q = string.Empty; // se a verificação retornar true, o parâmetro será atribuido como um string.Empty ou seja, um campo vazio apto a receber strings.
-                } 
+                }
 
                 int registersQuantity = tas.CountRegister(); // chamada do método CountRegister de TravelAuthorizationsService que retorna o número de registros presentes na tabela de TA e atribui o valor à variável secretariesQuantity.
 
@@ -162,7 +162,7 @@ namespace WebSis.Controllers
                 string reportFile = Path.Combine(_enviroment.WebRootPath, @"pdf\TAReports.frx"); //string que armazena o diretório (caminho) do arquivo de report do FastReporter.
 
                 FastReport.Report r = new FastReport.Report(); // instância da classe de FastReport.Report
-                
+
                 ICollection<TravelAuthorizations> travelsList = _TravelAuthorizationsService.ListTravelsForId(id); // coleção de TA que chama pelo método ListTravelsForId de TravelAuthorizationsService e que retorna uma listagem de registros da tabela TA baseados no Id passado por parâmetro.
 
                 r.Report.Load(reportFile); // Carregamento da string que contem o caminho do arquivo de report.

@@ -20,7 +20,7 @@
     TravelAuthorizationsService tas = new TravelAuthorizationsService();
 
     List<TravelAuthorizations> travelList = tas.ListTravels();
-    
+
     string userSession = Context.Session.GetString("login");
 
     string secretarySession = Context.Session.GetString("secretaryAcronym");
@@ -52,7 +52,8 @@
                     <i class="bi bi-person-fill input-group-text"></i>
                 </div>
 
-                <input style="cursor: pointer;" class="form-control user-in" title="Usuário logado : @userSession"placeholder='Bem Vindo, @Context.Session.GetString("login") !' readonly>
+                <input style="cursor: pointer;" class="form-control user-in" title="Usuário logado : @userSession"
+                    placeholder='Bem Vindo, @Context.Session.GetString("login") !' readonly>
 
             </div>
 
@@ -61,10 +62,13 @@
             <div class="input-group input-group-md index-select">
 
                 <div class="input-group-prepend">
-                    <label class="input-group-text" for="selectSecretary"><i class="bi bi-building-fill-check" title="Selecionar Secretarias"></i></label>
+                    <label class="input-group-text" for="selectSecretary"><i class="bi bi-building-fill-check"
+                            title="Selecionar Secretarias"></i></label>
                 </div>
 
-                <select onchange="return getIndexSecretariesProp()" class="custom-select select-box" name="selectIndexSecretary" id="selectIndexSecretary" title="Sua secretaria : @secretarySession" disabled>
+                <select onchange="return getIndexSecretariesProp()" class="custom-select select-box"
+                    name="selectIndexSecretary" id="selectIndexSecretary" title="Sua secretaria : @secretarySession"
+                    disabled>
 
                     @foreach (var item in secretaryList)
                     {
@@ -87,13 +91,17 @@
             {
                 <!-- Input para cadastrar Secretarias -->
 
-                    <button class="btn btn-md btn-outline-primary btn-user-register" type="button" data-toggle="modal"data-target="#registerSecretary-modal" title="Cadastrar Secretarias"><i class="bi bi-building-fill-add"title="Cadastrar Secretarias"></i> Cadastrar Secretarias</button>
+                <button class="btn btn-md btn-outline-primary btn-user-register" type="button" data-toggle="modal"
+                    data-target="#registerSecretary-modal" title="Cadastrar Secretarias"><i class="bi bi-building-fill-add"
+                        title="Cadastrar Secretarias"></i> Cadastrar Secretarias</button>
 
                 <!-- / Input para cadastrar Secretarias -->
 
                 <!-- Input para cadastrar Usuário -->
 
-                    <button class="btn btn-md btn-outline-primary btn-user-register" type="button" data-toggle="modal"data-target="#registerUser" title="Cadastrar Usuário"> <i class="bi bi-person-fill-add"></i> Cadastrar Usuário</button>
+                <button class="btn btn-md btn-outline-primary btn-user-register" type="button" data-toggle="modal"
+                    data-target="#registerUser" title="Cadastrar Usuário"> <i class="bi bi-person-fill-add"></i> Cadastrar
+                    Usuário</button>
 
                 <!-- / Input para cadastrar Usuário -->
             }
@@ -103,7 +111,8 @@
 
             <div class="modules">
 
-                <button class="btn-module av-btn" onclick=" return ShowModules('av-module')" type="button" title="Autorização de Viagem">
+                <button class="btn-module av-btn" onclick=" return ShowModules('av-module')" type="button"
+                    title="Autorização de Viagem">
 
                     <i class="bi bi-bus-front" title="Autorização de Viagem"></i>
                     <span> AV - Autorização de Viagem </span>
@@ -112,7 +121,8 @@
 
                 <hr class="module-hr">
 
-                <button class="btn-module rd-btn" onclick="return ShowModules('rd-module')" type="button" title="Relatório de Despesas">
+                <button class="btn-module rd-btn" onclick="return ShowModules('rd-module')" type="button"
+                    title="Relatório de Despesas">
 
                     <i class="bi bi-coin" title="Relatório de Despesas"></i>
                     <span> RD - Relatório de Despesas </span>
@@ -121,7 +131,8 @@
 
                 <hr class="module-hr">
 
-                <button class="btn-module sa-btn" onclick="return ShowModules('sa-module')" type="button" title="Solicitação de Adiantamento">
+                <button class="btn-module sa-btn" onclick="return ShowModules('sa-module')" type="button"
+                    title="Solicitação de Adiantamento">
 
                     <i class="bi bi-bank2" title="Solicitação de Adiantamento"></i>
                     <span> SA - Solicitação de Adiantamento </span>
@@ -130,7 +141,8 @@
 
                 <hr class="module-hr">
 
-                <button class="btn-module rv-btn" onclick="return ShowModules('rv-module')" type="button" title="Relatório de Viagem">
+                <button class="btn-module rv-btn" onclick="return ShowModules('rv-module')" type="button"
+                    title="Relatório de Viagem">
 
                     <i class="bi bi-clipboard2-pulse-fill" title="Relatório de Viagem"></i>
                     <span> RV - Relatório de Viagem</span>
@@ -139,7 +151,7 @@
 
             </div>
 
-            <div id="av-module" class="av-module hidden">  
+            <div id="av-module" class="av-module hidden">
 
                 <div class="av-info mt-3">
 

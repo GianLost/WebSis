@@ -105,8 +105,10 @@ namespace WebSis.Models
         [Required(ErrorMessage = "O campo Objetivo é obrigatório"), StringLength(300)]
         public string Goal { get; set; }
 
+        [ForeignKey("SecretariesId")]
         public int SecretariesId { get; set; }
 
+        [ForeignKey("UsersId")]
         public int UsersId { get; set; }
 
         public Secretaries Secretaries { get; set; }

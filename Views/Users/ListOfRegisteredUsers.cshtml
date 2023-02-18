@@ -9,16 +9,6 @@
 
     WebSisContext dataBase = new WebSisContext();
 
-    /*Users u = new Users();
-
-    int secId = dataBase.Users.Select( u => u.SecretariesId).First();
-
-    ICollection<Secretaries> secretaryId = dataBase.Secretaries.Where( s => s.Id == secId).ToList();
-
-    string acronym = secretaryId.Select( s=> s.Acronym).First();*/
-    
-    
-
 }
 
 <div class="container-fluid container-userList">
@@ -63,8 +53,8 @@
 
                     ICollection<Secretaries> teste = dataBase.Secretaries.Where(s => s.Id == secId).ToList();
 
-                    string acronym = teste.Select( s => s.Acronym).FirstOrDefault();
-                        
+                    string acronym = teste.Select(s => s.Acronym).FirstOrDefault();
+
 
                     <tr>
 
@@ -83,12 +73,12 @@
                         <td>
 
                             <button class="btn btn-sm btn-outline-secondary" type="button" data-toggle="modal"
-                        data-target="#upgradeUser-@item.Id" title="Editar Usuário"><i
-                            class="bi bi-person-vcard-fill"></i></button>
+                                data-target="#upgradeUser-@item.Id" title="Editar Usuário"><i
+                                    class="bi bi-person-vcard-fill"></i></button>
 
                             <button class="btn btn-sm btn-outline-danger" type="button" data-toggle="modal"
-                        data-target="#deleteUser-@item.Id" title="Excluir Usuário"><i
-                            class="bi bi-person-fill-x"></i></button>
+                                data-target="#deleteUser-@item.Id" title="Excluir Usuário"><i
+                                    class="bi bi-person-fill-x"></i></button>
 
                         </td>
 
@@ -97,7 +87,7 @@
                     <!--Start UserDelete Modal-->
 
                     <div class="modal fade" id="deleteUser-@item.Id" tabindex="-1" role="dialog"
-                aria-labelledby="deleteUserTitle" aria-hidden="true">
+                        aria-labelledby="deleteUserTitle" aria-hidden="true">
 
                         <div class="modal-dialog modal-dialog-centered" role="document">
 
@@ -133,7 +123,7 @@
                     <!--Start Upgrade Modal-->
 
                     <div class="modal fade" id="upgradeUser-@item.Id" tabindex="-1" role="dialog"
-                aria-labelledby="upgradeUserTitle" aria-hidden="true">
+                        aria-labelledby="upgradeUserTitle" aria-hidden="true">
 
                         <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
 
@@ -142,7 +132,7 @@
                                 <div class="modal-header">
 
                                     <img class="img-fluid logo-register" src="../images/pmtm-logo.png"
-                                alt="Imagem Logo da tela de Login">
+                                        alt="Imagem Logo da tela de Login">
 
                                     <div class="col-md-8 register-header">
                                         <h1 class="">PREFEITURA MUNICIPAL DE TRÊS MARIAS</h1>

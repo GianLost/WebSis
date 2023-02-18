@@ -1,5 +1,4 @@
 @model Users
-@using Microsoft.AspNetCore.Http;
 @using WebSis.Models;
 @using WebSis.Services;
 
@@ -25,46 +24,41 @@
 
             <div class="col-md-6 mb-3">
 
-                <input placeholder="Nome completo" asp-for="@Model.Name"
-                    type="text" class="form-control" id="name" autocomplete="name">
+                <input placeholder="Nome completo" asp-for="@Model.Name" type="text" class="form-control" id="name"
+                    autocomplete="name">
                 <span class="text-danger login-error">@ViewData["ErrorRegisterUser"]</span>
 
             </div>
 
             <div class="col-md-6 mb-3">
 
-                <input placeholder="Nome de acesso" asp-for="@Model.Login"
-                    type="text" id="login" class="form-control" autocomplete="username">
-                    <span class="text-danger login-error">@ViewData["ErrorRegisterUser"]</span>
+                <input placeholder="Nome de acesso" asp-for="@Model.Login" type="text" id="login" class="form-control"
+                    autocomplete="username">
+                <span class="text-danger login-error">@ViewData["ErrorRegisterUser"]</span>
 
             </div>
 
             <div class="col-md-6 mb-3">
 
-                <input placeholder="Crie uma senha" asp-for="@Model.Password"
-                    type="password" id="password"
+                <input placeholder="Crie uma senha" asp-for="@Model.Password" type="password" id="password"
                     class="form-control" autocomplete="new-password">
 
             </div>
 
             <div class="col-md-6 mb-3">
 
-                <input placeholder="Confirme a Senha"
-                    asp-for="@Model.CheckedPassword" type="password"
+                <input placeholder="Confirme a Senha" asp-for="@Model.CheckedPassword" type="password"
                     id="checkedPassword" class="form-control" autocomplete="new-password">
 
             </div>
 
             <div class="col-md-12 mb-4">
 
-                <select class="custom-select dropdown-select d-block w-100"
-                    name="type" id="type" asp-for="@Model.Type">
+                <select class="custom-select dropdown-select d-block w-100" name="type" id="type" asp-for="@Model.Type">
 
                     <option value="-1">Nível de acesso do usuário ...</option>
-                    <option asp-for="@Users.ADMIN" for="ADMIN"
-                        value="@Users.ADMIN">Administrador</option>
-                    <option asp-for="@Users.PADRAO" for="PADRAO"
-                        value="@Users.PADRAO">Comum</option>
+                    <option asp-for="@Users.ADMIN" for="ADMIN" value="@Users.ADMIN">Administrador</option>
+                    <option asp-for="@Users.PADRAO" for="PADRAO" value="@Users.PADRAO">Comum</option>
 
                 </select>
 
@@ -78,8 +72,7 @@
 
                 <div class="input-group-prepend">
                     <label class="input-group-text"><i class="bi
-                            bi-building-fill-check"
-                            title="Selecionar Secretarias"></i></label>
+                            bi-building-fill-check" title="Selecionar Secretarias"></i></label>
                 </div>
 
                 <select asp-for="@Model.SecretariesId" id="seclectUserRegister"
@@ -99,10 +92,8 @@
 
         </div>
 
-        <button class="btn btn-md btn-outline-primary btn-user-access mt-2"
-            onclick="return FormValidate()"
-            type="submit">Salvar <i class="bi bi-cloud-arrow-up"
-                id="btnUserRegister"></i></button>
+        <button class="btn btn-md btn-outline-primary btn-user-access mt-2" onclick="return FormValidate()"
+            type="submit">Salvar <i class="bi bi-cloud-arrow-up" id="btnUserRegister"></i></button>
 
     </form>
 

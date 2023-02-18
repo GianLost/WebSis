@@ -35,16 +35,19 @@ namespace WebSis.Controllers
 
                 WebSisContext dataBase = new WebSisContext(); // instância da classe de Contexto do Banco de dados. 
 
-                ICollection<Users> verifyUsers = dataBase.Users.Where( u => u.Name == Name || u.Login == Login).ToList(); // Retorna uma busca na tabela de usuários que atribui o valor à um objeto de coleção de usuários, a busca retorna os nomes de login e nome de usuário para que seja feita uma verificação à fim de evitar registros duplicados
+                ICollection<Users> verifyUsers = dataBase.Users.Where(u => u.Name == Name || u.Login == Login).ToList(); // Retorna uma busca na tabela de usuários que atribui o valor à um objeto de coleção de usuários, a busca retorna os nomes de login e nome de usuário para que seja feita uma verificação à fim de evitar registros duplicados
 
-                if (verifyUsers.Count() == 0){
+                if (verifyUsers.Count() == 0)
+                {
 
                     // A estrutura de verificação valida se a busca feita por verifyUsers retorna 0, que significa que nenhum registro foi encontrado. Se a estrutura retornar true os registros serão adicionados.
 
                     us.CreateUserRegister(newRegisterUser); // chamada do método presente em UsersService que salva os dados que foram inseridos no banco de dados recebidos através do objeto de usuário passado como parâmetro no método de registro
 
                     return Json(new { stats = "OK" }); // retorna um arquivo Json que seta um status para a controller.
-                }else {
+                }
+                else
+                {
                     // Se a verificação retornar false, um novo status será passado para a controller através de um arquivo json que irá tratar a requisição como erro informando ao usuário de que já existe m usuário cadastrado com os dados que foram inseridos e solicitando que os dados sejam reinseridos para continuar.
                     return Json(new { stats = "INVALID", message = "Usuário já cadastrado!" });
                 }
@@ -70,7 +73,7 @@ namespace WebSis.Controllers
                 UsersService us = new UsersService(); // instância da classe de UsersService 
 
                 if (q == null) // verfica se o parâmetro de busca possui valor nulo.
-                { 
+                {
                     q = string.Empty; // se a verificação retornar true, o parâmetro será atribuido como um string.Empty ou seja, um campo vazio apto a receber strings.
                 }
 
@@ -138,7 +141,7 @@ namespace WebSis.Controllers
                         us.DeleteUsers(deleteuser.Id);
                         return RedirectToAction("ListOfRegisteredUsers", "Users");
 
-                    case "Cancel": 
+                    case "Cancel":
 
                         // apenas redireciona o usuário de volta à página de de listagem de usuários.
                         return RedirectToAction("ListOfRegisteredUsers", "Users");

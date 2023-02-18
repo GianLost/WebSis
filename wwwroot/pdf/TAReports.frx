@@ -14,7 +14,7 @@
       <Column Name="DepartureDate" DataType="System.DateTime"/>
       <Column Name="DepartureTime" DataType="System.DateTime"/>
       <Column Name="ArrivalDate" DataType="System.String"/>
-      <Column Name="ArrivalTime" DataType="System.String"/>
+      <Column Name="ArrivalTime" DataType="System.DateTime"/>
       <Column Name="Accountability" DataType="System.DateTime"/>
       <Column Name="OneWayTickets" DataType="System.Int32"/>
       <Column Name="ReturnTickets" DataType="System.Int32"/>
@@ -22,7 +22,7 @@
       <Column Name="UG" DataType="System.Double"/>
       <Column Name="UO" DataType="System.Double"/>
       <Column Name="PA" DataType="System.Double"/>
-      <Column Name="Expanses" DataType="System.Int32"/>
+      <Column Name="Expanses" DataType="String"/>
       <Column Name="Font" DataType="System.Int32"/>
       <Column Name="FoodQuantity" DataType="System.Int32"/>
       <Column Name="HostingQuantity" DataType="System.Int32"/>

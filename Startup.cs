@@ -43,7 +43,7 @@ namespace WebSis
             // Use este método para configurar as requisições HTTP do Pipeline.
 
             //Crie um objeto de IWbHostEnviroment para realizar requisições de arquivos e o adicione como paramêtro no metodo Configure(), crie também um ojeto de ILoggerFactory para utilizar a ferramenta de geração de logs e passe-o também como parâmetro ao metodo Configure();
-        
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

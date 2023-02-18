@@ -13,12 +13,12 @@
 
     <div class="container">
 
-        <form method="post" asp-action="Login" asp-controller="Home" class="login-container col-md-10 col-lg-10 col-sm-12">
+        <form method="post" asp-action="Login" asp-controller="Home"
+            class="login-container col-md-10 col-lg-10 col-sm-12">
 
             <div class="header-login">
 
-                <img class="img-fluid img-login" src="../images/pmtm-logo.png"
-                    alt="Imagem Logo da tela de Login">
+                <img class="img-fluid img-login" src="../images/pmtm-logo.png" alt="Imagem Logo da tela de Login">
 
                 <div class="col-md-10 col-sm-10 title-login">
 
@@ -44,9 +44,8 @@
                         <i class="bi bi-person-fill input-group-text"></i>
                     </div>
 
-                    <input asp-for="@Model.Login" name="login" type="text"
-                        class="form-control" placeholder="Nome de usuário"
-                        required autofocus autocomplete="username">
+                    <input asp-for="@Model.Login" name="login" type="text" class="form-control"
+                        placeholder="Nome de usuário" required autofocus autocomplete="username">
 
                 </div>
 
@@ -57,8 +56,8 @@
                         <i class="bi bi-lock-fill input-group-text"></i>
                     </div>
 
-                    <input asp-for="@Model.CheckedPassword" name="password"
-                        type="password" class="form-control" placeholder="Insira a senha" required autocomplete="current-password">
+                    <input asp-for="@Model.CheckedPassword" name="password" type="password" class="form-control"
+                        placeholder="Insira a senha" required autocomplete="current-password">
                 </div>
 
                 <div class="input-group input-group-md mb-1 select-login">
@@ -69,8 +68,7 @@
                                 Secretarias"></i></label>
                     </div>
 
-                    <select asp-for="@Model.SecretariesId" for="secretaryId"
-                        name="secretaryId" class="custom-select"
+                    <select asp-for="@Model.SecretariesId" for="secretaryId" name="secretaryId" class="custom-select"
                         title="Selecionar Secretarias" required>
 
                         <option value="-1" selected>Selecione a secretaria...</option>

@@ -44,7 +44,7 @@
 }
 
 .register-index-header h1 {
-  
+
   font-size: 2.5em;
   font-weight: 500;
   text-align: center;
@@ -71,7 +71,7 @@
 
 .hello {
   width: 22.5em;
-  box-shadow: var( --shadowPrimary);
+  box-shadow: var(--shadowPrimary);
   height: 2em;
 }
 
@@ -87,7 +87,7 @@
 .index-select {
   width: 22.5em;
   height: 2em;
-  box-shadow: var( --shadowPrimary);
+  box-shadow: var(--shadowPrimary);
 }
 
 .modules-container {
@@ -218,10 +218,12 @@
   border-radius: 5px;
   color: var(--bluePrimary);
 }
+
 .alert-modules {
   width: 96%;
   height: 56%;
 }
+
 .btn-module i {
   font-size: 2rem;
 }
@@ -260,9 +262,14 @@
 }
 
 @keyframes blink {
-  0% { opacity: 1; }
-  100% { opacity: 0; }
-} 
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
 
 @keyframes changeBackgroundImage {
   0% {
@@ -270,14 +277,11 @@
   }
 }
 
-@media (max-width: 1200px) {
-}
+@media (max-width: 1200px) {}
 
-@media (max-width: 992px) {
-}
+@media (max-width: 992px) {}
 
-@media (max-width: 990px) {
-}
+@media (max-width: 990px) {}
 
 @media (max-width: 768px) {
 
@@ -295,7 +299,7 @@
     padding: 3%;
   }
 
-  .title-index img{
+  .title-index img {
 
     width: 7em;
     height: 4em;
@@ -483,13 +487,13 @@
     width: 98%;
   }
 
-  .alert-modules h2{
+  .alert-modules h2 {
     font-size: 0.8em;
     margin-top: 5%;
     font-weight: 800;
   }
 
-  .alert-modules p{
+  .alert-modules p {
     font-size: 0.8em;
   }
 
@@ -535,7 +539,7 @@
     margin-left: 0%;
   }
 
-  .module-user-access .input-group input{
+  .module-user-access .input-group input {
     height: 2em;
   }
 
@@ -634,13 +638,13 @@
     width: 98%;
   }
 
-  .alert-modules h2{
+  .alert-modules h2 {
     font-size: 0.8em;
     margin-top: 5%;
     font-weight: 800;
   }
 
-  .alert-modules p{
+  .alert-modules p {
     font-size: 0.8em;
   }
 

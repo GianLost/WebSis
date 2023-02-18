@@ -46,10 +46,12 @@ namespace WebSis.Identity
             if (foundUserList.Count == 0) // Estrutura de verificação que irá verificar a contagem de registros presente na lista de usuários encontrados.
             {
                 return false; // Retorna false se a condição for true
-            }else if ( secretaryId == -1)
+            }
+            else if (secretaryId == -1)
             {
                 return false;
-            }else
+            }
+            else
             {
 
                 // Dados armazenados na sessão
@@ -95,7 +97,7 @@ namespace WebSis.Identity
 
             int secretaryFound = dataBase.Secretaries.Count();
 
-            if(secretaryFound == 0)
+            if (secretaryFound == 0)
             {
                 Secretaries secretary = new Secretaries();
 
@@ -105,7 +107,7 @@ namespace WebSis.Identity
                 dataBase.SaveChanges();
             }
 
-            IQueryable<Secretaries> getSecretaryId = dataBase.Secretaries.Where( u => u.Acronym == "SEMAD");
+            IQueryable<Secretaries> getSecretaryId = dataBase.Secretaries.Where(u => u.Acronym == "SEMAD");
 
             int IdsecretaryOfUser = getSecretaryId.Select(u => u.Id).FirstOrDefault();
 
@@ -113,7 +115,7 @@ namespace WebSis.Identity
             {
                 secretaryId = IdsecretaryOfUser;
 
-                
+
             }
 
             IQueryable<Users> userFound = dataBase.Users.Where(searchForUser => searchForUser.Type == 1); // Busca pelo identificador (Tipo) para verificar se existe um usuário administrador ou não;
@@ -124,7 +126,7 @@ namespace WebSis.Identity
 
                 Users admin = new Users(); // Intância da classe de modelo Usuários.
 
-                IQueryable<Secretaries> adminSecretaryId = dataBase.Secretaries.Where( u => u.Acronym == "SEMAD");
+                IQueryable<Secretaries> adminSecretaryId = dataBase.Secretaries.Where(u => u.Acronym == "SEMAD");
 
                 int secretaryOfUser = adminSecretaryId.Select(u => u.Id).FirstOrDefault();
 

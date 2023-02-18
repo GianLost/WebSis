@@ -44,14 +44,11 @@
   height: 6em;
 }
 
-@media (max-width: 1200px) {
-}
+@media (max-width: 1200px) {}
 
-@media (max-width: 992px) {
-}
+@media (max-width: 992px) {}
 
-@media (max-width: 990px) {
-}
+@media (max-width: 990px) {}
 
 @media (max-width: 768px) {
   .register-header h1 {

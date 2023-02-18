@@ -64,14 +64,11 @@
   background-color: rgba(255, 255, 255, 0.725);
 }
 
-@media (max-width: 1200px) {
-}
+@media (max-width: 1200px) {}
 
-@media (max-width: 992px) {
-}
+@media (max-width: 992px) {}
 
-@media (max-width: 990px) {
-}
+@media (max-width: 990px) {}
 
 @media (max-width: 768px) {
   .btn-home {
@@ -141,7 +138,7 @@
     margin-left: 0%;
   }
 
-  .logo-login i{
+  .logo-login i {
     margin-right: 4%;
   }
 
@@ -150,20 +147,20 @@
     margin-left: -10%;
   }
 
-  .click-menu{
+  .click-menu {
     margin-right: 3%;
   }
 
-  .navigation-bar li a{
+  .navigation-bar li a {
     width: 96%;
     font-size: 0.9em;
   }
 
-  .btn-home i{
+  .btn-home i {
     margin-left: 10%;
   }
 
-  .footer a{
+  .footer a {
     font-size: 0.9em;
   }
 }

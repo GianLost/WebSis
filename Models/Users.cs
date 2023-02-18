@@ -29,6 +29,7 @@ namespace WebSis.Models
 
         [ForeignKey("SecretariesId")]
         public int SecretariesId { get; set; }
+
         public Secretaries Secretaries { get; set; }
     }
 }

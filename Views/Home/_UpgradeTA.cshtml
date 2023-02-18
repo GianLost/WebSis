@@ -19,9 +19,9 @@
 
     List<Secretaries> secretaryList = ss.SecretariesList().Where(u => u.Id == secretaryId).ToList(); // Listagem de secretarias que são idênticas a secretaria do usuário que está logado.
 
-    var countTA = dataBase.TravelAuthorizations.Where( ta => ta.UsersId == userId).Count(); // Retorna a contagem de registros de AV cadastrados pelo usuário que está logado.
+    var countTA = dataBase.TravelAuthorizations.Where(ta => ta.UsersId == userId).Count(); // Retorna a contagem de registros de AV cadastrados pelo usuário que está logado.
 
-    ICollection<TravelAuthorizations> taI = dataBase.TravelAuthorizations.Where( ta => ta.UsersId == userId).ToList();
+    ICollection<TravelAuthorizations> taI = dataBase.TravelAuthorizations.Where(ta => ta.UsersId == userId).ToList();
 
     var next = countTA + 1;
 }
@@ -39,8 +39,8 @@
                         <label class="input-group-text" for="selectSecretary"><i class="bi bi-building-fill-check"
                                 title="Selecionar Secretarias"></i></label>
                     </div>
-                    <select onchange="return getUpSecretariesProp()" class="custom-select select-secretary" name="upSelectSecretary"
-                        id="upSelectSecretary" title="Selecionar Secretarias" disabled>
+                    <select onchange="return getUpSecretariesProp()" class="custom-select select-secretary"
+                        name="upSelectSecretary" id="upSelectSecretary" title="Selecionar Secretarias" disabled>
                         @foreach (var item in secretaryList)
                         {
                             if (item.Acronym != null)
@@ -53,21 +53,25 @@
 
                 </div>
 
-            </div> 
+            </div>
 
-            <h3 class="text-center mt-5 mb-5">@ViewData["Title"] (@next.ToString("D4")/@DateTime.Now.ToString("yyyy"))</h3>
+            <h3 class="text-center mt-5 mb-5">@ViewData["Title"] (@next.ToString("D4")/@DateTime.Now.ToString("yyyy"))
+            </h3>
 
             <div class="col-md-6 mb-3">
 
-                <input asp-for="@Model.Id" type="hidden" class="form-control" placeholder='@next.ToString("D4")' name="Id" required>
+                <input asp-for="@Model.Id" type="hidden" class="form-control" placeholder='@next.ToString("D4")'
+                    name="Id" required>
 
                 <input type="hidden" id="upSecretaryId" class="form-control" asp-for="@Model.SecretariesId" required>
 
                 <input type="hidden" id="upSecretaryName" class="form-control" asp-for="@Model.SecretaryName" required>
 
-                <input asp-for="@Model.UsersId" type="hidden" class="form-control" value='@Context.Session.GetInt32("idUser")'name="UsersId" required>
+                <input asp-for="@Model.UsersId" type="hidden" class="form-control"
+                    value='@Context.Session.GetInt32("idUser")' name="UsersId" required>
 
-                <input class="form-control" type="hidden" value='@DateTime.Now.ToString("yyyy")' asp-for="@Model.CurrentYear" required>
+                <input class="form-control" type="hidden" value='@DateTime.Now.ToString("yyyy")'
+                    asp-for="@Model.CurrentYear" required>
 
             </div>
 
@@ -79,7 +83,7 @@
                     <input class="form-control" type="date" asp-for="@Model.CurrentDate" required>
 
                 </div>
-                    
+
                 <div class="col-md-6 mb-3">
 
                     <label class="form-label">Nome completo do solicitante: </label>
@@ -95,7 +99,7 @@
                 </div>
 
                 <div class="col-md-6">
-                    
+
                     <label class="form-label">Cargo: </label>
                     <input type="text" class="form-control" asp-for="@Model.Office" required>
 
@@ -111,7 +115,8 @@
                 <div class="col-md-6 mb-3">
 
                     <label class="form-label">Tipo: </label>
-                    <input type="number" value='@Context.Session.GetInt32("type")' class="form-control" asp-for="@Model.Type" required>
+                    <input type="number" value='@Context.Session.GetInt32("type")' class="form-control"
+                        asp-for="@Model.Type" required>
 
                 </div>
 
@@ -132,7 +137,8 @@
                 <div class="col-md-6 mb-3">
 
                     <label class="form-label">Data de chegada: </label>
-                    <input onblur="return upCalc()" placeholder="Data de chegada" id="update2" type="date" class="form-control" asp-for="@Model.ArrivalDate" required>
+                    <input onblur="return upCalc()" placeholder="Data de chegada" id="update2" type="date"
+                        class="form-control" asp-for="@Model.ArrivalDate" required>
 
                 </div>
 
@@ -146,7 +152,8 @@
                 <div class="col-md-6 mb-3">
 
                     <label class="form-label">Prestação de contas: </label>
-                    <input placeholder="dd/mm/aaaa" id="update3" type="datetime" class="form-control" asp-for="@Model.Accountability" required readonly>
+                    <input placeholder="dd/mm/aaaa" id="update3" type="datetime" class="form-control"
+                        asp-for="@Model.Accountability" required readonly>
 
                 </div>
 
@@ -181,7 +188,7 @@
                 <div class="col-md-6 mb-3">
 
                     <label class="form-label">UO: </label>
-                    <input type="text"  class="form-control values-input2" asp-for="@Model.UO" required>
+                    <input type="text" class="form-control values-input2" asp-for="@Model.UO" required>
 
                 </div>
 
@@ -229,7 +236,8 @@
                             <i class="input-group-text">R$</i>
                         </div>
 
-                        <input placeholder="0.00" id="upn2" type="text" class="form-control values-input" asp-for="@Model.FoodUnitaryValue" required>
+                        <input placeholder="0.00" id="upn2" type="text" class="form-control values-input"
+                            asp-for="@Model.FoodUnitaryValue" required>
 
                     </div>
 
@@ -244,7 +252,8 @@
                             <i class="input-group-text">R$</i>
                         </div>
 
-                        <input placeholder="0.00" id="upn4" type="text" class="form-control values-input" asp-for="@Model.HostingUnitaryValue" required>
+                        <input placeholder="0.00" id="upn4" type="text" class="form-control values-input"
+                            asp-for="@Model.HostingUnitaryValue" required>
 
                     </div>
 
@@ -259,7 +268,8 @@
                             <i class="input-group-text">R$</i>
                         </div>
 
-                        <input placeholder="0.00" id="uptotalfood" type="text" class="form-control" asp-for="@Model.FoodTotalValue" required readonly>
+                        <input placeholder="0.00" id="uptotalfood" type="text" class="form-control"
+                            asp-for="@Model.FoodTotalValue" required readonly>
 
                     </div>
 
@@ -274,7 +284,8 @@
                             <i class="input-group-text">R$</i>
                         </div>
 
-                        <input placeholder="0.00" id="uptotalhosting" type="text" class="form-control" asp-for="@Model.HostingTotalValue" required readonly>
+                        <input placeholder="0.00" id="uptotalhosting" type="text" class="form-control"
+                            asp-for="@Model.HostingTotalValue" required readonly>
 
                     </div>
 
@@ -289,7 +300,8 @@
                             <i class="input-group-text">R$</i>
                         </div>
 
-                        <input  placeholder="0.00" id="uptotal" type="text" class="form-control text-center" asp-for="@Model.ExpanseTotalValue" required readonly>
+                        <input placeholder="0.00" id="uptotal" type="text" class="form-control text-center"
+                            asp-for="@Model.ExpanseTotalValue" required readonly>
 
                     </div>
 
@@ -300,15 +312,17 @@
             <div class="row">
 
                 <div class="col-md-12 mb-3">
-                    
+
                     <label class="form-label">Objetivo da Viagem: </label>
-                    <textarea class="form-control btn-block" asp-for="@Model.Goal" placeholder="Finalidade da viagem..." rows="4" required></textarea>
+                    <textarea class="form-control btn-block" asp-for="@Model.Goal" placeholder="Finalidade da viagem..."
+                        rows="4" required></textarea>
 
                 </div>
 
             </div>
 
-            <button class="btn btn-md btn-outline-primary btn-user-access mt-2 mb-3" type="submit">Salvar <i class="bi bi-cloud-arrow-up"></i></button>
+            <button class="btn btn-md btn-outline-primary btn-user-access mt-2 mb-3" type="submit">Salvar <i
+                    class="bi bi-cloud-arrow-up"></i></button>
 
         </form>
 

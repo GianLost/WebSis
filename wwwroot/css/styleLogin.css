@@ -26,7 +26,7 @@
   background-image: url("../images/form-bg.jpg");
   box-shadow: var(--shadowPrimary);
   border-radius: 1em;
-  margin-top: 5.5%; 
+  margin-top: 5.5%;
   margin-bottom: 5.5%;
   margin-left: 7.5%;
   padding: 1.5%;
@@ -97,8 +97,7 @@
   margin-top: -5%;
 }
 
-@media (max-width: 992px) {
-}
+@media (max-width: 992px) {}
 
 @media (max-width: 1200px) {
   .login-container h1 {
@@ -122,6 +121,7 @@
   .login-container {
     margin-top: 11%;
   }
+
   .login-container h1 {
     font-size: 1.4em;
     text-align: center;
@@ -224,5 +224,3 @@
   }
 
 }
-
-

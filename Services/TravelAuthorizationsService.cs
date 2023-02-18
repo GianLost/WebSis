@@ -32,7 +32,7 @@ namespace WebSis.Services
             using WebSisContext dataBase = new WebSisContext();
 
             ICollection<TravelAuthorizations> query = dataBase.TravelAuthorizations.ToList();
-            
+
             return query.OrderByDescending(u => u.Id).ToList();
 
         }

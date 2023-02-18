@@ -14,57 +14,6 @@ function ShowModules(id) {
 
 }
 
-
-/*function getSecretariesProp() {
-
-  let select = document.querySelector("#selectSecretary");
-  let upselect = document.querySelector("#upSelectSecretary");
-
-  let indexselect = document.querySelector("#selectIndexSecretary");
-
-  let indice = select.selectedIndex;
-  let indexindice = indexselect.selectedIndex;
-
-  let option = select.options[indice];
-  let indexoption = indexselect.options[indexindice];
-
-  let upindice = upselect.selectedIndex;
-  let upoption = upselect.options[upindice];
-
-  let teste = document.getElementById("secretaryName").value = option.text.split("-");
-
-  let upteste = document.getElementById("upSecretaryName").value = upoption.text.split("-");
-
-  document.getElementById("secretaryId").value = option.value;
-  document.getElementById("secretaryName").value = teste[0];
-
-  document.getElementById("upSecretaryId").value = upoption.value;
-  document.getElementById("upSecretaryName").value = upteste[0];
-
-  document.getElementById("av-secretaryName").value = indexoption.value ;
-  console.log($('.av-secretaryName').val());
-
-}
-
-getSecretariesProp();
-
-function getIndexSecretariesProp() {
-
-  // retorna para dentro da div dos módulos de acesso o nome da secretaria relacionada ao usuário atraves de um combobox select, 
-
-  let select = document.querySelector("#selectIndexSecretary");
-  let indice = select.selectedIndex;
-  let option = select.options[indice];
-
-  document.getElementById("av-secretaryName").value = option.value ;
-  console.log($('.av-secretaryName').val());
-  //document.getElementById("rd-secretaryName").value = option.value;
-  //document.getElementById("sa-secretaryName").value = option.value;
-  //document.getElementById("rv-secretaryName").value = option.value;
-}
-
-getIndexSecretariesProp();*/
-
 function getSecretariesProp() {
 
   let select = document.querySelector("#selectSecretary");
