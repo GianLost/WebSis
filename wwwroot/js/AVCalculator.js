@@ -18,11 +18,7 @@ function SA() {
         $(this).val($(this).val().replace(/\D/g, '').replace(/(\d{1})(\d{1,2})$/, "$1.$2").replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1'));
 
         function getMoney(str) {
-            return str.replace(/[^\d,]/g, '').replace(',', '.');
-        }
-
-        function formatReal(realValue) {
-            return realValue.toLocaleString('pt-br', { minimumFractionDigits: 2 });
+            return parseFloat(str.replace(/[^\d,]/g, '').replace(/(\d{1})(\d{1,2})$/, "$1.$2").replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1')).toFixed(+2);
         }
 
         let foodQtd = document.getElementById('n1').value;
@@ -30,11 +26,6 @@ function SA() {
         
         let hostQtd = document.getElementById('n3').value;
         let hostUnitaryValue = document.getElementById('n4').value;
-
-        /*let convertFoodQtd = parseInt(foodQtd);
-        console.log(typeof(convertFoodQtd) + ' | convertFoodQtd: ' + convertFoodQtd);
-        let convertHostQtd = parseInt(hostQtd);
-        console.log(typeof(convertHostQtd) + ' | convertHostQtd: ' + convertHostQtd);*/
 
         let convertFoodValue = getMoney(foodUnitaryValue); //string
         console.log(typeof(getMoney(convertFoodValue)) + ' | convertFoodValue: ' + getMoney(convertFoodValue));
@@ -45,20 +36,17 @@ function SA() {
         let totalOfFood = foodQtd * convertFoodValue; // number
         console.log(typeof(totalOfFood) + ' | totalOfFood: ' + totalOfFood);
 
-        document.getElementById('totalfood').value = totalOfFood; // number
+        document.getElementById('totalfood').value = totalOfFood.toFixed(2) // number
         console.log(typeof(totalOfFood) + ' | INPUT totalFood: ' + totalOfFood);
 
         let totalOfHost = hostQtd * convertHostValue; // number
         console.log(typeof(totalOfHost) + ' | totalOfHost: ' + totalOfHost);
 
-        document.getElementById('totalhosting').value = totalOfHost; // number
+        document.getElementById('totalhosting').value = totalOfHost.toFixed(2); // number
         console.log(typeof(totalOfHost) + ' | INPUT totalHost: ' + totalOfHost);
 
         let totalExpanses = totalOfFood + totalOfHost; // number
         console.log(typeof(totalExpanses) + ' | totalExpanses: ' + totalExpanses);
-
-        //let totalExpansesConvert = totalExpanses;
-        //console.log(typeoftotalExpansesConvert + ' | totalExpansesConvert: ' + totalExpansesConvert);
 
         document.getElementById('total').value = totalExpanses.toFixed(2);
         console.log('Tipo de dado: ' + typeof (totalExpanses) + ' | INPUT totalExpansesConvert: ' + totalExpanses);
