@@ -16,7 +16,7 @@ namespace WebSis.DataBase
         {
             // O método OnConfiguring recebe por parâmetro um objeto de DbContextOptionsBuilder que será responsável por fazer a chamada do método UseMySql, para definir uma string de conexão.
 
-            optionsBuilder.UseMySql("server=mysql8002.site4now.net;port=3306;database=db_a93358_dbsis;uid=a93358_dbsis;password=Ann@1170615;SslMode=Preferred;ConvertZeroDateTime=true;pooling=no");
+            optionsBuilder.UseMySql("server=localhost;port=3306;database=dbWebSis;uid=root;SslMode=Preferred;ConvertZeroDateTime=true;pooling=no");
         }
 
         //server=mysql8002.site4now.net;port=3306;database=db_a93358_dbsis;uid=a93358_dbsis;password=Ann@1170615;SslMode=Preferred;ConvertZeroDateTime=true;pooling=no
