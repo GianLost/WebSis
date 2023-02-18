@@ -2,7 +2,7 @@ function FormatDoubleInputs() {
     // calcula o total em R$ do custo de alimentação e hospedagem de acordo com foodQtd * foodValue = totalFood e o mesmo para hospedagem e dps utiliza os dois totais para calcular o valor total de despesas. foodTotal + hostTotal = totalExpanses;
     $('.double-first').keyup(function (e) {
 
-        $(this).val($(this).val().replace(/\D/g, '').replace(/(\d{1})(\d{2})$/, "$1.$2"));
+        $(this).val($(this).val().replace(/\D/g, '').replace(/(\d{1})(\d{2})$/, "$1,$2"));
     }
     )
 };
@@ -15,32 +15,53 @@ function SA() {
 
     $('.money-input').keyup(function (e) {
 
-        $(this).val($(this).val().replace(/\D/g, '').replace(/(\d{1})(\d{1,2})$/, "$1.$2").replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1'));
+        $(this).val($(this).val().replace(/\D/g, '').replace(/(\d{1})(\d{1,2})$/, "$1,$2").replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1'));
 
         function getMoney(str) {
-            return parseFloat(str.replace(/[^\d,]/g, '').replace(/(\d{1})(\d{1,2})$/, "$1.$2").replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1')).toFixed(+2);
+            return str.replace(/[^\d,]/g, '').replace(',', '.');
+        }
+
+        function formatReal(realValue) {
+            return realValue.toLocaleString('pt-br', { minimumFractionDigits: 2 });
         }
 
         let foodQtd = document.getElementById('n1').value;
         let foodUnitaryValue = document.getElementById('n2').value;
-
+        
         let hostQtd = document.getElementById('n3').value;
         let hostUnitaryValue = document.getElementById('n4').value;
 
-        let convertFoodValue = getMoney(foodUnitaryValue);
+        /*let convertFoodQtd = parseInt(foodQtd);
+        console.log(typeof(convertFoodQtd) + ' | convertFoodQtd: ' + convertFoodQtd);
+        let convertHostQtd = parseInt(hostQtd);
+        console.log(typeof(convertHostQtd) + ' | convertHostQtd: ' + convertHostQtd);*/
 
-        let convertHostValue = getMoney(hostUnitaryValue);
-        let totalOfFood = foodQtd * convertFoodValue;
+        let convertFoodValue = getMoney(foodUnitaryValue); //string
+        console.log(typeof(getMoney(convertFoodValue)) + ' | convertFoodValue: ' + getMoney(convertFoodValue));
 
-        document.getElementById('totalfood').value = totalOfFood.toFixed(2)
+        let convertHostValue = getMoney(hostUnitaryValue); //string
+        console.log(typeof(getMoney(convertHostValue)) + ' | convertHostValue: ' + getMoney(convertHostValue));
 
-        let totalOfHost = hostQtd * convertHostValue;
+        let totalOfFood = foodQtd * convertFoodValue; // number
+        console.log(typeof(totalOfFood) + ' | totalOfFood: ' + totalOfFood);
 
-        document.getElementById('totalhosting').value = totalOfHost.toFixed(2);
+        document.getElementById('totalfood').value = formatReal(totalOfFood); // number
+        console.log(typeof(totalOfFood) + ' | INPUT totalFood: ' + totalOfFood);
 
-        let totalExpanses = totalOfFood + totalOfHost;
+        let totalOfHost = hostQtd * convertHostValue; // number
+        console.log(typeof(totalOfHost) + ' | totalOfHost: ' + totalOfHost);
 
-        document.getElementById('total').value = totalExpanses.toFixed(2);
+        document.getElementById('totalhosting').value = formatReal(totalOfHost); // number
+        console.log(typeof(totalOfHost) + ' | INPUT totalHost: ' + totalOfHost);
+
+        let totalExpanses = totalOfFood + totalOfHost; // number
+        console.log(typeof(totalExpanses) + ' | totalExpanses: ' + totalExpanses);
+
+        //let totalExpansesConvert = totalExpanses;
+        //console.log(typeoftotalExpansesConvert + ' | totalExpansesConvert: ' + totalExpansesConvert);
+
+        document.getElementById('total').value = formatReal(totalExpanses);
+        console.log('Tipo de dado: ' + typeof (totalExpanses) + ' | INPUT totalExpansesConvert: ' + totalExpanses);
 
     })
 }
@@ -56,7 +77,12 @@ function upSA() {
         $(this).val($(this).val().replace(/\D/g, '').replace(/(\d{1})(\d{1,2})$/, "$1.$2").replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1'));
 
         function getMoney(str) {
-            return parseFloat(str.replace(/[^\d,]/g, '').replace(/(\d{1})(\d{1,2})$/, "$1.$2").replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1')).toFixed(+2);
+            return str.replace(/[^\d,]/g, '').replace(',', '.');
+        }
+
+        function formatReal (formatValue)
+        {
+            return formatValue.toLocaleString('pt-br', {minimumFractionDigits : 2 });
         }
 
         let foodQtd = document.getElementById('upn1').value;
@@ -66,19 +92,19 @@ function upSA() {
         let hostUnitaryValue = document.getElementById('upn4').value;
 
         let convertFoodValue = getMoney(foodUnitaryValue);
-
         let convertHostValue = getMoney(hostUnitaryValue);
+
         let totalOfFood = foodQtd * convertFoodValue;
 
-        document.getElementById('uptotalfood').value = totalOfFood.toFixed(2)
+        document.getElementById('uptotalfood').value = formatReal(totalOfFood);
 
         let totalOfHost = hostQtd * convertHostValue;
 
-        document.getElementById('uptotalhosting').value = totalOfHost.toFixed(2);
+        document.getElementById('uptotalhosting').value = formatReal(totalOfHost);
 
         let totalExpanses = totalOfFood + totalOfHost;
 
-        document.getElementById('uptotal').value = totalExpanses.toFixed(2);
+        document.getElementById('uptotal').value = formatReal(totalExpanses);
 
     })
 }
